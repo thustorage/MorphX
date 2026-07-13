@@ -1,0 +1,10 @@
+# label: Figure15 DNN/base
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload dnn --runs 5
+# started: 2026-07-10T09:47:55.118124
+[DNN] Warming up...
+[DNN] Warmup finished.
+DNN latency: 5 runs -> avg_ms=344.773 ms, min_ms=344.667 ms, max_ms=345.073 ms, stdev_ms=0.171 ms
+# finished: 2026-07-10T09:48:00.983546
+# returncode: 0
+# elapsed_seconds: 5.865

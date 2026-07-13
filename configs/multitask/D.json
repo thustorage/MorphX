@@ -1,0 +1,19 @@
+{
+    "time": 60,
+    "tasks": [
+        {
+            "model": "qwen3-8b",
+            "type": "poisson", 
+            "rps": 0.8,
+            "input_length": 4096, 
+            "output_length": 32
+        },
+        {
+            "model": "qwen3-8b",
+            "type": "poisson",
+            "rps": 0.8, 
+            "input_length": 4096, 
+            "output_length": 32
+        }
+    ]
+}

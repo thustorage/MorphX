@@ -1,0 +1,8 @@
+{
+  "input_length": 2048,
+  "model": "llama-3-8b",
+  "output_length": 256,
+  "rps": 2.5,
+  "time": 180.0,
+  "type": "poisson"
+}

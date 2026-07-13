@@ -1,0 +1,15 @@
+# label: Figure15 GGNN/ncu
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: sudo -n env PATH=/home/rtx/miniconda3/envs/MorphX/bin:/home/rtx/.local/bin:/usr/local/cuda-12.4/bin:/home/rtx/usr/bin:/usr/local/cuda/bin:/home/rtx/miniconda3/envs/MorphX/bin:/home/rtx/.local/bin:/home/rtx/.nvm/versions/node/v24.18.0/bin:/usr/local/cuda-12.4/bin:/home/rtx/usr/bin:/usr/local/cuda/bin:/home/rtx/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/mellanox/doca/tools:/opt/mellanox/doca/tools/ LD_LIBRARY_PATH=/mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/runtime-libs:/mnt/data/rtx/llvm-project/install/lib/x86_64-unknown-linux-gnu:/mnt/data/rtx/llvm-project/build/lib/x86_64-unknown-linux-gnu:/mnt/data/rtx/miniconda3/envs/MorphX/lib:/usr/mpi/gcc/openmpi-4.1.7rc1/lib:/usr/local/cuda-12.4/lib64:/usr/local/cuda-12.4/targets/x86_64-linux/lib:/usr/local/cuda-12.4/extras/CUPTI/lib64:/home/rtx/usr/lib:/usr/local/cuda/lib64:/usr/local/cuda-12.4/lib64:/usr/local/cuda-12.4/targets/x86_64-linux/lib:/usr/local/cuda-12.4/extras/CUPTI/lib64:/home/rtx/usr/lib:/usr/local/cuda/lib64 NCU_PROFILING=1 ncu -o /mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/logs/overhead/ggnn/ncu_output -f --profile-from-start off --metrics dram__bytes_read.sum,dram__bytes_write.sum,gpu__time_duration.sum --target-processes all /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload ggnn --ggnn-base-size 1000000 --ggnn-query-size 10000 --runs 1
+# started: 2026-07-10T10:07:42.592698
+==PROF== Connected to process 1684528 (/mnt/data/rtx/miniconda3/envs/MorphX/bin/python3.10)
+==PROF== Profiling "distribution_elementwise_grid..." - 0: 0%....50%....100% - 1 pass
+==PROF== Profiling "query" - 1: 0%....50%....100% - 1 pass
+[GGNN] Warmup finished.
+[GGNN] Run 0: latency=117.521 ms
+GGNN latency: 1 runs -> avg_ms=117.521 ms, min_ms=117.521 ms, max_ms=117.521 ms
+==PROF== Disconnected from process 1684528
+==PROF== Report: /mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/logs/overhead/ggnn/ncu_output.ncu-rep
+# finished: 2026-07-10T10:08:08.983014
+# returncode: 0
+# elapsed_seconds: 26.390

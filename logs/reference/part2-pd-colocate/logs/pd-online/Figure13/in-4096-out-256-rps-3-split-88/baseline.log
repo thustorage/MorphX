@@ -1,0 +1,4418 @@
+INFO 07-10 06:08:01 [__init__.py:256] Automatically detected platform cuda.
+INFO 07-10 06:08:07 [config.py:583] This model supports multiple tasks: {'classify', 'generate', 'score', 'reward', 'embed'}. Defaulting to 'generate'.
+WARNING 07-10 06:08:07 [cuda.py:96] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-10 06:08:07 [llm_engine.py:260] Initializing a V0 LLM engine (v0.1.dev24+g232ce74.d20251027) with config: model='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', speculative_config=None, tokenizer='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4352, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-10 06:08:09 [cuda.py:220] Using FlashInfer backend.
+INFO 07-10 06:08:09 [importing.py:16] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 07-10 06:08:09 [parallel_state.py:967] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 07-10 06:08:09 [model_runner.py:1145] Starting to load model /huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2...
+INFO 07-10 06:08:12 [loader.py:429] Loading weights took 2.47 seconds
+INFO 07-10 06:08:12 [model_runner.py:1181] Model loading took 14.9596 GB and 2.610876 seconds
+INFO 07-10 06:08:13 [worker.py:267] Memory profiling takes 0.77 seconds
+INFO 07-10 06:08:13 [worker.py:267] the current vLLM instance can use total_gpu_memory (39.49GiB) x gpu_memory_utilization (0.90) = 35.54GiB
+INFO 07-10 06:08:13 [worker.py:267] model weights take 14.96GiB; non_torch_memory takes 0.08GiB; PyTorch activation peak memory takes 0.95GiB; the rest of the memory reserved for KV Cache is 19.55GiB.
+INFO 07-10 06:08:13 [executor_base.py:111] # cuda blocks: 10009, # CPU blocks: 2048
+INFO 07-10 06:08:13 [executor_base.py:116] Maximum concurrency for 4352 tokens per request: 36.80x
+INFO 07-10 06:08:15 [llm_engine.py:471] init engine (profile, create kv cache, warmup model) took 2.65 seconds
+use_async_output_proc: False
+process in thread 0 started.
+[internal] Tid: 0, Request timestamps: [  0.22664397   0.56650967   0.57311189   0.57386833   0.75731596
+   1.30062943   1.52515708   1.7769242    2.71585286   4.73510389
+   5.83057998   5.83100923   6.58737411   6.61154001   6.96800678
+   7.25098445   8.300954     8.41895735   8.52132773   9.0187342
+   9.03106894   9.07617921   9.41957858   9.67776131  10.25698748
+  10.39487751  10.5442811   11.16164522  11.73671642  11.84453618
+  11.91478999  12.32255464  12.50199604  12.78689107  13.13646514
+  13.54718869  14.52324513  14.57447471  15.06307635  15.4378222
+  16.07050567  16.27016966  16.42639788  16.69876699  16.78692341
+  17.03553091  17.07088493  17.61986739  18.37961345  18.56364761
+  19.61789126  19.65379213  19.74697307  19.84605596  20.10057494
+  20.41249003  20.59113763  20.63265564  21.29865276  21.46447406
+  21.5023307   21.75940951  21.85824273  21.99688343  22.08084039
+  22.25256253  22.58513075  22.61740581  23.01158228  23.97161654
+  24.25986433  25.49237356  25.66133928  26.08995521  26.76289658
+  27.04489382  27.29291541  27.49315621  27.51738194  29.00157664
+  29.55835005  29.73232743  30.31733823  30.65564171  30.65965816
+  31.11643274  31.58765712  31.75603919  31.76048588  32.67135365
+  33.36711502  34.63529282  34.65055764  35.61389064  36.49532071
+  37.55711982  38.28665939  38.40199055  39.18262832  39.35474374
+  39.55784033  40.03705613  40.3164999   40.60465683  40.63928949
+  40.87628534  42.13455547  42.16447198  42.6819736   42.68726498
+  43.25720213  43.46175652  43.81229946  43.86386758  44.1964472
+  44.26249982  44.46594469  44.76230302  44.91413581  44.97585738
+  45.18954164  45.29128655  45.32263863  46.15852078  46.68387455
+  46.94604516  47.6329192   47.79636798  47.89180141  48.03577333
+  48.97833945  49.12439115  49.72531461  50.09766164  50.20289127
+  50.38883356  50.4981551   50.59476917  51.01956419  51.5732782
+  51.57691962  52.32027207  52.63032342  53.36817793  53.38212531
+  53.84199476  53.87222658  54.18101434  54.9749136   55.31006536
+  56.51357873  56.60482769  57.91921491  57.97337907  58.71996143
+  58.95568354  59.22179244  59.45233005  59.66447889  60.61008236
+  61.01038277  61.18300253  61.28093366  61.31348192  62.16299598
+  63.03600729  63.26413335  63.58466697  64.23631651  64.82459823
+  65.12471432  65.25323726  65.48576568  66.30082791  66.85848743
+  66.92392098  67.10957248  68.468952    68.66070552  69.0768367
+  69.30049574  69.50084923  69.66098801  69.86675644  70.63877126
+  71.01277685  71.02105161  71.40152176  71.79178044  72.09149358
+  72.50953726  72.74864269  73.17002362  73.31673357  73.44484282
+  73.9479034   74.51239692  74.58459914  74.96333836  75.27919143
+  75.51399359  75.91219924  76.04801952  76.3641795   76.46033484
+  76.48208169  76.84326754  76.94800582  77.30877276  78.45259638
+  79.03878348  79.09380277  79.12693985  79.18264692  79.78982842
+  80.25964099  80.51986264  80.56755598  80.66402202  80.73332914
+  80.84787593  81.01661436  81.29285937  81.49453213  81.62447824
+  81.89172163  82.06434422  82.40441165  82.59236406  83.35817381
+  83.4141432   83.93441959  85.50478945  85.77074409  86.46623548
+  87.08483486  88.03136331  88.66524416  88.67946887  89.25454774
+  89.52137139  89.75390607  90.43851908  91.12915114  91.2182342
+  91.39393899  92.31273532  92.63736174  92.71249349  95.02198168
+  95.07280853  95.22526928  95.34550889  95.60375122  95.75496166
+  95.94906807  95.94923052  95.98329958  97.04375131  97.11324921
+  97.71491663  98.90125833  99.32163859 100.16469308 100.5189564
+ 101.00519478 101.74300707 102.37000581 102.82180168 103.31550751
+ 103.69551876 104.58187292 104.81151199 104.87781186 105.2558214
+ 105.98354521 106.02407247 106.24858681 106.3673821  106.59086708
+ 106.70031182 107.15569957 107.6271626  107.68662757 108.25483003
+ 108.68656897 109.34402587 110.41086817 110.5266161  110.54985898
+ 110.74710277 111.32578121 111.65527959 112.26838749 112.33714955
+ 115.04673432 115.06329649 115.32153718 115.66641649 115.85609855
+ 116.28256606 116.43243794 116.57060066 117.09570951 117.57449839
+ 117.74343727 117.8003504  118.10356293 118.3595071  118.54280671
+ 118.76608553 118.8395154  119.00583489 119.693549   119.69762493
+ 119.73632199 119.79894799 120.15447163 120.46917919 120.65357966
+ 120.71692054 120.72343317 121.12339885 121.26562335 121.68849054
+ 122.50935711 122.52123533 122.64546277 123.55206931 123.60286921
+ 124.22443519 125.06584793 125.13603801 126.15499578 126.29314542
+ 126.38926409 126.40357107 126.69959018 127.08540921 127.6917849
+ 127.96147553 128.32245955 128.76888749 129.07633163 129.13313598
+ 129.14812628 129.15034298 129.72477015 129.75387541 130.24569779
+ 130.2648437  130.32310559 130.53632272 130.83256084 131.17265478
+ 131.38564519 132.28909953 132.40028961 132.73230644 132.82490914
+ 133.01712951 133.02419541 133.05956145 133.84895653 133.93349714
+ 134.75594002 135.24892547 135.3993708  135.57380929 135.99574696
+ 136.20885222 136.84285351 137.6728491  137.84939295 138.08923912
+ 138.75088489 139.00959727 139.34944981 139.42777032 139.89432311
+ 140.81227917 140.85239529 142.11175442 142.14243951 142.14796938
+ 142.52797352 143.8582823  144.12722961 144.34798004 144.3802558
+ 144.65975188 145.50292456 145.76051246 145.83455711 147.19232629
+ 147.72449358 148.3550558  149.25062325 149.84500945 150.1949255
+ 150.44893462 150.51984603 152.51479552 152.56925481 152.98154278
+ 153.08141658 153.36662459 153.75302806 153.84134421 154.23290968
+ 154.55117094 154.93320823 155.21005887 155.62220265 155.75578827
+ 156.70620214 156.93593235 157.06083555 157.14237239 157.32756753
+ 157.46284344 157.61885732 158.20160886 158.87810592 159.25478909
+ 159.56612438 159.80949685 160.30684954 160.36313657 160.4955856
+ 160.55104231 160.85742363 161.12291304 161.27272505 161.49615408
+ 161.6011555  161.8159604  161.84617192 161.87052283 162.52508393
+ 163.11072629 163.13924532 163.21190226 163.50570806 164.09451862
+ 164.87784311 164.97368191 165.04422438 165.45730026 165.96455304
+ 166.07484494 166.09836704 166.58064879 166.6585632  166.7030173
+ 167.20184534 168.36996969 168.8600819  168.92303933 168.99584138
+ 169.83101298 170.1084021  170.49097472 170.86927447 171.27158318
+ 171.40298114 171.65237375 171.9913393  172.18889088 172.65425176
+ 173.15399326 173.4417675  173.78122686 173.87989583 174.14593125
+ 174.19336388 174.33159426 175.0894825  175.75213463 176.34556825
+ 176.37830564 177.23034802 177.47085039 177.63373151 177.64739012
+ 178.24865974 178.32487616 178.61866444 178.82793664 179.73215456], input_len: 4096.0, output_len: 256.0
+prefill step time: 0.41402339935302734 seconds
+prefill step time: 0.35746026039123535 seconds
+prefill step time: 0.35660362243652344 seconds
+prefill step time: 0.364361047744751 seconds
+prefill step time: 0.35900425910949707 seconds
+prefill step time: 0.36022353172302246 seconds
+prefill step time: 0.3627147674560547 seconds
+prefill step time: 0.36084651947021484 seconds
+prefill step time: 0.3612346649169922 seconds
+decode step time: 0.0246121883392334 seconds
+decode step time: 0.05930924415588379 seconds
+decode step time: 0.02021956443786621 seconds
+decode step time: 0.019953250885009766 seconds
+decode step time: 0.019939422607421875 seconds
+decode step time: 0.01992654800415039 seconds
+decode step time: 0.019910573959350586 seconds
+decode step time: 0.0199127197265625 seconds
+decode step time: 0.019916296005249023 seconds
+decode step time: 0.019927263259887695 seconds
+decode step time: 0.019853830337524414 seconds
+decode step time: 0.01984572410583496 seconds
+decode step time: 0.0201265811920166 seconds
+decode step time: 0.32233166694641113 seconds
+decode step time: 0.02028489112854004 seconds
+decode step time: 0.019940614700317383 seconds
+decode step time: 0.020020723342895508 seconds
+decode step time: 0.01997971534729004 seconds
+decode step time: 0.020097970962524414 seconds
+decode step time: 0.020129919052124023 seconds
+decode step time: 0.020010948181152344 seconds
+decode step time: 0.020015478134155273 seconds
+decode step time: 0.0199735164642334 seconds
+decode step time: 0.019955158233642578 seconds
+decode step time: 0.02024984359741211 seconds
+decode step time: 0.019979238510131836 seconds
+decode step time: 0.01996302604675293 seconds
+decode step time: 0.019974231719970703 seconds
+decode step time: 0.01989912986755371 seconds
+decode step time: 0.019890546798706055 seconds
+decode step time: 0.019917011260986328 seconds
+decode step time: 0.019863605499267578 seconds
+decode step time: 0.01991128921508789 seconds
+decode step time: 0.019895315170288086 seconds
+decode step time: 0.019913196563720703 seconds
+decode step time: 0.019985437393188477 seconds
+decode step time: 0.020071029663085938 seconds
+decode step time: 0.02005791664123535 seconds
+decode step time: 0.020073890686035156 seconds
+decode step time: 0.02007770538330078 seconds
+prefill step time: 0.35914063453674316 seconds
+INFO 07-10 06:08:20 [metrics.py:481] Avg prompt throughput: 7739.9 tokens/s, Avg generation throughput: 69.9 tokens/s, Running: 10 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 25.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.022376298904418945 seconds
+decode step time: 0.021511316299438477 seconds
+decode step time: 0.02106499671936035 seconds
+decode step time: 0.020829200744628906 seconds
+decode step time: 0.020619869232177734 seconds
+decode step time: 0.020574092864990234 seconds
+decode step time: 0.02065253257751465 seconds
+decode step time: 0.020450592041015625 seconds
+decode step time: 0.020465850830078125 seconds
+decode step time: 0.02043890953063965 seconds
+decode step time: 0.0206146240234375 seconds
+decode step time: 0.02066326141357422 seconds
+decode step time: 0.020659208297729492 seconds
+decode step time: 0.020647048950195312 seconds
+decode step time: 0.020664691925048828 seconds
+decode step time: 0.020615100860595703 seconds
+decode step time: 0.02057194709777832 seconds
+decode step time: 0.020529985427856445 seconds
+decode step time: 0.02050328254699707 seconds
+decode step time: 0.020483970642089844 seconds
+decode step time: 0.02043628692626953 seconds
+decode step time: 0.020442724227905273 seconds
+decode step time: 0.020456314086914062 seconds
+decode step time: 0.020506620407104492 seconds
+decode step time: 0.02062678337097168 seconds
+decode step time: 0.020647764205932617 seconds
+decode step time: 0.020646333694458008 seconds
+decode step time: 0.020628929138183594 seconds
+decode step time: 0.020635366439819336 seconds
+decode step time: 0.020641326904296875 seconds
+decode step time: 0.0205838680267334 seconds
+decode step time: 0.02058863639831543 seconds
+decode step time: 0.020548105239868164 seconds
+decode step time: 0.020519018173217773 seconds
+prefill step time: 0.3565700054168701 seconds
+prefill step time: 0.361558198928833 seconds
+decode step time: 0.022612571716308594 seconds
+prefill step time: 0.35907673835754395 seconds
+prefill step time: 0.3596463203430176 seconds
+prefill step time: 0.36004185676574707 seconds
+prefill step time: 0.360553503036499 seconds
+decode step time: 0.02529001235961914 seconds
+decode step time: 0.024264812469482422 seconds
+decode step time: 0.023837804794311523 seconds
+decode step time: 0.02377009391784668 seconds
+decode step time: 0.02368640899658203 seconds
+decode step time: 0.023563623428344727 seconds
+decode step time: 0.023610591888427734 seconds
+decode step time: 0.02371835708618164 seconds
+decode step time: 0.02370619773864746 seconds
+decode step time: 0.023560047149658203 seconds
+decode step time: 0.02359461784362793 seconds
+prefill step time: 0.35634279251098633 seconds
+prefill step time: 0.36295151710510254 seconds
+prefill step time: 0.3636760711669922 seconds
+prefill step time: 0.36134767532348633 seconds
+prefill step time: 0.36254262924194336 seconds
+INFO 07-10 06:08:25 [metrics.py:481] Avg prompt throughput: 8948.5 tokens/s, Avg generation throughput: 107.1 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 54.3%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3623499870300293 seconds
+prefill step time: 0.36160945892333984 seconds
+prefill step time: 0.3621978759765625 seconds
+prefill step time: 0.3608689308166504 seconds
+prefill step time: 0.36098217964172363 seconds
+prefill step time: 0.3625798225402832 seconds
+prefill step time: 0.3624913692474365 seconds
+prefill step time: 0.362185001373291 seconds
+prefill step time: 0.3624255657196045 seconds
+prefill step time: 0.36110997200012207 seconds
+prefill step time: 0.3614978790283203 seconds
+prefill step time: 0.361522912979126 seconds
+prefill step time: 0.36242032051086426 seconds
+prefill step time: 0.3619108200073242 seconds
+INFO 07-10 06:08:30 [metrics.py:481] Avg prompt throughput: 11252.2 tokens/s, Avg generation throughput: 2.7 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 90.1%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36140990257263184 seconds
+prefill step time: 0.3621654510498047 seconds
+prefill step time: 0.3621644973754883 seconds
+decode step time: 0.037687063217163086 seconds
+decode step time: 0.03624773025512695 seconds
+decode step time: 0.035539865493774414 seconds
+decode step time: 0.03544902801513672 seconds
+decode step time: 0.035765886306762695 seconds
+decode step time: 0.03568744659423828 seconds
+decode step time: 0.03580188751220703 seconds
+decode step time: 0.0353846549987793 seconds
+decode step time: 0.035170793533325195 seconds
+decode step time: 0.03522825241088867 seconds
+decode step time: 0.03522205352783203 seconds
+decode step time: 0.03513312339782715 seconds
+decode step time: 0.035265207290649414 seconds
+decode step time: 0.03528618812561035 seconds
+decode step time: 0.03549361228942871 seconds
+decode step time: 0.035483598709106445 seconds
+decode step time: 0.03548598289489746 seconds
+decode step time: 0.03562474250793457 seconds
+decode step time: 0.03608202934265137 seconds
+decode step time: 0.03596782684326172 seconds
+decode step time: 0.03576302528381348 seconds
+decode step time: 0.035874366760253906 seconds
+decode step time: 0.03550553321838379 seconds
+decode step time: 0.03521585464477539 seconds
+decode step time: 0.03507280349731445 seconds
+decode step time: 0.03518939018249512 seconds
+decode step time: 0.035288095474243164 seconds
+decode step time: 0.03554248809814453 seconds
+decode step time: 0.03547191619873047 seconds
+decode step time: 0.035491228103637695 seconds
+decode step time: 0.03548455238342285 seconds
+decode step time: 0.03569197654724121 seconds
+decode step time: 0.03577136993408203 seconds
+decode step time: 0.03576970100402832 seconds
+decode step time: 0.03592252731323242 seconds
+decode step time: 0.035326480865478516 seconds
+decode step time: 0.0352017879486084 seconds
+decode step time: 0.03511452674865723 seconds
+decode step time: 0.035416603088378906 seconds
+decode step time: 0.03543877601623535 seconds
+decode step time: 0.035681962966918945 seconds
+decode step time: 0.035645246505737305 seconds
+decode step time: 0.03569912910461426 seconds
+decode step time: 0.03568744659423828 seconds
+decode step time: 0.035848379135131836 seconds
+decode step time: 0.03551506996154785 seconds
+decode step time: 0.0354313850402832 seconds
+decode step time: 0.03521251678466797 seconds
+decode step time: 0.035419464111328125 seconds
+decode step time: 0.03535056114196777 seconds
+decode step time: 0.03536391258239746 seconds
+decode step time: 0.03578615188598633 seconds
+decode step time: 0.035773515701293945 seconds
+decode step time: 0.0357518196105957 seconds
+decode step time: 0.03568220138549805 seconds
+decode step time: 0.03573751449584961 seconds
+decode step time: 0.03562188148498535 seconds
+decode step time: 0.0358586311340332 seconds
+decode step time: 0.035613298416137695 seconds
+decode step time: 0.03549838066101074 seconds
+decode step time: 0.03534245491027832 seconds
+decode step time: 0.0354306697845459 seconds
+decode step time: 0.03535199165344238 seconds
+decode step time: 0.03536248207092285 seconds
+decode step time: 0.03553175926208496 seconds
+decode step time: 0.03566789627075195 seconds
+decode step time: 0.035909414291381836 seconds
+decode step time: 0.03576540946960449 seconds
+decode step time: 0.03594708442687988 seconds
+decode step time: 0.03615379333496094 seconds
+decode step time: 0.03586721420288086 seconds
+decode step time: 0.03564453125 seconds
+decode step time: 0.03549480438232422 seconds
+decode step time: 0.03537416458129883 seconds
+decode step time: 0.035562992095947266 seconds
+decode step time: 0.0355687141418457 seconds
+decode step time: 0.03559565544128418 seconds
+decode step time: 0.03561663627624512 seconds
+decode step time: 0.03582644462585449 seconds
+decode step time: 0.03602409362792969 seconds
+decode step time: 0.035856008529663086 seconds
+decode step time: 0.035788774490356445 seconds
+decode step time: 0.03585338592529297 seconds
+decode step time: 0.03590512275695801 seconds
+decode step time: 0.035628318786621094 seconds
+WARNING 07-10 06:08:35 [scheduler.py:1813] Sequence group 37 is preempted by PreemptionMode.RECOMPUTE mode because there is not enough KV cache space. This can affect the end-to-end performance. Increase gpu_memory_utilization or tensor_parallel_size to provide more KV cache memory. total_num_cumulative_preemption=1
+decode step time: 0.035205841064453125 seconds
+decode step time: 0.03519773483276367 seconds
+decode step time: 0.035215139389038086 seconds
+decode step time: 0.035138845443725586 seconds
+decode step time: 0.03498673439025879 seconds
+decode step time: 0.03522992134094238 seconds
+decode step time: 0.03540539741516113 seconds
+decode step time: 0.03552961349487305 seconds
+decode step time: 0.035417795181274414 seconds
+decode step time: 0.035462141036987305 seconds
+decode step time: 0.035584449768066406 seconds
+decode step time: 0.0353693962097168 seconds
+decode step time: 0.03510284423828125 seconds
+decode step time: 0.03513813018798828 seconds
+decode step time: 0.03520607948303223 seconds
+INFO 07-10 06:08:35 [metrics.py:481] Avg prompt throughput: 2453.2 tokens/s, Avg generation throughput: 756.2 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 18 reqs, GPU KV cache usage: 97.7%, CPU KV cache usage: 0.0%.
+decode step time: 0.03553652763366699 seconds
+decode step time: 0.03545975685119629 seconds
+decode step time: 0.035477638244628906 seconds
+decode step time: 0.03541278839111328 seconds
+decode step time: 0.036029815673828125 seconds
+decode step time: 0.0360417366027832 seconds
+decode step time: 0.035631418228149414 seconds
+decode step time: 0.03565692901611328 seconds
+decode step time: 0.03574061393737793 seconds
+decode step time: 0.03564047813415527 seconds
+decode step time: 0.03542733192443848 seconds
+decode step time: 0.03523612022399902 seconds
+decode step time: 0.03523421287536621 seconds
+decode step time: 0.03542137145996094 seconds
+decode step time: 0.0353696346282959 seconds
+decode step time: 0.03530406951904297 seconds
+decode step time: 0.03549528121948242 seconds
+decode step time: 0.035506248474121094 seconds
+decode step time: 0.03587770462036133 seconds
+decode step time: 0.03573274612426758 seconds
+decode step time: 0.03581881523132324 seconds
+decode step time: 0.03560638427734375 seconds
+decode step time: 0.03553056716918945 seconds
+decode step time: 0.03544116020202637 seconds
+decode step time: 0.0352783203125 seconds
+decode step time: 0.03530550003051758 seconds
+decode step time: 0.035452842712402344 seconds
+decode step time: 0.03544497489929199 seconds
+decode step time: 0.03558659553527832 seconds
+decode step time: 0.03561854362487793 seconds
+decode step time: 0.03586530685424805 seconds
+decode step time: 0.03603005409240723 seconds
+decode step time: 0.035956621170043945 seconds
+decode step time: 0.03603672981262207 seconds
+decode step time: 0.035752296447753906 seconds
+decode step time: 0.035505056381225586 seconds
+decode step time: 0.03541970252990723 seconds
+decode step time: 0.03536868095397949 seconds
+decode step time: 0.035422325134277344 seconds
+decode step time: 0.035625457763671875 seconds
+decode step time: 0.03558850288391113 seconds
+decode step time: 0.03553628921508789 seconds
+decode step time: 0.035559654235839844 seconds
+decode step time: 0.03580522537231445 seconds
+decode step time: 0.03598451614379883 seconds
+decode step time: 0.03607940673828125 seconds
+decode step time: 0.035964012145996094 seconds
+decode step time: 0.03577756881713867 seconds
+decode step time: 0.03599810600280762 seconds
+decode step time: 0.03563570976257324 seconds
+decode step time: 0.03543496131896973 seconds
+decode step time: 0.03533172607421875 seconds
+decode step time: 0.03545022010803223 seconds
+decode step time: 0.03536033630371094 seconds
+decode step time: 0.035381317138671875 seconds
+decode step time: 0.03549075126647949 seconds
+decode step time: 0.035643577575683594 seconds
+decode step time: 0.03594684600830078 seconds
+decode step time: 0.03573346138000488 seconds
+decode step time: 0.03584885597229004 seconds
+decode step time: 0.035687923431396484 seconds
+decode step time: 0.03590250015258789 seconds
+decode step time: 0.03580355644226074 seconds
+decode step time: 0.03573870658874512 seconds
+decode step time: 0.035642147064208984 seconds
+decode step time: 0.03557777404785156 seconds
+decode step time: 0.03549647331237793 seconds
+decode step time: 0.035448312759399414 seconds
+decode step time: 0.03571462631225586 seconds
+Tid 0 Request 0 finished.
+  Time in queue before prefill: 3.3448 ms
+  Prefill time (approx): 414.1188 ms
+  TTFT: 417.4635 ms
+  Latency: 22741.6017 ms
+  Total generated tokens: 256
+  Average TBT: 87.5456 ms/token
+  Throughput (tokens/s): 11.42
+Tid 0 Request 1 finished.
+  Time in queue before prefill: 1.5688 ms
+  Prefill time (approx): 357.5418 ms
+  TTFT: 359.1106 ms
+  Latency: 22323.4007 ms
+  Total generated tokens: 256
+  Average TBT: 86.1345 ms/token
+  Throughput (tokens/s): 11.61
+Tid 0 Request 2 finished.
+  Time in queue before prefill: 1.7622 ms
+  Prefill time (approx): 356.7164 ms
+  TTFT: 358.4785 ms
+  Latency: 21963.5692 ms
+  Total generated tokens: 256
+  Average TBT: 84.7258 ms/token
+  Throughput (tokens/s): 11.80
+Tid 0 Request 3 finished.
+  Time in queue before prefill: 1.7095 ms
+  Prefill time (approx): 364.4719 ms
+  TTFT: 366.1814 ms
+  Latency: 21604.4788 ms
+  Total generated tokens: 256
+  Average TBT: 83.2874 ms/token
+  Throughput (tokens/s): 12.01
+Tid 0 Request 4 finished.
+  Time in queue before prefill: 1.5709 ms
+  Prefill time (approx): 359.0662 ms
+  TTFT: 360.6372 ms
+  Latency: 21237.7927 ms
+  Total generated tokens: 256
+  Average TBT: 81.8712 ms/token
+  Throughput (tokens/s): 12.21
+Tid 0 Request 5 finished.
+  Time in queue before prefill: 1.4248 ms
+  Prefill time (approx): 360.3585 ms
+  TTFT: 361.7833 ms
+  Latency: 20876.7440 ms
+  Total generated tokens: 256
+  Average TBT: 80.4508 ms/token
+  Throughput (tokens/s): 12.43
+Tid 0 Request 6 finished.
+  Time in queue before prefill: 2.0337 ms
+  Prefill time (approx): 362.7999 ms
+  TTFT: 364.8336 ms
+  Latency: 20514.0288 ms
+  Total generated tokens: 256
+  Average TBT: 79.0165 ms/token
+  Throughput (tokens/s): 12.66
+Tid 0 Request 7 finished.
+  Time in queue before prefill: 1.4832 ms
+  Prefill time (approx): 360.9595 ms
+  TTFT: 362.4427 ms
+  Latency: 20148.8547 ms
+  Total generated tokens: 256
+  Average TBT: 77.5938 ms/token
+  Throughput (tokens/s): 12.89
+Tid 0 Request 8 finished.
+  Time in queue before prefill: 1.9634 ms
+  Prefill time (approx): 361.3412 ms
+  TTFT: 363.3046 ms
+  Latency: 19785.5837 ms
+  Total generated tokens: 256
+  Average TBT: 76.1658 ms/token
+  Throughput (tokens/s): 13.13
+prefill step time: 0.36867690086364746 seconds
+prefill step time: 0.36147451400756836 seconds
+prefill step time: 0.36443138122558594 seconds
+prefill step time: 0.3626542091369629 seconds
+prefill step time: 0.36322641372680664 seconds
+prefill step time: 0.36388206481933594 seconds
+prefill step time: 0.361844539642334 seconds
+INFO 07-10 06:08:41 [metrics.py:481] Avg prompt throughput: 5436.7 tokens/s, Avg generation throughput: 484.0 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 27 reqs, GPU KV cache usage: 92.7%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36261677742004395 seconds
+prefill step time: 0.3640587329864502 seconds
+decode step time: 0.039432525634765625 seconds
+decode step time: 0.03599286079406738 seconds
+decode step time: 0.03580117225646973 seconds
+decode step time: 0.035828351974487305 seconds
+decode step time: 0.035996437072753906 seconds
+decode step time: 0.0358431339263916 seconds
+decode step time: 0.035993337631225586 seconds
+decode step time: 0.036195993423461914 seconds
+decode step time: 0.03591442108154297 seconds
+decode step time: 0.03634309768676758 seconds
+decode step time: 0.036077022552490234 seconds
+decode step time: 0.036226511001586914 seconds
+decode step time: 0.03581404685974121 seconds
+decode step time: 0.03570199012756348 seconds
+decode step time: 0.03570842742919922 seconds
+decode step time: 0.03571128845214844 seconds
+decode step time: 0.035857439041137695 seconds
+decode step time: 0.035825490951538086 seconds
+decode step time: 0.03597736358642578 seconds
+decode step time: 0.03571486473083496 seconds
+decode step time: 0.03615975379943848 seconds
+decode step time: 0.03621172904968262 seconds
+decode step time: 0.03598499298095703 seconds
+decode step time: 0.036310672760009766 seconds
+decode step time: 0.03620004653930664 seconds
+decode step time: 0.036423683166503906 seconds
+decode step time: 0.03619837760925293 seconds
+decode step time: 0.036193132400512695 seconds
+decode step time: 0.03625178337097168 seconds
+decode step time: 0.03597259521484375 seconds
+decode step time: 0.035941362380981445 seconds
+decode step time: 0.03600144386291504 seconds
+decode step time: 0.035779714584350586 seconds
+decode step time: 0.03572487831115723 seconds
+decode step time: 0.03583979606628418 seconds
+decode step time: 0.035738468170166016 seconds
+decode step time: 0.03565859794616699 seconds
+decode step time: 0.035796165466308594 seconds
+decode step time: 0.03602457046508789 seconds
+decode step time: 0.03603625297546387 seconds
+Tid 0 Request 9 finished.
+  Time in queue before prefill: 1.4777 ms
+  Prefill time (approx): 359.2010 ms
+  TTFT: 360.6787 ms
+  Latency: 23110.1542 ms
+  Total generated tokens: 256
+  Average TBT: 89.2136 ms/token
+  Throughput (tokens/s): 11.21
+prefill step time: 0.3570551872253418 seconds
+decode step time: 0.039769887924194336 seconds
+decode step time: 0.037722110748291016 seconds
+decode step time: 0.03671884536743164 seconds
+decode step time: 0.036629438400268555 seconds
+decode step time: 0.036844491958618164 seconds
+decode step time: 0.036850929260253906 seconds
+decode step time: 0.03704357147216797 seconds
+decode step time: 0.03690743446350098 seconds
+decode step time: 0.03687572479248047 seconds
+decode step time: 0.036916255950927734 seconds
+decode step time: 0.03686714172363281 seconds
+decode step time: 0.03703570365905762 seconds
+decode step time: 0.03686356544494629 seconds
+decode step time: 0.03685307502746582 seconds
+decode step time: 0.0370028018951416 seconds
+decode step time: 0.03688168525695801 seconds
+decode step time: 0.037134647369384766 seconds
+decode step time: 0.03704071044921875 seconds
+decode step time: 0.03694891929626465 seconds
+decode step time: 0.03659248352050781 seconds
+decode step time: 0.0368807315826416 seconds
+decode step time: 0.037097930908203125 seconds
+decode step time: 0.037017107009887695 seconds
+decode step time: 0.03701186180114746 seconds
+decode step time: 0.03662371635437012 seconds
+decode step time: 0.037567138671875 seconds
+decode step time: 0.0374455451965332 seconds
+decode step time: 0.0369868278503418 seconds
+decode step time: 0.03693199157714844 seconds
+decode step time: 0.036988258361816406 seconds
+decode step time: 0.03701353073120117 seconds
+decode step time: 0.03711056709289551 seconds
+decode step time: 0.03696393966674805 seconds
+decode step time: 0.03691697120666504 seconds
+Tid 0 Request 10 finished.
+  Time in queue before prefill: 1.2782 ms
+  Prefill time (approx): 356.6248 ms
+  TTFT: 357.9030 ms
+  Latency: 23744.1082 ms
+  Total generated tokens: 256
+  Average TBT: 91.7106 ms/token
+  Throughput (tokens/s): 10.90
+Tid 0 Request 11 finished.
+  Time in queue before prefill: 1.2312 ms
+  Prefill time (approx): 361.6140 ms
+  TTFT: 362.8452 ms
+  Latency: 23385.9098 ms
+  Total generated tokens: 256
+  Average TBT: 90.2865 ms/token
+  Throughput (tokens/s): 11.08
+prefill step time: 0.3573589324951172 seconds
+decode step time: 0.0349729061126709 seconds
+Tid 0 Request 12 finished.
+  Time in queue before prefill: 1.1721 ms
+  Prefill time (approx): 359.1356 ms
+  TTFT: 360.3077 ms
+  Latency: 23399.7459 ms
+  Total generated tokens: 256
+  Average TBT: 90.3507 ms/token
+  Throughput (tokens/s): 11.07
+Tid 0 Request 13 finished.
+  Time in queue before prefill: 1.2529 ms
+  Prefill time (approx): 359.7715 ms
+  TTFT: 361.0244 ms
+  Latency: 23039.1097 ms
+  Total generated tokens: 256
+  Average TBT: 88.9337 ms/token
+  Throughput (tokens/s): 11.24
+Tid 0 Request 14 finished.
+  Time in queue before prefill: 1.8899 ms
+  Prefill time (approx): 360.1546 ms
+  TTFT: 362.0446 ms
+  Latency: 22677.1922 ms
+  Total generated tokens: 256
+  Average TBT: 87.5104 ms/token
+  Throughput (tokens/s): 11.43
+Tid 0 Request 15 finished.
+  Time in queue before prefill: 1.4107 ms
+  Prefill time (approx): 360.6145 ms
+  TTFT: 362.0253 ms
+  Latency: 22314.7488 ms
+  Total generated tokens: 256
+  Average TBT: 86.0891 ms/token
+  Throughput (tokens/s): 11.62
+prefill step time: 0.36287641525268555 seconds
+prefill step time: 0.3633289337158203 seconds
+INFO 07-10 06:08:46 [metrics.py:481] Avg prompt throughput: 4735.4 tokens/s, Avg generation throughput: 535.7 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 33 reqs, GPU KV cache usage: 90.9%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36200499534606934 seconds
+prefill step time: 0.36159801483154297 seconds
+prefill step time: 0.3620905876159668 seconds
+decode step time: 0.039846181869506836 seconds
+decode step time: 0.037181854248046875 seconds
+decode step time: 0.036340951919555664 seconds
+decode step time: 0.03633832931518555 seconds
+decode step time: 0.036338090896606445 seconds
+decode step time: 0.03641867637634277 seconds
+decode step time: 0.03645777702331543 seconds
+decode step time: 0.036519765853881836 seconds
+decode step time: 0.0364682674407959 seconds
+decode step time: 0.03655290603637695 seconds
+decode step time: 0.03663372993469238 seconds
+Tid 0 Request 16 finished.
+  Time in queue before prefill: 1.2777 ms
+  Prefill time (approx): 356.4603 ms
+  TTFT: 357.7380 ms
+  Latency: 23949.9559 ms
+  Total generated tokens: 256
+  Average TBT: 92.5185 ms/token
+  Throughput (tokens/s): 10.81
+Tid 0 Request 17 finished.
+  Time in queue before prefill: 1.8494 ms
+  Prefill time (approx): 363.0710 ms
+  TTFT: 364.9204 ms
+  Latency: 23591.3289 ms
+  Total generated tokens: 256
+  Average TBT: 91.0840 ms/token
+  Throughput (tokens/s): 10.98
+Tid 0 Request 18 finished.
+  Time in queue before prefill: 1.4179 ms
+  Prefill time (approx): 363.7440 ms
+  TTFT: 365.1619 ms
+  Latency: 23226.0201 ms
+  Total generated tokens: 256
+  Average TBT: 89.6504 ms/token
+  Throughput (tokens/s): 11.15
+Tid 0 Request 19 finished.
+  Time in queue before prefill: 1.2980 ms
+  Prefill time (approx): 361.4073 ms
+  TTFT: 362.7052 ms
+  Latency: 22860.5464 ms
+  Total generated tokens: 256
+  Average TBT: 88.2268 ms/token
+  Throughput (tokens/s): 11.33
+Tid 0 Request 20 finished.
+  Time in queue before prefill: 1.3332 ms
+  Prefill time (approx): 362.6375 ms
+  TTFT: 363.9708 ms
+  Latency: 22497.4995 ms
+  Total generated tokens: 256
+  Average TBT: 86.7982 ms/token
+  Throughput (tokens/s): 11.52
+Tid 0 Request 21 finished.
+  Time in queue before prefill: 1.6613 ms
+  Prefill time (approx): 362.4635 ms
+  TTFT: 364.1248 ms
+  Latency: 22132.3454 ms
+  Total generated tokens: 256
+  Average TBT: 85.3656 ms/token
+  Throughput (tokens/s): 11.71
+Tid 0 Request 22 finished.
+  Time in queue before prefill: 1.5650 ms
+  Prefill time (approx): 361.6979 ms
+  TTFT: 363.2629 ms
+  Latency: 21767.7379 ms
+  Total generated tokens: 256
+  Average TBT: 83.9391 ms/token
+  Throughput (tokens/s): 11.91
+Tid 0 Request 23 finished.
+  Time in queue before prefill: 2.3344 ms
+  Prefill time (approx): 362.2682 ms
+  TTFT: 364.6026 ms
+  Latency: 21404.0813 ms
+  Total generated tokens: 256
+  Average TBT: 82.5078 ms/token
+  Throughput (tokens/s): 12.12
+Tid 0 Request 24 finished.
+  Time in queue before prefill: 1.3001 ms
+  Prefill time (approx): 360.9309 ms
+  TTFT: 362.2310 ms
+  Latency: 21039.1610 ms
+  Total generated tokens: 256
+  Average TBT: 81.0860 ms/token
+  Throughput (tokens/s): 12.33
+Tid 0 Request 25 finished.
+  Time in queue before prefill: 1.3266 ms
+  Prefill time (approx): 361.0785 ms
+  TTFT: 362.4051 ms
+  Latency: 20676.5814 ms
+  Total generated tokens: 256
+  Average TBT: 79.6634 ms/token
+  Throughput (tokens/s): 12.55
+Tid 0 Request 26 finished.
+  Time in queue before prefill: 1.5948 ms
+  Prefill time (approx): 362.6742 ms
+  TTFT: 364.2690 ms
+  Latency: 20313.5152 ms
+  Total generated tokens: 256
+  Average TBT: 78.2323 ms/token
+  Throughput (tokens/s): 12.78
+Tid 0 Request 27 finished.
+  Time in queue before prefill: 1.3123 ms
+  Prefill time (approx): 362.5762 ms
+  TTFT: 363.8885 ms
+  Latency: 19948.9219 ms
+  Total generated tokens: 256
+  Average TBT: 76.8041 ms/token
+  Throughput (tokens/s): 13.02
+Tid 0 Request 28 finished.
+  Time in queue before prefill: 1.6022 ms
+  Prefill time (approx): 362.2828 ms
+  TTFT: 363.8849 ms
+  Latency: 19584.5132 ms
+  Total generated tokens: 256
+  Average TBT: 75.3750 ms/token
+  Throughput (tokens/s): 13.27
+Tid 0 Request 29 finished.
+  Time in queue before prefill: 1.3990 ms
+  Prefill time (approx): 362.4923 ms
+  TTFT: 363.8914 ms
+  Latency: 19220.2458 ms
+  Total generated tokens: 256
+  Average TBT: 73.9465 ms/token
+  Throughput (tokens/s): 13.52
+Tid 0 Request 30 finished.
+  Time in queue before prefill: 1.3120 ms
+  Prefill time (approx): 361.1710 ms
+  TTFT: 362.4830 ms
+  Latency: 18856.0400 ms
+  Total generated tokens: 256
+  Average TBT: 72.5238 ms/token
+  Throughput (tokens/s): 13.79
+Tid 0 Request 31 finished.
+  Time in queue before prefill: 2.1672 ms
+  Prefill time (approx): 361.5687 ms
+  TTFT: 363.7359 ms
+  Latency: 18493.2399 ms
+  Total generated tokens: 256
+  Average TBT: 71.0961 ms/token
+  Throughput (tokens/s): 14.07
+Tid 0 Request 32 finished.
+  Time in queue before prefill: 1.3261 ms
+  Prefill time (approx): 361.6261 ms
+  TTFT: 362.9522 ms
+  Latency: 18129.1547 ms
+  Total generated tokens: 256
+  Average TBT: 69.6714 ms/token
+  Throughput (tokens/s): 14.35
+Tid 0 Request 33 finished.
+  Time in queue before prefill: 1.6906 ms
+  Prefill time (approx): 362.5464 ms
+  TTFT: 364.2371 ms
+  Latency: 17765.4939 ms
+  Total generated tokens: 256
+  Average TBT: 68.2402 ms/token
+  Throughput (tokens/s): 14.65
+Tid 0 Request 34 finished.
+  Time in queue before prefill: 1.5414 ms
+  Prefill time (approx): 361.9843 ms
+  TTFT: 363.5256 ms
+  Latency: 17400.7611 ms
+  Total generated tokens: 256
+  Average TBT: 66.8127 ms/token
+  Throughput (tokens/s): 14.97
+Tid 0 Request 35 finished.
+  Time in queue before prefill: 1.3332 ms
+  Prefill time (approx): 361.4953 ms
+  TTFT: 362.8285 ms
+  Latency: 17036.4947 ms
+  Total generated tokens: 256
+  Average TBT: 65.3869 ms/token
+  Throughput (tokens/s): 15.29
+Tid 0 Request 36 finished.
+  Time in queue before prefill: 1.4012 ms
+  Prefill time (approx): 362.2317 ms
+  TTFT: 363.6329 ms
+  Latency: 16673.2671 ms
+  Total generated tokens: 256
+  Average TBT: 63.9593 ms/token
+  Throughput (tokens/s): 15.63
+prefill step time: 0.3555452823638916 seconds
+prefill step time: 0.3636624813079834 seconds
+prefill step time: 0.3645007610321045 seconds
+prefill step time: 0.36019015312194824 seconds
+prefill step time: 0.3642597198486328 seconds
+prefill step time: 0.363818883895874 seconds
+prefill step time: 0.36257362365722656 seconds
+prefill step time: 0.364520788192749 seconds
+prefill step time: 0.3619680404663086 seconds
+prefill step time: 0.3608419895172119 seconds
+INFO 07-10 06:08:51 [metrics.py:481] Avg prompt throughput: 10258.6 tokens/s, Avg generation throughput: 80.9 tokens/s, Running: 26 reqs, Swapped: 0 reqs, Pending: 30 reqs, GPU KV cache usage: 67.2%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36368870735168457 seconds
+prefill step time: 0.36236047744750977 seconds
+prefill step time: 0.36307406425476074 seconds
+prefill step time: 0.36229872703552246 seconds
+prefill step time: 0.36168575286865234 seconds
+prefill step time: 0.3637685775756836 seconds
+prefill step time: 0.362750768661499 seconds
+prefill step time: 0.36182546615600586 seconds
+prefill step time: 0.36221837997436523 seconds
+prefill step time: 0.362384557723999 seconds
+prefill step time: 0.36200618743896484 seconds
+prefill step time: 0.3632984161376953 seconds
+decode step time: 0.039716243743896484 seconds
+decode step time: 0.03599071502685547 seconds
+decode step time: 0.03568887710571289 seconds
+decode step time: 0.0357050895690918 seconds
+decode step time: 0.0357513427734375 seconds
+decode step time: 0.03591156005859375 seconds
+decode step time: 0.03574061393737793 seconds
+decode step time: 0.035433292388916016 seconds
+decode step time: 0.03522014617919922 seconds
+decode step time: 0.03520822525024414 seconds
+decode step time: 0.03528022766113281 seconds
+decode step time: 0.03526902198791504 seconds
+decode step time: 0.03520011901855469 seconds
+decode step time: 0.03536844253540039 seconds
+decode step time: 0.03551483154296875 seconds
+decode step time: 0.035645246505737305 seconds
+INFO 07-10 06:08:56 [metrics.py:481] Avg prompt throughput: 9814.6 tokens/s, Avg generation throughput: 123.8 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 31 reqs, GPU KV cache usage: 98.3%, CPU KV cache usage: 0.0%.
+decode step time: 0.035625457763671875 seconds
+decode step time: 0.03574228286743164 seconds
+decode step time: 0.03586912155151367 seconds
+decode step time: 0.03594064712524414 seconds
+decode step time: 0.03563189506530762 seconds
+decode step time: 0.03530097007751465 seconds
+decode step time: 0.03520703315734863 seconds
+decode step time: 0.03526139259338379 seconds
+decode step time: 0.03529548645019531 seconds
+decode step time: 0.03529095649719238 seconds
+decode step time: 0.035408973693847656 seconds
+decode step time: 0.03546452522277832 seconds
+decode step time: 0.03567624092102051 seconds
+decode step time: 0.035819053649902344 seconds
+decode step time: 0.0358273983001709 seconds
+decode step time: 0.035886287689208984 seconds
+decode step time: 0.03570246696472168 seconds
+decode step time: 0.035500288009643555 seconds
+decode step time: 0.035379886627197266 seconds
+decode step time: 0.03528308868408203 seconds
+decode step time: 0.03541398048400879 seconds
+decode step time: 0.035436391830444336 seconds
+decode step time: 0.03535795211791992 seconds
+decode step time: 0.035537004470825195 seconds
+decode step time: 0.035695791244506836 seconds
+decode step time: 0.03572869300842285 seconds
+decode step time: 0.037065982818603516 seconds
+decode step time: 0.036048173904418945 seconds
+decode step time: 0.035835981369018555 seconds
+decode step time: 0.03566098213195801 seconds
+decode step time: 0.03581738471984863 seconds
+decode step time: 0.03587222099304199 seconds
+decode step time: 0.035955190658569336 seconds
+decode step time: 0.03603076934814453 seconds
+decode step time: 0.03582143783569336 seconds
+decode step time: 0.03556108474731445 seconds
+decode step time: 0.03547787666320801 seconds
+decode step time: 0.035442352294921875 seconds
+decode step time: 0.03542041778564453 seconds
+decode step time: 0.03542733192443848 seconds
+decode step time: 0.035482168197631836 seconds
+decode step time: 0.03561520576477051 seconds
+decode step time: 0.03565335273742676 seconds
+decode step time: 0.03576827049255371 seconds
+decode step time: 0.03581643104553223 seconds
+decode step time: 0.03580927848815918 seconds
+decode step time: 0.036057233810424805 seconds
+decode step time: 0.03601694107055664 seconds
+decode step time: 0.036084651947021484 seconds
+decode step time: 0.035834312438964844 seconds
+decode step time: 0.03562760353088379 seconds
+decode step time: 0.03553485870361328 seconds
+decode step time: 0.03541254997253418 seconds
+decode step time: 0.03535175323486328 seconds
+decode step time: 0.03543400764465332 seconds
+decode step time: 0.035540103912353516 seconds
+decode step time: 0.03560233116149902 seconds
+decode step time: 0.03574395179748535 seconds
+decode step time: 0.035675764083862305 seconds
+decode step time: 0.03591036796569824 seconds
+decode step time: 0.03593564033508301 seconds
+decode step time: 0.03590583801269531 seconds
+decode step time: 0.03625988960266113 seconds
+decode step time: 0.03672456741333008 seconds
+decode step time: 0.03617238998413086 seconds
+decode step time: 0.035854339599609375 seconds
+decode step time: 0.03543281555175781 seconds
+Tid 0 Request 37 finished.
+  Time in queue before prefill: 1.3237 ms
+  Prefill time (approx): 362.2277 ms
+  TTFT: 363.5514 ms
+  Latency: 27590.5111 ms
+  Total generated tokens: 256
+  Average TBT: 106.7724 ms/token
+  Throughput (tokens/s): 9.37
+prefill step time: 0.36750054359436035 seconds
+decode step time: 0.037795305252075195 seconds
+decode step time: 0.03618192672729492 seconds
+decode step time: 0.03553128242492676 seconds
+decode step time: 0.035505056381225586 seconds
+decode step time: 0.035691022872924805 seconds
+decode step time: 0.03568673133850098 seconds
+decode step time: 0.035379648208618164 seconds
+decode step time: 0.03527545928955078 seconds
+decode step time: 0.03518795967102051 seconds
+decode step time: 0.03508472442626953 seconds
+decode step time: 0.03511667251586914 seconds
+decode step time: 0.035299062728881836 seconds
+decode step time: 0.035353660583496094 seconds
+decode step time: 0.035590410232543945 seconds
+decode step time: 0.035610198974609375 seconds
+decode step time: 0.03559112548828125 seconds
+decode step time: 0.03578543663024902 seconds
+decode step time: 0.03588294982910156 seconds
+decode step time: 0.03598213195800781 seconds
+decode step time: 0.03571438789367676 seconds
+decode step time: 0.035546302795410156 seconds
+decode step time: 0.03529620170593262 seconds
+decode step time: 0.03520536422729492 seconds
+decode step time: 0.03529691696166992 seconds
+decode step time: 0.03513216972351074 seconds
+decode step time: 0.03546500205993652 seconds
+decode step time: 0.03547835350036621 seconds
+decode step time: 0.03562331199645996 seconds
+decode step time: 0.03566312789916992 seconds
+decode step time: 0.03585052490234375 seconds
+decode step time: 0.0360562801361084 seconds
+decode step time: 0.035869598388671875 seconds
+decode step time: 0.03598594665527344 seconds
+decode step time: 0.03566122055053711 seconds
+decode step time: 0.035521507263183594 seconds
+decode step time: 0.035355567932128906 seconds
+decode step time: 0.035266876220703125 seconds
+decode step time: 0.03519296646118164 seconds
+decode step time: 0.0351717472076416 seconds
+decode step time: 0.035401105880737305 seconds
+decode step time: 0.035463809967041016 seconds
+decode step time: 0.03555417060852051 seconds
+decode step time: 0.035653114318847656 seconds
+decode step time: 0.035685062408447266 seconds
+decode step time: 0.03575444221496582 seconds
+decode step time: 0.03605031967163086 seconds
+decode step time: 0.0361018180847168 seconds
+decode step time: 0.03586864471435547 seconds
+decode step time: 0.03550267219543457 seconds
+decode step time: 0.03532743453979492 seconds
+decode step time: 0.035324811935424805 seconds
+decode step time: 0.035411834716796875 seconds
+INFO 07-10 06:09:01 [metrics.py:481] Avg prompt throughput: 829.8 tokens/s, Avg generation throughput: 887.6 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 48 reqs, GPU KV cache usage: 98.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.035515785217285156 seconds
+decode step time: 0.0355839729309082 seconds
+decode step time: 0.03557157516479492 seconds
+decode step time: 0.03572249412536621 seconds
+decode step time: 0.03580737113952637 seconds
+decode step time: 0.03578352928161621 seconds
+decode step time: 0.03590869903564453 seconds
+decode step time: 0.036069631576538086 seconds
+decode step time: 0.03603935241699219 seconds
+decode step time: 0.03619074821472168 seconds
+decode step time: 0.035892486572265625 seconds
+decode step time: 0.03565239906311035 seconds
+decode step time: 0.03536486625671387 seconds
+decode step time: 0.03534340858459473 seconds
+decode step time: 0.035260915756225586 seconds
+decode step time: 0.03539752960205078 seconds
+decode step time: 0.03564310073852539 seconds
+decode step time: 0.03563809394836426 seconds
+decode step time: 0.035804033279418945 seconds
+decode step time: 0.03585338592529297 seconds
+decode step time: 0.03587818145751953 seconds
+decode step time: 0.03599214553833008 seconds
+decode step time: 0.03615450859069824 seconds
+decode step time: 0.03581857681274414 seconds
+decode step time: 0.03578019142150879 seconds
+decode step time: 0.03562450408935547 seconds
+decode step time: 0.03547549247741699 seconds
+decode step time: 0.03543877601623535 seconds
+decode step time: 0.03540635108947754 seconds
+decode step time: 0.03558969497680664 seconds
+decode step time: 0.03567004203796387 seconds
+decode step time: 0.03576183319091797 seconds
+decode step time: 0.03580498695373535 seconds
+decode step time: 0.03589987754821777 seconds
+Tid 0 Request 38 finished.
+  Time in queue before prefill: 7021.1685 ms
+  Prefill time (approx): 361.5425 ms
+  TTFT: 7382.7109 ms
+  Latency: 30967.4466 ms
+  Total generated tokens: 256
+  Average TBT: 92.4892 ms/token
+  Throughput (tokens/s): 10.81
+Tid 0 Request 39 finished.
+  Time in queue before prefill: 7339.4754 ms
+  Prefill time (approx): 364.4938 ms
+  TTFT: 7703.9692 ms
+  Latency: 30923.1555 ms
+  Total generated tokens: 256
+  Average TBT: 91.0556 ms/token
+  Throughput (tokens/s): 10.98
+Tid 0 Request 40 finished.
+  Time in queue before prefill: 7665.2210 ms
+  Prefill time (approx): 362.7307 ms
+  TTFT: 8027.9517 ms
+  Latency: 30882.7071 ms
+  Total generated tokens: 256
+  Average TBT: 89.6265 ms/token
+  Throughput (tokens/s): 11.16
+Tid 0 Request 41 finished.
+  Time in queue before prefill: 7990.6833 ms
+  Prefill time (approx): 363.3356 ms
+  TTFT: 8354.0189 ms
+  Latency: 30843.0288 ms
+  Total generated tokens: 256
+  Average TBT: 88.1922 ms/token
+  Throughput (tokens/s): 11.34
+Tid 0 Request 42 finished.
+  Time in queue before prefill: 8315.2869 ms
+  Prefill time (approx): 363.9469 ms
+  TTFT: 8679.2338 ms
+  Latency: 30803.2115 ms
+  Total generated tokens: 256
+  Average TBT: 86.7607 ms/token
+  Throughput (tokens/s): 11.53
+Tid 0 Request 43 finished.
+  Time in queue before prefill: 8444.3638 ms
+  Prefill time (approx): 361.9642 ms
+  TTFT: 8806.3281 ms
+  Latency: 30567.2538 ms
+  Total generated tokens: 256
+  Average TBT: 85.3370 ms/token
+  Throughput (tokens/s): 11.72
+Tid 0 Request 44 finished.
+  Time in queue before prefill: 8731.5149 ms
+  Prefill time (approx): 362.7045 ms
+  TTFT: 9094.2194 ms
+  Latency: 30489.3212 ms
+  Total generated tokens: 256
+  Average TBT: 83.9024 ms/token
+  Throughput (tokens/s): 11.92
+Tid 0 Request 45 finished.
+  Time in queue before prefill: 8821.2676 ms
+  Prefill time (approx): 364.1479 ms
+  TTFT: 9185.4155 ms
+  Latency: 30214.6034 ms
+  Total generated tokens: 256
+  Average TBT: 82.4674 ms/token
+  Throughput (tokens/s): 12.13
+prefill step time: 0.3564269542694092 seconds
+prefill step time: 0.3649415969848633 seconds
+prefill step time: 0.36392712593078613 seconds
+prefill step time: 0.3623983860015869 seconds
+prefill step time: 0.3617238998413086 seconds
+prefill step time: 0.36228108406066895 seconds
+prefill step time: 0.36319899559020996 seconds
+prefill step time: 0.36330151557922363 seconds
+decode step time: 0.0390775203704834 seconds
+decode step time: 0.036180973052978516 seconds
+decode step time: 0.03590035438537598 seconds
+decode step time: 0.03560233116149902 seconds
+decode step time: 0.03565692901611328 seconds
+decode step time: 0.03571009635925293 seconds
+decode step time: 0.03574371337890625 seconds
+decode step time: 0.035712480545043945 seconds
+decode step time: 0.03592801094055176 seconds
+decode step time: 0.03601837158203125 seconds
+decode step time: 0.03593778610229492 seconds
+decode step time: 0.0359194278717041 seconds
+decode step time: 0.03612017631530762 seconds
+decode step time: 0.036124229431152344 seconds
+decode step time: 0.03632545471191406 seconds
+decode step time: 0.0361325740814209 seconds
+decode step time: 0.035878896713256836 seconds
+decode step time: 0.03635692596435547 seconds
+decode step time: 0.03626728057861328 seconds
+INFO 07-10 06:09:06 [metrics.py:481] Avg prompt throughput: 6540.7 tokens/s, Avg generation throughput: 393.0 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 55 reqs, GPU KV cache usage: 98.4%, CPU KV cache usage: 0.0%.
+decode step time: 0.0364530086517334 seconds
+decode step time: 0.03608989715576172 seconds
+decode step time: 0.036180973052978516 seconds
+decode step time: 0.036188364028930664 seconds
+decode step time: 0.0362391471862793 seconds
+decode step time: 0.03603172302246094 seconds
+decode step time: 0.03585481643676758 seconds
+decode step time: 0.035685062408447266 seconds
+decode step time: 0.035773515701293945 seconds
+decode step time: 0.03584861755371094 seconds
+decode step time: 0.03570985794067383 seconds
+decode step time: 0.035784244537353516 seconds
+decode step time: 0.03586721420288086 seconds
+decode step time: 0.03607678413391113 seconds
+decode step time: 0.036057472229003906 seconds
+decode step time: 0.03602337837219238 seconds
+decode step time: 0.03603219985961914 seconds
+decode step time: 0.03626704216003418 seconds
+decode step time: 0.03621983528137207 seconds
+decode step time: 0.036302804946899414 seconds
+decode step time: 0.03633570671081543 seconds
+Tid 0 Request 46 finished.
+  Time in queue before prefill: 10734.7546 ms
+  Prefill time (approx): 357.1236 ms
+  TTFT: 11091.8782 ms
+  Latency: 34680.7461 ms
+  Total generated tokens: 256
+  Average TBT: 92.5054 ms/token
+  Throughput (tokens/s): 10.81
+prefill step time: 0.3594372272491455 seconds
+decode step time: 0.04070162773132324 seconds
+decode step time: 0.037566184997558594 seconds
+decode step time: 0.0368959903717041 seconds
+decode step time: 0.03688979148864746 seconds
+decode step time: 0.03673696517944336 seconds
+decode step time: 0.0368804931640625 seconds
+decode step time: 0.036928415298461914 seconds
+decode step time: 0.03687763214111328 seconds
+decode step time: 0.03689122200012207 seconds
+decode step time: 0.03689122200012207 seconds
+decode step time: 0.03690290451049805 seconds
+decode step time: 0.03688526153564453 seconds
+decode step time: 0.03693795204162598 seconds
+decode step time: 0.03696322441101074 seconds
+decode step time: 0.03690361976623535 seconds
+decode step time: 0.0369112491607666 seconds
+decode step time: 0.03699350357055664 seconds
+decode step time: 0.036875247955322266 seconds
+decode step time: 0.036905765533447266 seconds
+decode step time: 0.0369257926940918 seconds
+decode step time: 0.03694438934326172 seconds
+decode step time: 0.037056684494018555 seconds
+decode step time: 0.03702688217163086 seconds
+decode step time: 0.037062644958496094 seconds
+decode step time: 0.037130117416381836 seconds
+decode step time: 0.03719496726989746 seconds
+decode step time: 0.03701663017272949 seconds
+decode step time: 0.036974430084228516 seconds
+decode step time: 0.037056922912597656 seconds
+decode step time: 0.03708291053771973 seconds
+decode step time: 0.03722190856933594 seconds
+decode step time: 0.03708529472351074 seconds
+decode step time: 0.037007808685302734 seconds
+decode step time: 0.037042856216430664 seconds
+Tid 0 Request 47 finished.
+  Time in queue before prefill: 11967.6819 ms
+  Prefill time (approx): 357.4286 ms
+  TTFT: 12325.1104 ms
+  Latency: 35917.6714 ms
+  Total generated tokens: 256
+  Average TBT: 92.5198 ms/token
+  Throughput (tokens/s): 10.81
+decode step time: 0.03388786315917969 seconds
+Tid 0 Request 48 finished.
+  Time in queue before prefill: 11588.3460 ms
+  Prefill time (approx): 362.9975 ms
+  TTFT: 11951.3435 ms
+  Latency: 35177.6702 ms
+  Total generated tokens: 256
+  Average TBT: 91.0836 ms/token
+  Throughput (tokens/s): 10.98
+Tid 0 Request 49 finished.
+  Time in queue before prefill: 11756.4673 ms
+  Prefill time (approx): 363.4157 ms
+  TTFT: 12119.8831 ms
+  Latency: 34980.3975 ms
+  Total generated tokens: 256
+  Average TBT: 89.6491 ms/token
+  Throughput (tokens/s): 11.15
+Tid 0 Request 50 finished.
+  Time in queue before prefill: 11065.4776 ms
+  Prefill time (approx): 362.0710 ms
+  TTFT: 11427.5486 ms
+  Latency: 33923.8849 ms
+  Total generated tokens: 256
+  Average TBT: 88.2209 ms/token
+  Throughput (tokens/s): 11.34
+Tid 0 Request 51 finished.
+  Time in queue before prefill: 11389.0531 ms
+  Prefill time (approx): 361.6903 ms
+  TTFT: 11750.7434 ms
+  Latency: 33883.6884 ms
+  Total generated tokens: 256
+  Average TBT: 86.7959 ms/token
+  Throughput (tokens/s): 11.52
+Tid 0 Request 52 finished.
+  Time in queue before prefill: 11674.5708 ms
+  Prefill time (approx): 362.1593 ms
+  TTFT: 12036.7301 ms
+  Latency: 33805.6295 ms
+  Total generated tokens: 256
+  Average TBT: 85.3682 ms/token
+  Throughput (tokens/s): 11.71
+prefill step time: 0.36019277572631836 seconds
+prefill step time: 0.3669850826263428 seconds
+prefill step time: 0.362762451171875 seconds
+prefill step time: 0.36328768730163574 seconds
+prefill step time: 0.3625941276550293 seconds
+prefill step time: 0.36324167251586914 seconds
+decode step time: 0.03962135314941406 seconds
+decode step time: 0.03711199760437012 seconds
+decode step time: 0.03642845153808594 seconds
+decode step time: 0.036255836486816406 seconds
+decode step time: 0.03624916076660156 seconds
+INFO 07-10 06:09:11 [metrics.py:481] Avg prompt throughput: 5721.4 tokens/s, Avg generation throughput: 451.6 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 60 reqs, GPU KV cache usage: 98.6%, CPU KV cache usage: 0.0%.
+decode step time: 0.03625631332397461 seconds
+decode step time: 0.036252737045288086 seconds
+decode step time: 0.03639960289001465 seconds
+decode step time: 0.03654336929321289 seconds
+decode step time: 0.036455392837524414 seconds
+decode step time: 0.03650522232055664 seconds
+Tid 0 Request 53 finished.
+  Time in queue before prefill: 12421.6816 ms
+  Prefill time (approx): 355.6082 ms
+  TTFT: 12777.2899 ms
+  Latency: 36372.6206 ms
+  Total generated tokens: 256
+  Average TBT: 92.5307 ms/token
+  Throughput (tokens/s): 10.81
+Tid 0 Request 54 finished.
+  Time in queue before prefill: 12505.9547 ms
+  Prefill time (approx): 363.7185 ms
+  TTFT: 12869.6733 ms
+  Latency: 36100.2872 ms
+  Total generated tokens: 256
+  Average TBT: 91.1004 ms/token
+  Throughput (tokens/s): 10.98
+Tid 0 Request 55 finished.
+  Time in queue before prefill: 12558.0399 ms
+  Prefill time (approx): 364.5597 ms
+  TTFT: 12922.5996 ms
+  Latency: 35786.9773 ms
+  Total generated tokens: 256
+  Average TBT: 89.6642 ms/token
+  Throughput (tokens/s): 11.15
+Tid 0 Request 56 finished.
+  Time in queue before prefill: 12766.1362 ms
+  Prefill time (approx): 360.2488 ms
+  TTFT: 13126.3850 ms
+  Latency: 35629.5130 ms
+  Total generated tokens: 256
+  Average TBT: 88.2476 ms/token
+  Throughput (tokens/s): 11.33
+Tid 0 Request 57 finished.
+  Time in queue before prefill: 13088.3317 ms
+  Prefill time (approx): 364.3217 ms
+  TTFT: 13452.6534 ms
+  Latency: 35589.8457 ms
+  Total generated tokens: 256
+  Average TBT: 86.8125 ms/token
+  Throughput (tokens/s): 11.52
+Tid 0 Request 58 finished.
+  Time in queue before prefill: 12753.1018 ms
+  Prefill time (approx): 363.8778 ms
+  TTFT: 13116.9796 ms
+  Latency: 34889.2395 ms
+  Total generated tokens: 256
+  Average TBT: 85.3814 ms/token
+  Throughput (tokens/s): 11.71
+Tid 0 Request 59 finished.
+  Time in queue before prefill: 12960.2561 ms
+  Prefill time (approx): 362.6328 ms
+  TTFT: 13322.8889 ms
+  Latency: 34731.4985 ms
+  Total generated tokens: 256
+  Average TBT: 83.9553 ms/token
+  Throughput (tokens/s): 11.91
+Tid 0 Request 60 finished.
+  Time in queue before prefill: 13284.4555 ms
+  Prefill time (approx): 364.5971 ms
+  TTFT: 13649.0526 ms
+  Latency: 34691.4880 ms
+  Total generated tokens: 256
+  Average TBT: 82.5194 ms/token
+  Throughput (tokens/s): 12.12
+Tid 0 Request 61 finished.
+  Time in queue before prefill: 13416.7330 ms
+  Prefill time (approx): 362.0770 ms
+  TTFT: 13778.8100 ms
+  Latency: 34456.6801 ms
+  Total generated tokens: 256
+  Average TBT: 81.0897 ms/token
+  Throughput (tokens/s): 12.33
+Tid 0 Request 62 finished.
+  Time in queue before prefill: 13663.6126 ms
+  Prefill time (approx): 360.9099 ms
+  TTFT: 14024.5225 ms
+  Latency: 34339.1297 ms
+  Total generated tokens: 256
+  Average TBT: 79.6651 ms/token
+  Throughput (tokens/s): 12.55
+Tid 0 Request 63 finished.
+  Time in queue before prefill: 13908.0052 ms
+  Prefill time (approx): 363.8046 ms
+  TTFT: 14271.8098 ms
+  Latency: 34220.5243 ms
+  Total generated tokens: 256
+  Average TBT: 78.2303 ms/token
+  Throughput (tokens/s): 12.78
+Tid 0 Request 64 finished.
+  Time in queue before prefill: 14193.5380 ms
+  Prefill time (approx): 362.4525 ms
+  TTFT: 14555.9905 ms
+  Latency: 34140.7959 ms
+  Total generated tokens: 256
+  Average TBT: 76.8032 ms/token
+  Throughput (tokens/s): 13.02
+Tid 0 Request 65 finished.
+  Time in queue before prefill: 14361.6724 ms
+  Prefill time (approx): 363.1418 ms
+  TTFT: 14724.8142 ms
+  Latency: 33944.4053 ms
+  Total generated tokens: 256
+  Average TBT: 75.3709 ms/token
+  Throughput (tokens/s): 13.27
+Tid 0 Request 66 finished.
+  Time in queue before prefill: 14413.0762 ms
+  Prefill time (approx): 362.3636 ms
+  TTFT: 14775.4397 ms
+  Latency: 33631.5768 ms
+  Total generated tokens: 256
+  Average TBT: 73.9456 ms/token
+  Throughput (tokens/s): 13.52
+Tid 0 Request 67 finished.
+  Time in queue before prefill: 14736.6636 ms
+  Prefill time (approx): 361.7728 ms
+  TTFT: 15098.4364 ms
+  Latency: 33591.6760 ms
+  Total generated tokens: 256
+  Average TBT: 72.5225 ms/token
+  Throughput (tokens/s): 13.79
+Tid 0 Request 68 finished.
+  Time in queue before prefill: 14390.8331 ms
+  Prefill time (approx): 363.8387 ms
+  TTFT: 14754.6718 ms
+  Latency: 32882.0813 ms
+  Total generated tokens: 256
+  Average TBT: 71.0879 ms/token
+  Throughput (tokens/s): 14.07
+Tid 0 Request 69 finished.
+  Time in queue before prefill: 14026.9122 ms
+  Prefill time (approx): 362.8151 ms
+  TTFT: 14389.7274 ms
+  Latency: 32153.2350 ms
+  Total generated tokens: 256
+  Average TBT: 69.6608 ms/token
+  Throughput (tokens/s): 14.36
+Tid 0 Request 70 finished.
+  Time in queue before prefill: 14026.7208 ms
+  Prefill time (approx): 361.8996 ms
+  TTFT: 14388.6204 ms
+  Latency: 31788.4235 ms
+  Total generated tokens: 256
+  Average TBT: 68.2345 ms/token
+  Throughput (tokens/s): 14.66
+Tid 0 Request 71 finished.
+  Time in queue before prefill: 13296.0141 ms
+  Prefill time (approx): 362.2859 ms
+  TTFT: 13658.2999 ms
+  Latency: 30694.0596 ms
+  Total generated tokens: 256
+  Average TBT: 66.8069 ms/token
+  Throughput (tokens/s): 14.97
+Tid 0 Request 72 finished.
+  Time in queue before prefill: 13295.1369 ms
+  Prefill time (approx): 362.4542 ms
+  TTFT: 13657.5911 ms
+  Latency: 30329.1159 ms
+  Total generated tokens: 256
+  Average TBT: 65.3785 ms/token
+  Throughput (tokens/s): 15.30
+Tid 0 Request 73 finished.
+  Time in queue before prefill: 13293.3719 ms
+  Prefill time (approx): 362.0782 ms
+  TTFT: 13655.4501 ms
+  Latency: 29963.1155 ms
+  Total generated tokens: 256
+  Average TBT: 63.9516 ms/token
+  Throughput (tokens/s): 15.64
+Tid 0 Request 74 finished.
+  Time in queue before prefill: 13136.3771 ms
+  Prefill time (approx): 363.3664 ms
+  TTFT: 13499.7435 ms
+  Latency: 29442.2586 ms
+  Total generated tokens: 256
+  Average TBT: 62.5197 ms/token
+  Throughput (tokens/s): 15.99
+prefill step time: 0.35793161392211914 seconds
+prefill step time: 0.362656831741333 seconds
+prefill step time: 0.36862993240356445 seconds
+prefill step time: 0.3623926639556885 seconds
+prefill step time: 0.36348891258239746 seconds
+prefill step time: 0.3637683391571045 seconds
+prefill step time: 0.36313414573669434 seconds
+prefill step time: 0.36357784271240234 seconds
+prefill step time: 0.36302685737609863 seconds
+prefill step time: 0.3627445697784424 seconds
+prefill step time: 0.3633589744567871 seconds
+prefill step time: 0.36289548873901367 seconds
+prefill step time: 0.36280369758605957 seconds
+prefill step time: 0.36464381217956543 seconds
+INFO 07-10 06:09:16 [metrics.py:481] Avg prompt throughput: 10693.4 tokens/s, Avg generation throughput: 44.0 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 56 reqs, GPU KV cache usage: 74.7%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3648679256439209 seconds
+prefill step time: 0.3640146255493164 seconds
+prefill step time: 0.3643481731414795 seconds
+prefill step time: 0.3626430034637451 seconds
+prefill step time: 0.3628847599029541 seconds
+prefill step time: 0.36344361305236816 seconds
+prefill step time: 0.3634326457977295 seconds
+prefill step time: 0.3626675605773926 seconds
+prefill step time: 0.36522936820983887 seconds
+decode step time: 0.03992867469787598 seconds
+decode step time: 0.035773277282714844 seconds
+decode step time: 0.03564858436584473 seconds
+decode step time: 0.03574633598327637 seconds
+decode step time: 0.03566384315490723 seconds
+decode step time: 0.03581380844116211 seconds
+decode step time: 0.03571271896362305 seconds
+decode step time: 0.03590059280395508 seconds
+decode step time: 0.03583788871765137 seconds
+decode step time: 0.03553605079650879 seconds
+decode step time: 0.03532075881958008 seconds
+decode step time: 0.03525710105895996 seconds
+decode step time: 0.03523731231689453 seconds
+decode step time: 0.03537249565124512 seconds
+decode step time: 0.035454750061035156 seconds
+decode step time: 0.0355224609375 seconds
+decode step time: 0.035543203353881836 seconds
+decode step time: 0.03566312789916992 seconds
+decode step time: 0.035711050033569336 seconds
+decode step time: 0.035861968994140625 seconds
+decode step time: 0.03583812713623047 seconds
+decode step time: 0.03583526611328125 seconds
+decode step time: 0.03564858436584473 seconds
+decode step time: 0.035574913024902344 seconds
+decode step time: 0.035430192947387695 seconds
+decode step time: 0.035344839096069336 seconds
+decode step time: 0.035329341888427734 seconds
+decode step time: 0.03542780876159668 seconds
+decode step time: 0.03543710708618164 seconds
+decode step time: 0.03542733192443848 seconds
+decode step time: 0.03533339500427246 seconds
+decode step time: 0.03541684150695801 seconds
+decode step time: 0.035652875900268555 seconds
+decode step time: 0.035669803619384766 seconds
+decode step time: 0.03586745262145996 seconds
+decode step time: 0.03580904006958008 seconds
+decode step time: 0.035924673080444336 seconds
+decode step time: 0.03601264953613281 seconds
+decode step time: 0.03587508201599121 seconds
+decode step time: 0.03555870056152344 seconds
+decode step time: 0.03542757034301758 seconds
+decode step time: 0.035395145416259766 seconds
+decode step time: 0.0354619026184082 seconds
+decode step time: 0.035529375076293945 seconds
+INFO 07-10 06:09:21 [metrics.py:481] Avg prompt throughput: 7332.2 tokens/s, Avg generation throughput: 334.3 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 61 reqs, GPU KV cache usage: 98.9%, CPU KV cache usage: 0.0%.
+decode step time: 0.035439252853393555 seconds
+decode step time: 0.03555440902709961 seconds
+decode step time: 0.03561258316040039 seconds
+decode step time: 0.03590202331542969 seconds
+decode step time: 0.035866498947143555 seconds
+decode step time: 0.03583383560180664 seconds
+decode step time: 0.03590798377990723 seconds
+decode step time: 0.03599691390991211 seconds
+decode step time: 0.03607296943664551 seconds
+decode step time: 0.03578376770019531 seconds
+decode step time: 0.03559160232543945 seconds
+decode step time: 0.035416364669799805 seconds
+decode step time: 0.03537774085998535 seconds
+decode step time: 0.03534197807312012 seconds
+decode step time: 0.03545665740966797 seconds
+decode step time: 0.03549623489379883 seconds
+decode step time: 0.0356144905090332 seconds
+decode step time: 0.03563284873962402 seconds
+decode step time: 0.03569173812866211 seconds
+decode step time: 0.035767316818237305 seconds
+decode step time: 0.03578686714172363 seconds
+decode step time: 0.036092519760131836 seconds
+decode step time: 0.03610873222351074 seconds
+decode step time: 0.03610682487487793 seconds
+decode step time: 0.03615736961364746 seconds
+decode step time: 0.035926103591918945 seconds
+decode step time: 0.03568243980407715 seconds
+decode step time: 0.03567838668823242 seconds
+decode step time: 0.03551292419433594 seconds
+decode step time: 0.03554797172546387 seconds
+decode step time: 0.035629987716674805 seconds
+decode step time: 0.03572225570678711 seconds
+decode step time: 0.035808563232421875 seconds
+decode step time: 0.03578829765319824 seconds
+decode step time: 0.035855770111083984 seconds
+decode step time: 0.035994768142700195 seconds
+decode step time: 0.03615999221801758 seconds
+decode step time: 0.036054372787475586 seconds
+decode step time: 0.03612112998962402 seconds
+decode step time: 0.03618359565734863 seconds
+decode step time: 0.03600645065307617 seconds
+decode step time: 0.03579902648925781 seconds
+decode step time: 0.03563952445983887 seconds
+decode step time: 0.03564715385437012 seconds
+decode step time: 0.03562283515930176 seconds
+decode step time: 0.03566598892211914 seconds
+decode step time: 0.03530120849609375 seconds
+decode step time: 0.035408973693847656 seconds
+decode step time: 0.03534436225891113 seconds
+decode step time: 0.035352468490600586 seconds
+decode step time: 0.03545355796813965 seconds
+decode step time: 0.03555440902709961 seconds
+decode step time: 0.03585004806518555 seconds
+decode step time: 0.03606557846069336 seconds
+decode step time: 0.035665035247802734 seconds
+decode step time: 0.03535890579223633 seconds
+decode step time: 0.03534889221191406 seconds
+decode step time: 0.03529787063598633 seconds
+decode step time: 0.03535270690917969 seconds
+decode step time: 0.03538155555725098 seconds
+decode step time: 0.0355226993560791 seconds
+decode step time: 0.03559160232543945 seconds
+decode step time: 0.03557395935058594 seconds
+decode step time: 0.03580617904663086 seconds
+decode step time: 0.03592419624328613 seconds
+decode step time: 0.03592562675476074 seconds
+decode step time: 0.03580927848815918 seconds
+decode step time: 0.035622358322143555 seconds
+decode step time: 0.03550982475280762 seconds
+decode step time: 0.03533172607421875 seconds
+decode step time: 0.03529024124145508 seconds
+decode step time: 0.035387516021728516 seconds
+decode step time: 0.0355677604675293 seconds
+decode step time: 0.03542041778564453 seconds
+decode step time: 0.03550076484680176 seconds
+decode step time: 0.03566312789916992 seconds
+decode step time: 0.03574848175048828 seconds
+decode step time: 0.035822391510009766 seconds
+decode step time: 0.03594470024108887 seconds
+decode step time: 0.03598380088806152 seconds
+decode step time: 0.035726070404052734 seconds
+decode step time: 0.035523414611816406 seconds
+decode step time: 0.03547239303588867 seconds
+decode step time: 0.035394906997680664 seconds
+decode step time: 0.035508155822753906 seconds
+decode step time: 0.03543448448181152 seconds
+decode step time: 0.03550124168395996 seconds
+decode step time: 0.035650014877319336 seconds
+decode step time: 0.0356752872467041 seconds
+decode step time: 0.03573179244995117 seconds
+decode step time: 0.035680532455444336 seconds
+decode step time: 0.03577613830566406 seconds
+decode step time: 0.03603768348693848 seconds
+decode step time: 0.036028385162353516 seconds
+decode step time: 0.03607630729675293 seconds
+decode step time: 0.03605389595031738 seconds
+decode step time: 0.035782575607299805 seconds
+decode step time: 0.03574514389038086 seconds
+decode step time: 0.035479068756103516 seconds
+decode step time: 0.03538703918457031 seconds
+decode step time: 0.035477638244628906 seconds
+decode step time: 0.03553652763366699 seconds
+decode step time: 0.035596370697021484 seconds
+decode step time: 0.03574109077453613 seconds
+decode step time: 0.0358889102935791 seconds
+decode step time: 0.03580927848815918 seconds
+decode step time: 0.03595376014709473 seconds
+decode step time: 0.03591752052307129 seconds
+decode step time: 0.03569912910461426 seconds
+decode step time: 0.03562116622924805 seconds
+decode step time: 0.035567283630371094 seconds
+decode step time: 0.03551650047302246 seconds
+decode step time: 0.0354917049407959 seconds
+decode step time: 0.03552579879760742 seconds
+decode step time: 0.03545069694519043 seconds
+decode step time: 0.035588979721069336 seconds
+decode step time: 0.03570675849914551 seconds
+decode step time: 0.03579545021057129 seconds
+decode step time: 0.035967350006103516 seconds
+decode step time: 0.03592085838317871 seconds
+decode step time: 0.03593254089355469 seconds
+decode step time: 0.03609871864318848 seconds
+decode step time: 0.03613162040710449 seconds
+decode step time: 0.0360872745513916 seconds
+decode step time: 0.03621864318847656 seconds
+Tid 0 Request 75 finished.
+  Time in queue before prefill: 20236.1565 ms
+  Prefill time (approx): 356.4966 ms
+  TTFT: 20592.6530 ms
+  Latency: 44211.5645 ms
+  Total generated tokens: 256
+  Average TBT: 92.6232 ms/token
+  Throughput (tokens/s): 10.80
+Tid 0 Request 76 finished.
+  Time in queue before prefill: 20355.9630 ms
+  Prefill time (approx): 365.0064 ms
+  TTFT: 20720.9694 ms
+  Latency: 43973.1536 ms
+  Total generated tokens: 256
+  Average TBT: 91.1850 ms/token
+  Throughput (tokens/s): 10.97
+Tid 0 Request 77 finished.
+  Time in queue before prefill: 20523.5002 ms
+  Prefill time (approx): 363.9956 ms
+  TTFT: 20887.4958 ms
+  Latency: 43774.0116 ms
+  Total generated tokens: 256
+  Average TBT: 89.7510 ms/token
+  Throughput (tokens/s): 11.14
+Tid 0 Request 78 finished.
+  Time in queue before prefill: 20849.2682 ms
+  Prefill time (approx): 362.4671 ms
+  TTFT: 21211.7352 ms
+  Latency: 43734.0398 ms
+  Total generated tokens: 256
+  Average TBT: 88.3228 ms/token
+  Throughput (tokens/s): 11.32
+Tid 0 Request 79 finished.
+  Time in queue before prefill: 19730.1514 ms
+  Prefill time (approx): 361.7907 ms
+  TTFT: 20091.9421 ms
+  Latency: 42250.6495 ms
+  Total generated tokens: 256
+  Average TBT: 86.8969 ms/token
+  Throughput (tokens/s): 11.51
+Tid 0 Request 80 finished.
+  Time in queue before prefill: 19523.3624 ms
+  Prefill time (approx): 362.3462 ms
+  TTFT: 19885.7086 ms
+  Latency: 41680.3322 ms
+  Total generated tokens: 256
+  Average TBT: 85.4691 ms/token
+  Throughput (tokens/s): 11.70
+Tid 0 Request 81 finished.
+  Time in queue before prefill: 19528.2040 ms
+  Prefill time (approx): 363.2641 ms
+  TTFT: 19891.4680 ms
+  Latency: 41321.1236 ms
+  Total generated tokens: 256
+  Average TBT: 84.0379 ms/token
+  Throughput (tokens/s): 11.90
+Tid 0 Request 82 finished.
+  Time in queue before prefill: 19487.3893 ms
+  Prefill time (approx): 363.3721 ms
+  TTFT: 19850.7614 ms
+  Latency: 40914.5730 ms
+  Total generated tokens: 256
+  Average TBT: 82.6032 ms/token
+  Throughput (tokens/s): 12.11
+prefill step time: 0.3677940368652344 seconds
+INFO 07-10 06:09:27 [metrics.py:481] Avg prompt throughput: 793.9 tokens/s, Avg generation throughput: 885.8 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 74 reqs, GPU KV cache usage: 80.1%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3658487796783447 seconds
+prefill step time: 0.3643808364868164 seconds
+prefill step time: 0.3628709316253662 seconds
+prefill step time: 0.365447998046875 seconds
+prefill step time: 0.36417078971862793 seconds
+prefill step time: 0.3637106418609619 seconds
+prefill step time: 0.3637573719024658 seconds
+decode step time: 0.03959298133850098 seconds
+decode step time: 0.03660893440246582 seconds
+decode step time: 0.03639411926269531 seconds
+decode step time: 0.03645586967468262 seconds
+decode step time: 0.03641319274902344 seconds
+decode step time: 0.03633880615234375 seconds
+decode step time: 0.03629159927368164 seconds
+decode step time: 0.03647351264953613 seconds
+decode step time: 0.03646659851074219 seconds
+decode step time: 0.036347389221191406 seconds
+decode step time: 0.03661680221557617 seconds
+decode step time: 0.036878347396850586 seconds
+decode step time: 0.03657102584838867 seconds
+decode step time: 0.036507368087768555 seconds
+decode step time: 0.036528825759887695 seconds
+decode step time: 0.036590576171875 seconds
+decode step time: 0.036614179611206055 seconds
+decode step time: 0.03676795959472656 seconds
+decode step time: 0.03678154945373535 seconds
+decode step time: 0.036713600158691406 seconds
+decode step time: 0.036913156509399414 seconds
+decode step time: 0.03681230545043945 seconds
+decode step time: 0.03680300712585449 seconds
+decode step time: 0.03684520721435547 seconds
+decode step time: 0.0368809700012207 seconds
+decode step time: 0.03686404228210449 seconds
+decode step time: 0.03675341606140137 seconds
+decode step time: 0.03688192367553711 seconds
+decode step time: 0.03689146041870117 seconds
+decode step time: 0.03704500198364258 seconds
+decode step time: 0.037065982818603516 seconds
+decode step time: 0.03697943687438965 seconds
+decode step time: 0.03702497482299805 seconds
+decode step time: 0.036931514739990234 seconds
+decode step time: 0.03705334663391113 seconds
+decode step time: 0.03700852394104004 seconds
+decode step time: 0.037011146545410156 seconds
+decode step time: 0.03713726997375488 seconds
+decode step time: 0.03711986541748047 seconds
+decode step time: 0.036949872970581055 seconds
+Tid 0 Request 83 finished.
+  Time in queue before prefill: 21078.6400 ms
+  Prefill time (approx): 359.5574 ms
+  TTFT: 21438.1974 ms
+  Latency: 45105.3123 ms
+  Total generated tokens: 256
+  Average TBT: 92.8122 ms/token
+  Throughput (tokens/s): 10.77
+prefill step time: 0.359652042388916 seconds
+decode step time: 0.03974628448486328 seconds
+decode step time: 0.03679847717285156 seconds
+decode step time: 0.03641986846923828 seconds
+decode step time: 0.036101579666137695 seconds
+decode step time: 0.036321163177490234 seconds
+decode step time: 0.036363840103149414 seconds
+decode step time: 0.03616786003112793 seconds
+decode step time: 0.036388397216796875 seconds
+decode step time: 0.03629350662231445 seconds
+decode step time: 0.03644418716430664 seconds
+decode step time: 0.036493778228759766 seconds
+decode step time: 0.03629183769226074 seconds
+INFO 07-10 06:09:32 [metrics.py:481] Avg prompt throughput: 6511.4 tokens/s, Avg generation throughput: 383.9 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 85 reqs, GPU KV cache usage: 99.0%, CPU KV cache usage: 0.0%.
+decode step time: 0.03605318069458008 seconds
+decode step time: 0.03603386878967285 seconds
+decode step time: 0.036012887954711914 seconds
+decode step time: 0.03588366508483887 seconds
+decode step time: 0.035819053649902344 seconds
+decode step time: 0.03584599494934082 seconds
+decode step time: 0.03589916229248047 seconds
+decode step time: 0.03603839874267578 seconds
+decode step time: 0.03603816032409668 seconds
+decode step time: 0.03586983680725098 seconds
+decode step time: 0.03615522384643555 seconds
+decode step time: 0.036272525787353516 seconds
+decode step time: 0.03637290000915527 seconds
+decode step time: 0.0363621711730957 seconds
+decode step time: 0.03614449501037598 seconds
+decode step time: 0.03647184371948242 seconds
+decode step time: 0.03652834892272949 seconds
+decode step time: 0.03632545471191406 seconds
+decode step time: 0.0364069938659668 seconds
+decode step time: 0.036565542221069336 seconds
+decode step time: 0.03682827949523926 seconds
+decode step time: 0.03657865524291992 seconds
+decode step time: 0.03677964210510254 seconds
+Tid 0 Request 84 finished.
+  Time in queue before prefill: 22498.4510 ms
+  Prefill time (approx): 360.2595 ms
+  TTFT: 22858.7105 ms
+  Latency: 46506.1097 ms
+  Total generated tokens: 256
+  Average TBT: 92.7349 ms/token
+  Throughput (tokens/s): 10.78
+Tid 0 Request 85 finished.
+  Time in queue before prefill: 22496.9389 ms
+  Prefill time (approx): 367.0702 ms
+  TTFT: 22864.0091 ms
+  Latency: 46142.6392 ms
+  Total generated tokens: 256
+  Average TBT: 91.2887 ms/token
+  Throughput (tokens/s): 10.95
+Tid 0 Request 86 finished.
+  Time in queue before prefill: 22501.9462 ms
+  Prefill time (approx): 362.8335 ms
+  TTFT: 22864.7797 ms
+  Latency: 45778.6825 ms
+  Total generated tokens: 256
+  Average TBT: 89.8584 ms/token
+  Throughput (tokens/s): 11.13
+Tid 0 Request 87 finished.
+  Time in queue before prefill: 22821.5463 ms
+  Prefill time (approx): 363.3618 ms
+  TTFT: 23184.9082 ms
+  Latency: 45733.6948 ms
+  Total generated tokens: 256
+  Average TBT: 88.4266 ms/token
+  Throughput (tokens/s): 11.31
+Tid 0 Request 88 finished.
+  Time in queue before prefill: 23145.2610 ms
+  Prefill time (approx): 362.6609 ms
+  TTFT: 23507.9219 ms
+  Latency: 45692.3127 ms
+  Total generated tokens: 256
+  Average TBT: 86.9976 ms/token
+  Throughput (tokens/s): 11.49
+Tid 0 Request 89 finished.
+  Time in queue before prefill: 22413.2390 ms
+  Prefill time (approx): 363.3094 ms
+  TTFT: 22776.5484 ms
+  Latency: 44595.9027 ms
+  Total generated tokens: 256
+  Average TBT: 85.5661 ms/token
+  Throughput (tokens/s): 11.69
+prefill step time: 0.3609931468963623 seconds
+prefill step time: 0.3671150207519531 seconds
+prefill step time: 0.3634176254272461 seconds
+prefill step time: 0.3621175289154053 seconds
+prefill step time: 0.36668992042541504 seconds
+prefill step time: 0.363513708114624 seconds
+decode step time: 0.040140628814697266 seconds
+decode step time: 0.037834882736206055 seconds
+decode step time: 0.03712058067321777 seconds
+decode step time: 0.0369267463684082 seconds
+decode step time: 0.03699374198913574 seconds
+decode step time: 0.03705120086669922 seconds
+decode step time: 0.03700828552246094 seconds
+decode step time: 0.036969900131225586 seconds
+decode step time: 0.03703808784484863 seconds
+decode step time: 0.03691816329956055 seconds
+decode step time: 0.0369572639465332 seconds
+Tid 0 Request 90 finished.
+  Time in queue before prefill: 22508.4622 ms
+  Prefill time (approx): 357.9938 ms
+  TTFT: 22866.4560 ms
+  Latency: 46525.5110 ms
+  Total generated tokens: 256
+  Average TBT: 92.7806 ms/token
+  Throughput (tokens/s): 10.78
+Tid 0 Request 91 finished.
+  Time in queue before prefill: 21773.5276 ms
+  Prefill time (approx): 362.7162 ms
+  TTFT: 22136.2438 ms
+  Latency: 45430.9852 ms
+  Total generated tokens: 256
+  Average TBT: 91.3519 ms/token
+  Throughput (tokens/s): 10.95
+Tid 0 Request 92 finished.
+  Time in queue before prefill: 21771.2231 ms
+  Prefill time (approx): 368.6883 ms
+  TTFT: 22139.9114 ms
+  Latency: 45064.4014 ms
+  Total generated tokens: 256
+  Average TBT: 89.9000 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 93 finished.
+  Time in queue before prefill: 21413.1947 ms
+  Prefill time (approx): 362.4506 ms
+  TTFT: 21775.6453 ms
+  Latency: 44336.6714 ms
+  Total generated tokens: 256
+  Average TBT: 88.4746 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 94 finished.
+  Time in queue before prefill: 21047.1189 ms
+  Prefill time (approx): 363.5466 ms
+  TTFT: 21410.6655 ms
+  Latency: 43607.1315 ms
+  Total generated tokens: 256
+  Average TBT: 87.0450 ms/token
+  Throughput (tokens/s): 11.49
+Tid 0 Request 95 finished.
+  Time in queue before prefill: 20320.5857 ms
+  Prefill time (approx): 363.8289 ms
+  TTFT: 20684.4146 ms
+  Latency: 42515.4862 ms
+  Total generated tokens: 256
+  Average TBT: 85.6120 ms/token
+  Throughput (tokens/s): 11.68
+Tid 0 Request 96 finished.
+  Time in queue before prefill: 19956.4376 ms
+  Prefill time (approx): 363.1947 ms
+  TTFT: 20319.6323 ms
+  Latency: 41785.8288 ms
+  Total generated tokens: 256
+  Average TBT: 84.1812 ms/token
+  Throughput (tokens/s): 11.88
+Tid 0 Request 97 finished.
+  Time in queue before prefill: 19957.5324 ms
+  Prefill time (approx): 363.6394 ms
+  TTFT: 20321.1718 ms
+  Latency: 41422.1315 ms
+  Total generated tokens: 256
+  Average TBT: 82.7489 ms/token
+  Throughput (tokens/s): 12.08
+Tid 0 Request 98 finished.
+  Time in queue before prefill: 19958.7939 ms
+  Prefill time (approx): 363.0879 ms
+  TTFT: 20321.8818 ms
+  Latency: 41058.0723 ms
+  Total generated tokens: 256
+  Average TBT: 81.3184 ms/token
+  Throughput (tokens/s): 12.30
+Tid 0 Request 99 finished.
+  Time in queue before prefill: 19959.3618 ms
+  Prefill time (approx): 362.8056 ms
+  TTFT: 20322.1674 ms
+  Latency: 40693.8457 ms
+  Total generated tokens: 256
+  Average TBT: 79.8889 ms/token
+  Throughput (tokens/s): 12.52
+Tid 0 Request 100 finished.
+  Time in queue before prefill: 19960.9787 ms
+  Prefill time (approx): 363.4410 ms
+  TTFT: 20324.4197 ms
+  Latency: 40329.9913 ms
+  Total generated tokens: 256
+  Average TBT: 78.4532 ms/token
+  Throughput (tokens/s): 12.75
+Tid 0 Request 101 finished.
+  Time in queue before prefill: 19961.7493 ms
+  Prefill time (approx): 363.0006 ms
+  TTFT: 20324.7499 ms
+  Latency: 39964.8454 ms
+  Total generated tokens: 256
+  Average TBT: 77.0200 ms/token
+  Throughput (tokens/s): 12.98
+Tid 0 Request 102 finished.
+  Time in queue before prefill: 20277.9706 ms
+  Prefill time (approx): 362.8716 ms
+  TTFT: 20640.8422 ms
+  Latency: 39916.8551 ms
+  Total generated tokens: 256
+  Average TBT: 75.5922 ms/token
+  Throughput (tokens/s): 13.23
+Tid 0 Request 103 finished.
+  Time in queue before prefill: 20366.5559 ms
+  Prefill time (approx): 364.7087 ms
+  TTFT: 20731.2646 ms
+  Latency: 39640.7270 ms
+  Total generated tokens: 256
+  Average TBT: 74.1548 ms/token
+  Throughput (tokens/s): 13.49
+Tid 0 Request 104 finished.
+  Time in queue before prefill: 20694.1376 ms
+  Prefill time (approx): 364.9337 ms
+  TTFT: 21059.0713 ms
+  Latency: 39601.5310 ms
+  Total generated tokens: 256
+  Average TBT: 72.7155 ms/token
+  Throughput (tokens/s): 13.75
+Tid 0 Request 105 finished.
+  Time in queue before prefill: 20828.1252 ms
+  Prefill time (approx): 364.1069 ms
+  TTFT: 21192.2321 ms
+  Latency: 39368.6898 ms
+  Total generated tokens: 256
+  Average TBT: 71.2802 ms/token
+  Throughput (tokens/s): 14.03
+Tid 0 Request 106 finished.
+  Time in queue before prefill: 19900.4335 ms
+  Prefill time (approx): 364.5194 ms
+  TTFT: 20264.9529 ms
+  Latency: 38074.5976 ms
+  Total generated tokens: 256
+  Average TBT: 69.8417 ms/token
+  Throughput (tokens/s): 14.32
+Tid 0 Request 107 finished.
+  Time in queue before prefill: 20228.0524 ms
+  Prefill time (approx): 362.7906 ms
+  TTFT: 20590.8430 ms
+  Latency: 38034.4419 ms
+  Total generated tokens: 256
+  Average TBT: 68.4063 ms/token
+  Throughput (tokens/s): 14.62
+Tid 0 Request 108 finished.
+  Time in queue before prefill: 20084.7900 ms
+  Prefill time (approx): 362.9909 ms
+  TTFT: 20447.7808 ms
+  Latency: 37526.0730 ms
+  Total generated tokens: 256
+  Average TBT: 66.9737 ms/token
+  Throughput (tokens/s): 14.93
+Tid 0 Request 109 finished.
+  Time in queue before prefill: 20409.7126 ms
+  Prefill time (approx): 363.5263 ms
+  TTFT: 20773.2389 ms
+  Latency: 37485.9560 ms
+  Total generated tokens: 256
+  Average TBT: 65.5401 ms/token
+  Throughput (tokens/s): 15.26
+Tid 0 Request 110 finished.
+  Time in queue before prefill: 20265.9070 ms
+  Prefill time (approx): 363.5049 ms
+  TTFT: 20629.4119 ms
+  Latency: 36976.7854 ms
+  Total generated tokens: 256
+  Average TBT: 64.1073 ms/token
+  Throughput (tokens/s): 15.60
+Tid 0 Request 111 finished.
+  Time in queue before prefill: 20433.0492 ms
+  Prefill time (approx): 362.7439 ms
+  TTFT: 20795.7931 ms
+  Latency: 36777.3228 ms
+  Total generated tokens: 256
+  Average TBT: 62.6727 ms/token
+  Throughput (tokens/s): 15.96
+prefill step time: 0.36014413833618164 seconds
+prefill step time: 0.3627750873565674 seconds
+prefill step time: 0.3643324375152588 seconds
+prefill step time: 0.3639101982116699 seconds
+INFO 07-10 06:09:37 [metrics.py:481] Avg prompt throughput: 8131.3 tokens/s, Avg generation throughput: 251.7 tokens/s, Running: 19 reqs, Swapped: 0 reqs, Pending: 87 reqs, GPU KV cache usage: 49.2%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3642864227294922 seconds
+prefill step time: 0.3648338317871094 seconds
+prefill step time: 0.3646097183227539 seconds
+prefill step time: 0.3640120029449463 seconds
+prefill step time: 0.36416125297546387 seconds
+prefill step time: 0.3625204563140869 seconds
+prefill step time: 0.36497950553894043 seconds
+prefill step time: 0.3641853332519531 seconds
+prefill step time: 0.36365389823913574 seconds
+prefill step time: 0.36429834365844727 seconds
+prefill step time: 0.36382508277893066 seconds
+prefill step time: 0.36460328102111816 seconds
+prefill step time: 0.36491894721984863 seconds
+prefill step time: 0.3654932975769043 seconds
+INFO 07-10 06:09:42 [metrics.py:481] Avg prompt throughput: 11182.3 tokens/s, Avg generation throughput: 2.7 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 87 reqs, GPU KV cache usage: 85.0%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36504340171813965 seconds
+prefill step time: 0.3636319637298584 seconds
+prefill step time: 0.3639671802520752 seconds
+prefill step time: 0.3638498783111572 seconds
+prefill step time: 0.3631734848022461 seconds
+decode step time: 0.039928436279296875 seconds
+decode step time: 0.0358889102935791 seconds
+decode step time: 0.03562045097351074 seconds
+decode step time: 0.035472869873046875 seconds
+decode step time: 0.035355567932128906 seconds
+decode step time: 0.035375356674194336 seconds
+decode step time: 0.03542590141296387 seconds
+decode step time: 0.03563833236694336 seconds
+decode step time: 0.035482168197631836 seconds
+decode step time: 0.035295963287353516 seconds
+decode step time: 0.03551435470581055 seconds
+decode step time: 0.0356595516204834 seconds
+decode step time: 0.03584623336791992 seconds
+decode step time: 0.03580188751220703 seconds
+decode step time: 0.035871028900146484 seconds
+decode step time: 0.03586173057556152 seconds
+decode step time: 0.03593873977661133 seconds
+decode step time: 0.03580832481384277 seconds
+decode step time: 0.035562753677368164 seconds
+decode step time: 0.035376787185668945 seconds
+decode step time: 0.03533506393432617 seconds
+decode step time: 0.03536081314086914 seconds
+decode step time: 0.035245656967163086 seconds
+decode step time: 0.03551673889160156 seconds
+decode step time: 0.03565406799316406 seconds
+decode step time: 0.03575944900512695 seconds
+decode step time: 0.03596210479736328 seconds
+decode step time: 0.035845279693603516 seconds
+decode step time: 0.035706281661987305 seconds
+decode step time: 0.03572201728820801 seconds
+decode step time: 0.03559374809265137 seconds
+decode step time: 0.035291194915771484 seconds
+decode step time: 0.03536629676818848 seconds
+decode step time: 0.03545331954956055 seconds
+decode step time: 0.03557729721069336 seconds
+decode step time: 0.03564023971557617 seconds
+decode step time: 0.03566765785217285 seconds
+decode step time: 0.035843849182128906 seconds
+decode step time: 0.03607034683227539 seconds
+decode step time: 0.03587460517883301 seconds
+decode step time: 0.03598594665527344 seconds
+decode step time: 0.035988807678222656 seconds
+decode step time: 0.03589653968811035 seconds
+decode step time: 0.03547859191894531 seconds
+decode step time: 0.03560590744018555 seconds
+decode step time: 0.03557276725769043 seconds
+decode step time: 0.03572535514831543 seconds
+decode step time: 0.03561735153198242 seconds
+decode step time: 0.03562569618225098 seconds
+decode step time: 0.0357060432434082 seconds
+decode step time: 0.03587174415588379 seconds
+decode step time: 0.035971641540527344 seconds
+decode step time: 0.036095380783081055 seconds
+decode step time: 0.03611350059509277 seconds
+decode step time: 0.03588414192199707 seconds
+decode step time: 0.035750627517700195 seconds
+decode step time: 0.03556227684020996 seconds
+decode step time: 0.035565853118896484 seconds
+decode step time: 0.03555870056152344 seconds
+decode step time: 0.035672903060913086 seconds
+decode step time: 0.03555178642272949 seconds
+decode step time: 0.035532236099243164 seconds
+decode step time: 0.035527706146240234 seconds
+decode step time: 0.035675048828125 seconds
+decode step time: 0.036028146743774414 seconds
+decode step time: 0.0359501838684082 seconds
+decode step time: 0.0359647274017334 seconds
+decode step time: 0.03608560562133789 seconds
+decode step time: 0.036147356033325195 seconds
+decode step time: 0.036199092864990234 seconds
+decode step time: 0.03591752052307129 seconds
+decode step time: 0.0360264778137207 seconds
+decode step time: 0.03569221496582031 seconds
+decode step time: 0.0356292724609375 seconds
+decode step time: 0.035485029220581055 seconds
+decode step time: 0.03560137748718262 seconds
+decode step time: 0.0355684757232666 seconds
+decode step time: 0.03587222099304199 seconds
+Tid 0 Request 112 finished.
+  Time in queue before prefill: 20348.6722 ms
+  Prefill time (approx): 365.2990 ms
+  TTFT: 20713.9711 ms
+  Latency: 47820.8902 ms
+  Total generated tokens: 256
+  Average TBT: 106.3016 ms/token
+  Throughput (tokens/s): 9.41
+decode step time: 0.03551316261291504 seconds
+decode step time: 0.03556323051452637 seconds
+decode step time: 0.0355219841003418 seconds
+INFO 07-10 06:09:47 [metrics.py:481] Avg prompt throughput: 4079.4 tokens/s, Avg generation throughput: 613.5 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 96 reqs, GPU KV cache usage: 97.2%, CPU KV cache usage: 0.0%.
+decode step time: 0.03548073768615723 seconds
+decode step time: 0.03579092025756836 seconds
+decode step time: 0.035732269287109375 seconds
+decode step time: 0.035913705825805664 seconds
+decode step time: 0.03542900085449219 seconds
+decode step time: 0.035347700119018555 seconds
+decode step time: 0.03515768051147461 seconds
+decode step time: 0.03547072410583496 seconds
+decode step time: 0.03546786308288574 seconds
+decode step time: 0.03590655326843262 seconds
+decode step time: 0.035677433013916016 seconds
+decode step time: 0.0354766845703125 seconds
+decode step time: 0.035475730895996094 seconds
+decode step time: 0.035463571548461914 seconds
+decode step time: 0.03576397895812988 seconds
+decode step time: 0.03578782081604004 seconds
+decode step time: 0.03596925735473633 seconds
+decode step time: 0.03590106964111328 seconds
+decode step time: 0.036083221435546875 seconds
+decode step time: 0.03603529930114746 seconds
+decode step time: 0.0357365608215332 seconds
+decode step time: 0.03553009033203125 seconds
+decode step time: 0.035262107849121094 seconds
+decode step time: 0.03529691696166992 seconds
+decode step time: 0.03499436378479004 seconds
+decode step time: 0.03538084030151367 seconds
+decode step time: 0.03546595573425293 seconds
+decode step time: 0.035617828369140625 seconds
+decode step time: 0.03556370735168457 seconds
+decode step time: 0.03572559356689453 seconds
+decode step time: 0.03561711311340332 seconds
+decode step time: 0.03579401969909668 seconds
+decode step time: 0.03606009483337402 seconds
+decode step time: 0.03579998016357422 seconds
+decode step time: 0.035531044006347656 seconds
+decode step time: 0.03533363342285156 seconds
+decode step time: 0.035160064697265625 seconds
+decode step time: 0.03524446487426758 seconds
+decode step time: 0.03542160987854004 seconds
+decode step time: 0.03561258316040039 seconds
+decode step time: 0.0358273983001709 seconds
+decode step time: 0.03582048416137695 seconds
+decode step time: 0.03575634956359863 seconds
+decode step time: 0.035552978515625 seconds
+decode step time: 0.035891056060791016 seconds
+decode step time: 0.035800933837890625 seconds
+decode step time: 0.03550910949707031 seconds
+decode step time: 0.03536486625671387 seconds
+decode step time: 0.035379886627197266 seconds
+decode step time: 0.03538155555725098 seconds
+decode step time: 0.035430908203125 seconds
+decode step time: 0.03559064865112305 seconds
+decode step time: 0.03569626808166504 seconds
+decode step time: 0.03584027290344238 seconds
+decode step time: 0.03572964668273926 seconds
+decode step time: 0.03589510917663574 seconds
+decode step time: 0.03563332557678223 seconds
+decode step time: 0.03575563430786133 seconds
+decode step time: 0.03572344779968262 seconds
+decode step time: 0.03549766540527344 seconds
+decode step time: 0.03535747528076172 seconds
+decode step time: 0.035558223724365234 seconds
+decode step time: 0.03544902801513672 seconds
+decode step time: 0.03545188903808594 seconds
+decode step time: 0.03568768501281738 seconds
+decode step time: 0.035768747329711914 seconds
+decode step time: 0.03601551055908203 seconds
+decode step time: 0.036055564880371094 seconds
+decode step time: 0.03588271141052246 seconds
+decode step time: 0.03576064109802246 seconds
+decode step time: 0.03577876091003418 seconds
+decode step time: 0.035732269287109375 seconds
+decode step time: 0.035532474517822266 seconds
+decode step time: 0.03551316261291504 seconds
+decode step time: 0.03561663627624512 seconds
+decode step time: 0.03555107116699219 seconds
+decode step time: 0.03551054000854492 seconds
+decode step time: 0.03554964065551758 seconds
+decode step time: 0.035660743713378906 seconds
+decode step time: 0.03600311279296875 seconds
+decode step time: 0.03590106964111328 seconds
+decode step time: 0.036049604415893555 seconds
+decode step time: 0.03580307960510254 seconds
+decode step time: 0.03612470626831055 seconds
+decode step time: 0.036054372787475586 seconds
+decode step time: 0.035938262939453125 seconds
+decode step time: 0.03573274612426758 seconds
+decode step time: 0.03555583953857422 seconds
+Tid 0 Request 113 finished.
+  Time in queue before prefill: 27680.3946 ms
+  Prefill time (approx): 365.9165 ms
+  TTFT: 28046.3111 ms
+  Latency: 51345.0184 ms
+  Total generated tokens: 256
+  Average TBT: 91.3675 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 114 finished.
+  Time in queue before prefill: 27774.2891 ms
+  Prefill time (approx): 364.4588 ms
+  TTFT: 28138.7479 ms
+  Latency: 51071.3596 ms
+  Total generated tokens: 256
+  Average TBT: 89.9318 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 115 finished.
+  Time in queue before prefill: 28102.3080 ms
+  Prefill time (approx): 362.9863 ms
+  TTFT: 28465.2944 ms
+  Latency: 51032.2623 ms
+  Total generated tokens: 256
+  Average TBT: 88.4979 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 116 finished.
+  Time in queue before prefill: 28272.4411 ms
+  Prefill time (approx): 365.5159 ms
+  TTFT: 28637.9571 ms
+  Latency: 50837.6184 ms
+  Total generated tokens: 256
+  Average TBT: 87.0575 ms/token
+  Throughput (tokens/s): 11.49
+Tid 0 Request 117 finished.
+  Time in queue before prefill: 28327.6145 ms
+  Prefill time (approx): 364.2445 ms
+  TTFT: 28691.8590 ms
+  Latency: 50524.6155 ms
+  Total generated tokens: 256
+  Average TBT: 85.6187 ms/token
+  Throughput (tokens/s): 11.68
+Tid 0 Request 118 finished.
+  Time in queue before prefill: 28538.2957 ms
+  Prefill time (approx): 363.7781 ms
+  TTFT: 28902.0739 ms
+  Latency: 50369.2365 ms
+  Total generated tokens: 256
+  Average TBT: 84.1850 ms/token
+  Throughput (tokens/s): 11.88
+Tid 0 Request 119 finished.
+  Time in queue before prefill: 28825.3038 ms
+  Prefill time (approx): 363.8248 ms
+  TTFT: 29189.1286 ms
+  Latency: 50290.6420 ms
+  Total generated tokens: 256
+  Average TBT: 82.7510 ms/token
+  Throughput (tokens/s): 12.08
+prefill step time: 0.3603181838989258 seconds
+prefill step time: 0.3677525520324707 seconds
+prefill step time: 0.3650233745574951 seconds
+prefill step time: 0.36383628845214844 seconds
+prefill step time: 0.36446309089660645 seconds
+INFO 07-10 06:09:52 [metrics.py:481] Avg prompt throughput: 3879.0 tokens/s, Avg generation throughput: 617.6 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 101 reqs, GPU KV cache usage: 92.9%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3644740581512451 seconds
+prefill step time: 0.36482810974121094 seconds
+decode step time: 0.04051494598388672 seconds
+decode step time: 0.03762006759643555 seconds
+decode step time: 0.03657126426696777 seconds
+decode step time: 0.03675484657287598 seconds
+decode step time: 0.03675436973571777 seconds
+decode step time: 0.036895036697387695 seconds
+decode step time: 0.03692173957824707 seconds
+decode step time: 0.03704237937927246 seconds
+decode step time: 0.03689002990722656 seconds
+decode step time: 0.036609649658203125 seconds
+decode step time: 0.03688764572143555 seconds
+decode step time: 0.03679203987121582 seconds
+decode step time: 0.03673553466796875 seconds
+decode step time: 0.036994218826293945 seconds
+decode step time: 0.03681349754333496 seconds
+decode step time: 0.03716731071472168 seconds
+decode step time: 0.03703165054321289 seconds
+decode step time: 0.03691220283508301 seconds
+decode step time: 0.036695241928100586 seconds
+decode step time: 0.03714919090270996 seconds
+decode step time: 0.03708314895629883 seconds
+decode step time: 0.03683638572692871 seconds
+decode step time: 0.03683304786682129 seconds
+decode step time: 0.03664088249206543 seconds
+decode step time: 0.036958932876586914 seconds
+decode step time: 0.037294864654541016 seconds
+decode step time: 0.037070512771606445 seconds
+decode step time: 0.036818504333496094 seconds
+decode step time: 0.03676867485046387 seconds
+decode step time: 0.03713178634643555 seconds
+decode step time: 0.03717994689941406 seconds
+decode step time: 0.037241458892822266 seconds
+decode step time: 0.03728985786437988 seconds
+decode step time: 0.03687167167663574 seconds
+decode step time: 0.03698539733886719 seconds
+decode step time: 0.037111759185791016 seconds
+decode step time: 0.036984920501708984 seconds
+decode step time: 0.036955833435058594 seconds
+decode step time: 0.037049293518066406 seconds
+decode step time: 0.03708243370056152 seconds
+Tid 0 Request 120 finished.
+  Time in queue before prefill: 30614.6226 ms
+  Prefill time (approx): 359.7198 ms
+  TTFT: 30974.3423 ms
+  Latency: 54285.6088 ms
+  Total generated tokens: 256
+  Average TBT: 91.4167 ms/token
+  Throughput (tokens/s): 10.94
+prefill step time: 0.3602018356323242 seconds
+decode step time: 0.03918933868408203 seconds
+decode step time: 0.03722381591796875 seconds
+decode step time: 0.03630828857421875 seconds
+decode step time: 0.03655052185058594 seconds
+decode step time: 0.03638052940368652 seconds
+decode step time: 0.03626084327697754 seconds
+decode step time: 0.03691887855529785 seconds
+decode step time: 0.036448001861572266 seconds
+decode step time: 0.03608965873718262 seconds
+decode step time: 0.03596639633178711 seconds
+decode step time: 0.03601813316345215 seconds
+decode step time: 0.03615689277648926 seconds
+decode step time: 0.03605532646179199 seconds
+decode step time: 0.0359954833984375 seconds
+decode step time: 0.03581380844116211 seconds
+decode step time: 0.03594255447387695 seconds
+decode step time: 0.035845279693603516 seconds
+decode step time: 0.03611254692077637 seconds
+decode step time: 0.03627276420593262 seconds
+decode step time: 0.03638315200805664 seconds
+decode step time: 0.03596663475036621 seconds
+decode step time: 0.036054134368896484 seconds
+decode step time: 0.03624391555786133 seconds
+decode step time: 0.03664064407348633 seconds
+decode step time: 0.03691458702087402 seconds
+decode step time: 0.0363154411315918 seconds
+decode step time: 0.036583662033081055 seconds
+decode step time: 0.036392927169799805 seconds
+decode step time: 0.03647208213806152 seconds
+decode step time: 0.03661322593688965 seconds
+decode step time: 0.036402225494384766 seconds
+decode step time: 0.03657341003417969 seconds
+decode step time: 0.035991668701171875 seconds
+decode step time: 0.036272287368774414 seconds
+decode step time: 0.036428213119506836 seconds
+Tid 0 Request 121 finished.
+  Time in queue before prefill: 32262.6958 ms
+  Prefill time (approx): 361.0630 ms
+  TTFT: 32623.7588 ms
+  Latency: 55928.0019 ms
+  Total generated tokens: 256
+  Average TBT: 91.3892 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 122 finished.
+  Time in queue before prefill: 32585.5148 ms
+  Prefill time (approx): 367.1799 ms
+  TTFT: 32952.6947 ms
+  Latency: 55888.7236 ms
+  Total generated tokens: 256
+  Average TBT: 89.9452 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 123 finished.
+  Time in queue before prefill: 32134.1088 ms
+  Prefill time (approx): 363.4832 ms
+  TTFT: 32497.5920 ms
+  Latency: 55069.0839 ms
+  Total generated tokens: 256
+  Average TBT: 88.5157 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 124 finished.
+  Time in queue before prefill: 31989.9261 ms
+  Prefill time (approx): 362.1905 ms
+  TTFT: 32352.1166 ms
+  Latency: 54559.6101 ms
+  Total generated tokens: 256
+  Average TBT: 87.0882 ms/token
+  Throughput (tokens/s): 11.48
+Tid 0 Request 125 finished.
+  Time in queue before prefill: 32078.3479 ms
+  Prefill time (approx): 366.7569 ms
+  TTFT: 32445.1048 ms
+  Latency: 54284.0803 ms
+  Total generated tokens: 256
+  Average TBT: 85.6430 ms/token
+  Throughput (tokens/s): 11.68
+Tid 0 Request 126 finished.
+  Time in queue before prefill: 31770.8657 ms
+  Prefill time (approx): 363.5795 ms
+  TTFT: 32134.4452 ms
+  Latency: 53608.0849 ms
+  Total generated tokens: 256
+  Average TBT: 84.2104 ms/token
+  Throughput (tokens/s): 11.88
+prefill step time: 0.36061549186706543 seconds
+prefill step time: 0.36844706535339355 seconds
+prefill step time: 0.3647944927215576 seconds
+INFO 07-10 06:09:57 [metrics.py:481] Avg prompt throughput: 4707.7 tokens/s, Avg generation throughput: 532.7 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 106 reqs, GPU KV cache usage: 91.0%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36399197578430176 seconds
+prefill step time: 0.3639824390411377 seconds
+prefill step time: 0.3648660182952881 seconds
+decode step time: 0.040228843688964844 seconds
+decode step time: 0.037590742111206055 seconds
+decode step time: 0.037036895751953125 seconds
+decode step time: 0.03691577911376953 seconds
+decode step time: 0.036933183670043945 seconds
+decode step time: 0.03687930107116699 seconds
+decode step time: 0.036963462829589844 seconds
+decode step time: 0.037138938903808594 seconds
+decode step time: 0.036943674087524414 seconds
+decode step time: 0.03685641288757324 seconds
+decode step time: 0.03691840171813965 seconds
+Tid 0 Request 127 finished.
+  Time in queue before prefill: 32236.1014 ms
+  Prefill time (approx): 360.2078 ms
+  TTFT: 32596.3092 ms
+  Latency: 55901.4373 ms
+  Total generated tokens: 256
+  Average TBT: 91.3927 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 128 finished.
+  Time in queue before prefill: 32232.2111 ms
+  Prefill time (approx): 362.8333 ms
+  TTFT: 32595.0444 ms
+  Latency: 55535.7471 ms
+  Total generated tokens: 256
+  Average TBT: 89.9635 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 129 finished.
+  Time in queue before prefill: 32232.4717 ms
+  Prefill time (approx): 364.3923 ms
+  TTFT: 32596.8640 ms
+  Latency: 55171.5152 ms
+  Total generated tokens: 256
+  Average TBT: 88.5280 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 130 finished.
+  Time in queue before prefill: 32235.0037 ms
+  Prefill time (approx): 363.9703 ms
+  TTFT: 32598.9740 ms
+  Latency: 54807.9665 ms
+  Total generated tokens: 256
+  Average TBT: 87.0941 ms/token
+  Throughput (tokens/s): 11.48
+Tid 0 Request 131 finished.
+  Time in queue before prefill: 32236.7716 ms
+  Prefill time (approx): 364.3472 ms
+  TTFT: 32601.1188 ms
+  Latency: 54443.8834 ms
+  Total generated tokens: 256
+  Average TBT: 85.6579 ms/token
+  Throughput (tokens/s): 11.67
+Tid 0 Request 132 finished.
+  Time in queue before prefill: 32237.7353 ms
+  Prefill time (approx): 364.8942 ms
+  TTFT: 32602.6294 ms
+  Latency: 54078.9175 ms
+  Total generated tokens: 256
+  Average TBT: 84.2207 ms/token
+  Throughput (tokens/s): 11.87
+Tid 0 Request 133 finished.
+  Time in queue before prefill: 32238.4024 ms
+  Prefill time (approx): 364.6717 ms
+  TTFT: 32603.0741 ms
+  Latency: 53713.0768 ms
+  Total generated tokens: 256
+  Average TBT: 82.7843 ms/token
+  Throughput (tokens/s): 12.08
+Tid 0 Request 134 finished.
+  Time in queue before prefill: 32558.2130 ms
+  Prefill time (approx): 364.0740 ms
+  TTFT: 32922.2870 ms
+  Latency: 53666.4374 ms
+  Total generated tokens: 256
+  Average TBT: 81.3496 ms/token
+  Throughput (tokens/s): 12.29
+Tid 0 Request 135 finished.
+  Time in queue before prefill: 32765.8036 ms
+  Prefill time (approx): 364.2223 ms
+  TTFT: 33130.0259 ms
+  Latency: 53508.2412 ms
+  Total generated tokens: 256
+  Average TBT: 79.9146 ms/token
+  Throughput (tokens/s): 12.51
+Tid 0 Request 136 finished.
+  Time in queue before prefill: 33014.5149 ms
+  Prefill time (approx): 362.5970 ms
+  TTFT: 33377.1119 ms
+  Latency: 53389.9744 ms
+  Total generated tokens: 256
+  Average TBT: 78.4818 ms/token
+  Throughput (tokens/s): 12.74
+Tid 0 Request 137 finished.
+  Time in queue before prefill: 33299.4580 ms
+  Prefill time (approx): 365.0410 ms
+  TTFT: 33664.4990 ms
+  Latency: 53310.5943 ms
+  Total generated tokens: 256
+  Average TBT: 77.0435 ms/token
+  Throughput (tokens/s): 12.98
+Tid 0 Request 138 finished.
+  Time in queue before prefill: 33228.4682 ms
+  Prefill time (approx): 364.2540 ms
+  TTFT: 33592.7222 ms
+  Latency: 52872.8585 ms
+  Total generated tokens: 256
+  Average TBT: 75.6084 ms/token
+  Throughput (tokens/s): 13.23
+Tid 0 Request 139 finished.
+  Time in queue before prefill: 33042.9299 ms
+  Prefill time (approx): 363.7295 ms
+  TTFT: 33406.6594 ms
+  Latency: 52321.1324 ms
+  Total generated tokens: 256
+  Average TBT: 74.1744 ms/token
+  Throughput (tokens/s): 13.48
+Tid 0 Request 140 finished.
+  Time in queue before prefill: 33368.2110 ms
+  Prefill time (approx): 364.3777 ms
+  TTFT: 33732.5888 ms
+  Latency: 52280.9057 ms
+  Total generated tokens: 256
+  Average TBT: 72.7385 ms/token
+  Throughput (tokens/s): 13.75
+Tid 0 Request 141 finished.
+  Time in queue before prefill: 33047.6234 ms
+  Prefill time (approx): 363.9326 ms
+  TTFT: 33411.5560 ms
+  Latency: 51593.2744 ms
+  Total generated tokens: 256
+  Average TBT: 71.3009 ms/token
+  Throughput (tokens/s): 14.03
+Tid 0 Request 142 finished.
+  Time in queue before prefill: 33090.2526 ms
+  Prefill time (approx): 364.6736 ms
+  TTFT: 33454.9263 ms
+  Latency: 51270.1578 ms
+  Total generated tokens: 256
+  Average TBT: 69.8637 ms/token
+  Throughput (tokens/s): 14.31
+Tid 0 Request 143 finished.
+  Time in queue before prefill: 32728.5204 ms
+  Prefill time (approx): 364.9909 ms
+  TTFT: 33093.5113 ms
+  Latency: 50541.9378 ms
+  Total generated tokens: 256
+  Average TBT: 68.4252 ms/token
+  Throughput (tokens/s): 14.61
+Tid 0 Request 144 finished.
+  Time in queue before prefill: 33053.9262 ms
+  Prefill time (approx): 365.5612 ms
+  TTFT: 33419.4875 ms
+  Latency: 50500.5326 ms
+  Total generated tokens: 256
+  Average TBT: 66.9845 ms/token
+  Throughput (tokens/s): 14.93
+Tid 0 Request 145 finished.
+  Time in queue before prefill: 32896.5833 ms
+  Prefill time (approx): 365.1130 ms
+  TTFT: 33261.6963 ms
+  Latency: 49975.5652 ms
+  Total generated tokens: 256
+  Average TBT: 65.5446 ms/token
+  Throughput (tokens/s): 15.26
+Tid 0 Request 146 finished.
+  Time in queue before prefill: 32894.6064 ms
+  Prefill time (approx): 363.6975 ms
+  TTFT: 33258.3039 ms
+  Latency: 49606.6883 ms
+  Total generated tokens: 256
+  Average TBT: 64.1113 ms/token
+  Throughput (tokens/s): 15.60
+Tid 0 Request 147 finished.
+  Time in queue before prefill: 32897.0923 ms
+  Prefill time (approx): 364.0912 ms
+  TTFT: 33261.1835 ms
+  Latency: 49242.0416 ms
+  Total generated tokens: 256
+  Average TBT: 62.6700 ms/token
+  Throughput (tokens/s): 15.96
+Tid 0 Request 148 finished.
+  Time in queue before prefill: 32898.7353 ms
+  Prefill time (approx): 363.9390 ms
+  TTFT: 33262.6743 ms
+  Latency: 48876.9331 ms
+  Total generated tokens: 256
+  Average TBT: 61.2324 ms/token
+  Throughput (tokens/s): 16.33
+Tid 0 Request 149 finished.
+  Time in queue before prefill: 32900.1045 ms
+  Prefill time (approx): 363.2433 ms
+  TTFT: 33263.3479 ms
+  Latency: 48512.5375 ms
+  Total generated tokens: 256
+  Average TBT: 59.8007 ms/token
+  Throughput (tokens/s): 16.72
+prefill step time: 0.3597118854522705 seconds
+prefill step time: 0.36366891860961914 seconds
+prefill step time: 0.36767148971557617 seconds
+prefill step time: 0.36417579650878906 seconds
+prefill step time: 0.36542320251464844 seconds
+prefill step time: 0.36440062522888184 seconds
+prefill step time: 0.36501646041870117 seconds
+prefill step time: 0.36380743980407715 seconds
+prefill step time: 0.3644731044769287 seconds
+prefill step time: 0.36502885818481445 seconds
+INFO 07-10 06:10:03 [metrics.py:481] Avg prompt throughput: 10188.2 tokens/s, Avg generation throughput: 80.4 tokens/s, Running: 24 reqs, Swapped: 0 reqs, Pending: 105 reqs, GPU KV cache usage: 61.9%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36873435974121094 seconds
+prefill step time: 0.3649790287017822 seconds
+prefill step time: 0.3632974624633789 seconds
+prefill step time: 0.36542797088623047 seconds
+prefill step time: 0.3661496639251709 seconds
+prefill step time: 0.3659098148345947 seconds
+prefill step time: 0.3642995357513428 seconds
+prefill step time: 0.3638136386871338 seconds
+prefill step time: 0.3647000789642334 seconds
+prefill step time: 0.3647129535675049 seconds
+prefill step time: 0.3649134635925293 seconds
+prefill step time: 0.36435747146606445 seconds
+prefill step time: 0.36554932594299316 seconds
+prefill step time: 0.3637850284576416 seconds
+INFO 07-10 06:10:08 [metrics.py:481] Avg prompt throughput: 11153.3 tokens/s, Avg generation throughput: 2.7 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 105 reqs, GPU KV cache usage: 97.7%, CPU KV cache usage: 0.0%.
+decode step time: 0.039978981018066406 seconds
+decode step time: 0.035825490951538086 seconds
+decode step time: 0.03553628921508789 seconds
+decode step time: 0.03549981117248535 seconds
+decode step time: 0.03537869453430176 seconds
+decode step time: 0.035216331481933594 seconds
+decode step time: 0.03525495529174805 seconds
+decode step time: 0.035372018814086914 seconds
+decode step time: 0.03555703163146973 seconds
+decode step time: 0.03559756278991699 seconds
+decode step time: 0.03560304641723633 seconds
+decode step time: 0.03567242622375488 seconds
+decode step time: 0.03586411476135254 seconds
+decode step time: 0.03585028648376465 seconds
+decode step time: 0.03585457801818848 seconds
+decode step time: 0.03558850288391113 seconds
+decode step time: 0.03547358512878418 seconds
+decode step time: 0.03531622886657715 seconds
+decode step time: 0.03535866737365723 seconds
+decode step time: 0.035445213317871094 seconds
+decode step time: 0.03557157516479492 seconds
+decode step time: 0.035466670989990234 seconds
+decode step time: 0.03557252883911133 seconds
+decode step time: 0.03570699691772461 seconds
+decode step time: 0.03584575653076172 seconds
+decode step time: 0.03582119941711426 seconds
+decode step time: 0.03598141670227051 seconds
+decode step time: 0.03574991226196289 seconds
+decode step time: 0.0367279052734375 seconds
+decode step time: 0.03622913360595703 seconds
+decode step time: 0.03535723686218262 seconds
+decode step time: 0.03540492057800293 seconds
+decode step time: 0.03543567657470703 seconds
+decode step time: 0.03541994094848633 seconds
+decode step time: 0.035579681396484375 seconds
+decode step time: 0.03565502166748047 seconds
+decode step time: 0.0357511043548584 seconds
+decode step time: 0.03577446937561035 seconds
+decode step time: 0.035965919494628906 seconds
+decode step time: 0.035979270935058594 seconds
+decode step time: 0.03590750694274902 seconds
+decode step time: 0.035866498947143555 seconds
+decode step time: 0.03603816032409668 seconds
+decode step time: 0.036150455474853516 seconds
+decode step time: 0.03594565391540527 seconds
+decode step time: 0.03569817543029785 seconds
+decode step time: 0.03548717498779297 seconds
+decode step time: 0.0354924201965332 seconds
+decode step time: 0.035444021224975586 seconds
+decode step time: 0.03542208671569824 seconds
+decode step time: 0.03561139106750488 seconds
+decode step time: 0.03569293022155762 seconds
+decode step time: 0.035620689392089844 seconds
+decode step time: 0.03582572937011719 seconds
+decode step time: 0.035860538482666016 seconds
+decode step time: 0.036092281341552734 seconds
+decode step time: 0.035915374755859375 seconds
+decode step time: 0.03595447540283203 seconds
+decode step time: 0.03589129447937012 seconds
+decode step time: 0.035784006118774414 seconds
+decode step time: 0.0356142520904541 seconds
+decode step time: 0.035498619079589844 seconds
+decode step time: 0.03548908233642578 seconds
+decode step time: 0.03545379638671875 seconds
+decode step time: 0.03548884391784668 seconds
+decode step time: 0.03559112548828125 seconds
+decode step time: 0.03568696975708008 seconds
+decode step time: 0.03573870658874512 seconds
+decode step time: 0.03579998016357422 seconds
+decode step time: 0.03587055206298828 seconds
+decode step time: 0.03600430488586426 seconds
+decode step time: 0.03596806526184082 seconds
+decode step time: 0.035989999771118164 seconds
+decode step time: 0.03611922264099121 seconds
+decode step time: 0.03612065315246582 seconds
+decode step time: 0.036270856857299805 seconds
+decode step time: 0.035904884338378906 seconds
+decode step time: 0.03593850135803223 seconds
+decode step time: 0.03572559356689453 seconds
+decode step time: 0.035622358322143555 seconds
+decode step time: 0.035590410232543945 seconds
+decode step time: 0.035616397857666016 seconds
+decode step time: 0.035649776458740234 seconds
+decode step time: 0.03575849533081055 seconds
+decode step time: 0.035742998123168945 seconds
+decode step time: 0.03564262390136719 seconds
+decode step time: 0.03585982322692871 seconds
+decode step time: 0.03585982322692871 seconds
+decode step time: 0.036066532135009766 seconds
+decode step time: 0.03598523139953613 seconds
+decode step time: 0.03618764877319336 seconds
+decode step time: 0.03614473342895508 seconds
+decode step time: 0.036095619201660156 seconds
+decode step time: 0.036121368408203125 seconds
+decode step time: 0.035924434661865234 seconds
+decode step time: 0.03576493263244629 seconds
+decode step time: 0.035341739654541016 seconds
+decode step time: 0.03522968292236328 seconds
+decode step time: 0.03520512580871582 seconds
+decode step time: 0.03524899482727051 seconds
+decode step time: 0.03522610664367676 seconds
+decode step time: 0.03550386428833008 seconds
+decode step time: 0.035477638244628906 seconds
+decode step time: 0.03558778762817383 seconds
+decode step time: 0.03574061393737793 seconds
+decode step time: 0.035771846771240234 seconds
+decode step time: 0.03579878807067871 seconds
+decode step time: 0.03582620620727539 seconds
+decode step time: 0.03572845458984375 seconds
+decode step time: 0.03545713424682617 seconds
+decode step time: 0.03533005714416504 seconds
+decode step time: 0.035260677337646484 seconds
+decode step time: 0.035378217697143555 seconds
+decode step time: 0.035395145416259766 seconds
+decode step time: 0.03542518615722656 seconds
+decode step time: 0.03544187545776367 seconds
+decode step time: 0.03563189506530762 seconds
+decode step time: 0.03571438789367676 seconds
+decode step time: 0.035744428634643555 seconds
+decode step time: 0.03592419624328613 seconds
+decode step time: 0.03570747375488281 seconds
+decode step time: 0.0356297492980957 seconds
+decode step time: 0.03551006317138672 seconds
+decode step time: 0.03542327880859375 seconds
+decode step time: 0.03544735908508301 seconds
+decode step time: 0.03538322448730469 seconds
+decode step time: 0.035462379455566406 seconds
+decode step time: 0.03555727005004883 seconds
+INFO 07-10 06:10:13 [metrics.py:481] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 961.6 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 118 reqs, GPU KV cache usage: 98.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.035619497299194336 seconds
+decode step time: 0.035799264907836914 seconds
+decode step time: 0.0356593132019043 seconds
+decode step time: 0.03573107719421387 seconds
+decode step time: 0.035897016525268555 seconds
+decode step time: 0.035948991775512695 seconds
+decode step time: 0.03600764274597168 seconds
+decode step time: 0.03574109077453613 seconds
+decode step time: 0.03563332557678223 seconds
+decode step time: 0.035550594329833984 seconds
+decode step time: 0.03553056716918945 seconds
+decode step time: 0.03534960746765137 seconds
+decode step time: 0.03533816337585449 seconds
+decode step time: 0.03547334671020508 seconds
+decode step time: 0.035573482513427734 seconds
+decode step time: 0.03565716743469238 seconds
+decode step time: 0.035742998123168945 seconds
+decode step time: 0.03576540946960449 seconds
+decode step time: 0.03594207763671875 seconds
+decode step time: 0.0359189510345459 seconds
+decode step time: 0.03603768348693848 seconds
+decode step time: 0.03610682487487793 seconds
+decode step time: 0.03595423698425293 seconds
+decode step time: 0.035880327224731445 seconds
+decode step time: 0.03574633598327637 seconds
+decode step time: 0.03554344177246094 seconds
+decode step time: 0.03536105155944824 seconds
+decode step time: 0.03546285629272461 seconds
+decode step time: 0.035494327545166016 seconds
+decode step time: 0.03561830520629883 seconds
+decode step time: 0.03559541702270508 seconds
+decode step time: 0.03563737869262695 seconds
+decode step time: 0.0357203483581543 seconds
+decode step time: 0.03583574295043945 seconds
+decode step time: 0.03595733642578125 seconds
+decode step time: 0.03615880012512207 seconds
+decode step time: 0.036159515380859375 seconds
+decode step time: 0.03594851493835449 seconds
+decode step time: 0.0359499454498291 seconds
+decode step time: 0.035951852798461914 seconds
+decode step time: 0.03585624694824219 seconds
+Tid 0 Request 150 finished.
+  Time in queue before prefill: 38720.6120 ms
+  Prefill time (approx): 360.3868 ms
+  TTFT: 39080.9989 ms
+  Latency: 62776.7391 ms
+  Total generated tokens: 256
+  Average TBT: 92.9245 ms/token
+  Throughput (tokens/s): 10.76
+Tid 0 Request 151 finished.
+  Time in queue before prefill: 38718.4942 ms
+  Prefill time (approx): 367.8155 ms
+  TTFT: 39086.3097 ms
+  Latency: 62412.4253 ms
+  Total generated tokens: 256
+  Average TBT: 91.4750 ms/token
+  Throughput (tokens/s): 10.93
+Tid 0 Request 152 finished.
+  Time in queue before prefill: 37989.6357 ms
+  Prefill time (approx): 365.0854 ms
+  TTFT: 38354.7211 ms
+  Latency: 61314.1296 ms
+  Total generated tokens: 256
+  Average TBT: 90.0369 ms/token
+  Throughput (tokens/s): 11.11
+Tid 0 Request 153 finished.
+  Time in queue before prefill: 37990.9298 ms
+  Prefill time (approx): 363.8992 ms
+  TTFT: 38354.8291 ms
+  Latency: 60948.6926 ms
+  Total generated tokens: 256
+  Average TBT: 88.6034 ms/token
+  Throughput (tokens/s): 11.29
+Tid 0 Request 154 finished.
+  Time in queue before prefill: 37991.6246 ms
+  Prefill time (approx): 364.5251 ms
+  TTFT: 38356.1497 ms
+  Latency: 60583.8571 ms
+  Total generated tokens: 256
+  Average TBT: 87.1675 ms/token
+  Throughput (tokens/s): 11.47
+Tid 0 Request 155 finished.
+  Time in queue before prefill: 37992.8248 ms
+  Prefill time (approx): 364.5365 ms
+  TTFT: 38357.3613 ms
+  Latency: 60218.6236 ms
+  Total generated tokens: 256
+  Average TBT: 85.7304 ms/token
+  Throughput (tokens/s): 11.66
+Tid 0 Request 156 finished.
+  Time in queue before prefill: 37994.1974 ms
+  Prefill time (approx): 364.8918 ms
+  TTFT: 38359.0891 ms
+  Latency: 59853.8527 ms
+  Total generated tokens: 256
+  Average TBT: 84.2932 ms/token
+  Throughput (tokens/s): 11.86
+prefill step time: 0.3694193363189697 seconds
+prefill step time: 0.3688995838165283 seconds
+prefill step time: 0.36489391326904297 seconds
+prefill step time: 0.3649940490722656 seconds
+prefill step time: 0.3660907745361328 seconds
+prefill step time: 0.36287379264831543 seconds
+prefill step time: 0.36498260498046875 seconds
+decode step time: 0.0402979850769043 seconds
+decode step time: 0.037133216857910156 seconds
+decode step time: 0.03671622276306152 seconds
+decode step time: 0.03693413734436035 seconds
+decode step time: 0.03702378273010254 seconds
+decode step time: 0.03713393211364746 seconds
+decode step time: 0.03714728355407715 seconds
+decode step time: 0.03729701042175293 seconds
+decode step time: 0.03703022003173828 seconds
+decode step time: 0.03675365447998047 seconds
+decode step time: 0.03677845001220703 seconds
+decode step time: 0.03678536415100098 seconds
+decode step time: 0.03680896759033203 seconds
+decode step time: 0.03691554069519043 seconds
+decode step time: 0.03699040412902832 seconds
+decode step time: 0.03690671920776367 seconds
+decode step time: 0.03669142723083496 seconds
+decode step time: 0.03654885292053223 seconds
+decode step time: 0.03655385971069336 seconds
+decode step time: 0.03662610054016113 seconds
+INFO 07-10 06:10:18 [metrics.py:481] Avg prompt throughput: 5732.9 tokens/s, Avg generation throughput: 451.2 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 134 reqs, GPU KV cache usage: 98.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.03656196594238281 seconds
+decode step time: 0.03665661811828613 seconds
+decode step time: 0.03674006462097168 seconds
+decode step time: 0.03682112693786621 seconds
+decode step time: 0.03672194480895996 seconds
+decode step time: 0.036858558654785156 seconds
+decode step time: 0.03683876991271973 seconds
+decode step time: 0.036899566650390625 seconds
+decode step time: 0.03693079948425293 seconds
+decode step time: 0.03676915168762207 seconds
+decode step time: 0.03699231147766113 seconds
+decode step time: 0.03710198402404785 seconds
+decode step time: 0.03712654113769531 seconds
+decode step time: 0.03701019287109375 seconds
+decode step time: 0.03696632385253906 seconds
+decode step time: 0.03698539733886719 seconds
+decode step time: 0.037123918533325195 seconds
+decode step time: 0.03694748878479004 seconds
+decode step time: 0.03707575798034668 seconds
+decode step time: 0.036971330642700195 seconds
+Tid 0 Request 157 finished.
+  Time in queue before prefill: 39624.3677 ms
+  Prefill time (approx): 360.2674 ms
+  TTFT: 39984.6351 ms
+  Latency: 63699.6973 ms
+  Total generated tokens: 256
+  Average TBT: 93.0002 ms/token
+  Throughput (tokens/s): 10.75
+prefill step time: 0.36098623275756836 seconds
+decode step time: 0.04004025459289551 seconds
+decode step time: 0.037635087966918945 seconds
+decode step time: 0.03659820556640625 seconds
+decode step time: 0.03680849075317383 seconds
+decode step time: 0.036841392517089844 seconds
+decode step time: 0.036844491958618164 seconds
+decode step time: 0.03697657585144043 seconds
+decode step time: 0.036936044692993164 seconds
+decode step time: 0.03690457344055176 seconds
+decode step time: 0.0370633602142334 seconds
+decode step time: 0.03704547882080078 seconds
+decode step time: 0.03698468208312988 seconds
+decode step time: 0.03694939613342285 seconds
+decode step time: 0.03695869445800781 seconds
+decode step time: 0.03702735900878906 seconds
+decode step time: 0.03691530227661133 seconds
+decode step time: 0.03692221641540527 seconds
+decode step time: 0.0369417667388916 seconds
+decode step time: 0.03705167770385742 seconds
+decode step time: 0.03715348243713379 seconds
+decode step time: 0.0371553897857666 seconds
+decode step time: 0.03708791732788086 seconds
+decode step time: 0.036943674087524414 seconds
+decode step time: 0.03692221641540527 seconds
+decode step time: 0.037001609802246094 seconds
+decode step time: 0.03703904151916504 seconds
+decode step time: 0.03714251518249512 seconds
+decode step time: 0.03730320930480957 seconds
+decode step time: 0.03710174560546875 seconds
+decode step time: 0.03702902793884277 seconds
+decode step time: 0.036993980407714844 seconds
+decode step time: 0.03707408905029297 seconds
+decode step time: 0.03700733184814453 seconds
+decode step time: 0.0370478630065918 seconds
+decode step time: 0.03707528114318848 seconds
+Tid 0 Request 158 finished.
+  Time in queue before prefill: 41018.5888 ms
+  Prefill time (approx): 360.6815 ms
+  TTFT: 41379.2703 ms
+  Latency: 65121.1634 ms
+  Total generated tokens: 256
+  Average TBT: 93.1055 ms/token
+  Throughput (tokens/s): 10.74
+Tid 0 Request 159 finished.
+  Time in queue before prefill: 40651.1669 ms
+  Prefill time (approx): 368.5074 ms
+  TTFT: 41019.6743 ms
+  Latency: 64392.0188 ms
+  Total generated tokens: 256
+  Average TBT: 91.6563 ms/token
+  Throughput (tokens/s): 10.91
+Tid 0 Request 160 finished.
+  Time in queue before prefill: 40654.5715 ms
+  Prefill time (approx): 364.8572 ms
+  TTFT: 41019.4287 ms
+  Latency: 64025.2197 ms
+  Total generated tokens: 256
+  Average TBT: 90.2188 ms/token
+  Throughput (tokens/s): 11.08
+Tid 0 Request 161 finished.
+  Time in queue before prefill: 40654.1221 ms
+  Prefill time (approx): 364.0552 ms
+  TTFT: 41018.1773 ms
+  Latency: 63658.4365 ms
+  Total generated tokens: 256
+  Average TBT: 88.7853 ms/token
+  Throughput (tokens/s): 11.26
+Tid 0 Request 162 finished.
+  Time in queue before prefill: 40653.7476 ms
+  Prefill time (approx): 364.0463 ms
+  TTFT: 41017.7939 ms
+  Latency: 63292.2525 ms
+  Total generated tokens: 256
+  Average TBT: 87.3508 ms/token
+  Throughput (tokens/s): 11.45
+Tid 0 Request 163 finished.
+  Time in queue before prefill: 40652.2765 ms
+  Prefill time (approx): 364.9576 ms
+  TTFT: 41017.2341 ms
+  Latency: 62925.0314 ms
+  Total generated tokens: 256
+  Average TBT: 85.9129 ms/token
+  Throughput (tokens/s): 11.64
+prefill step time: 0.35946106910705566 seconds
+prefill step time: 0.36771059036254883 seconds
+prefill step time: 0.3655083179473877 seconds
+prefill step time: 0.36368727684020996 seconds
+prefill step time: 0.36533021926879883 seconds
+prefill step time: 0.3661353588104248 seconds
+decode step time: 0.040131568908691406 seconds
+decode step time: 0.03687000274658203 seconds
+decode step time: 0.03634166717529297 seconds
+decode step time: 0.03644371032714844 seconds
+decode step time: 0.03642678260803223 seconds
+INFO 07-10 06:10:23 [metrics.py:481] Avg prompt throughput: 5728.7 tokens/s, Avg generation throughput: 445.0 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 139 reqs, GPU KV cache usage: 98.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.03628683090209961 seconds
+decode step time: 0.0365138053894043 seconds
+decode step time: 0.03648638725280762 seconds
+decode step time: 0.03657865524291992 seconds
+decode step time: 0.03656911849975586 seconds
+decode step time: 0.03657889366149902 seconds
+Tid 0 Request 164 finished.
+  Time in queue before prefill: 41119.8955 ms
+  Prefill time (approx): 359.7724 ms
+  TTFT: 41479.6679 ms
+  Latency: 65220.5825 ms
+  Total generated tokens: 256
+  Average TBT: 93.1016 ms/token
+  Throughput (tokens/s): 10.74
+Tid 0 Request 165 finished.
+  Time in queue before prefill: 41115.4852 ms
+  Prefill time (approx): 363.7252 ms
+  TTFT: 41479.2104 ms
+  Latency: 64855.4077 ms
+  Total generated tokens: 256
+  Average TBT: 91.6714 ms/token
+  Throughput (tokens/s): 10.91
+Tid 0 Request 166 finished.
+  Time in queue before prefill: 41115.2887 ms
+  Prefill time (approx): 367.7344 ms
+  TTFT: 41483.0232 ms
+  Latency: 64489.8982 ms
+  Total generated tokens: 256
+  Average TBT: 90.2230 ms/token
+  Throughput (tokens/s): 11.08
+Tid 0 Request 167 finished.
+  Time in queue before prefill: 41119.2887 ms
+  Prefill time (approx): 364.2330 ms
+  TTFT: 41483.5217 ms
+  Latency: 64124.5782 ms
+  Total generated tokens: 256
+  Average TBT: 88.7885 ms/token
+  Throughput (tokens/s): 11.26
+Tid 0 Request 168 finished.
+  Time in queue before prefill: 41119.3185 ms
+  Prefill time (approx): 365.4802 ms
+  TTFT: 41484.7987 ms
+  Latency: 63758.7483 ms
+  Total generated tokens: 256
+  Average TBT: 87.3488 ms/token
+  Throughput (tokens/s): 11.45
+Tid 0 Request 169 finished.
+  Time in queue before prefill: 40914.1874 ms
+  Prefill time (approx): 364.4578 ms
+  TTFT: 41278.6453 ms
+  Latency: 63186.5256 ms
+  Total generated tokens: 256
+  Average TBT: 85.9133 ms/token
+  Throughput (tokens/s): 11.64
+Tid 0 Request 170 finished.
+  Time in queue before prefill: 40967.7417 ms
+  Prefill time (approx): 365.0761 ms
+  TTFT: 41332.8178 ms
+  Latency: 62873.9641 ms
+  Total generated tokens: 256
+  Average TBT: 84.4751 ms/token
+  Throughput (tokens/s): 11.84
+Tid 0 Request 171 finished.
+  Time in queue before prefill: 41217.3786 ms
+  Prefill time (approx): 363.8642 ms
+  TTFT: 41581.2428 ms
+  Latency: 62756.8233 ms
+  Total generated tokens: 256
+  Average TBT: 83.0415 ms/token
+  Throughput (tokens/s): 12.04
+Tid 0 Request 172 finished.
+  Time in queue before prefill: 41347.1813 ms
+  Prefill time (approx): 364.5413 ms
+  TTFT: 41711.7226 ms
+  Latency: 62521.0378 ms
+  Total generated tokens: 256
+  Average TBT: 81.6052 ms/token
+  Throughput (tokens/s): 12.25
+Tid 0 Request 173 finished.
+  Time in queue before prefill: 40892.6268 ms
+  Prefill time (approx): 365.1354 ms
+  TTFT: 41257.7622 ms
+  Latency: 61698.5602 ms
+  Total generated tokens: 256
+  Average TBT: 80.1600 ms/token
+  Throughput (tokens/s): 12.48
+Tid 0 Request 174 finished.
+  Time in queue before prefill: 40711.1833 ms
+  Prefill time (approx): 368.8407 ms
+  TTFT: 41080.0240 ms
+  Latency: 61149.3347 ms
+  Total generated tokens: 256
+  Average TBT: 78.7032 ms/token
+  Throughput (tokens/s): 12.71
+Tid 0 Request 175 finished.
+  Time in queue before prefill: 41003.9921 ms
+  Prefill time (approx): 365.0732 ms
+  TTFT: 41369.0653 ms
+  Latency: 61071.0614 ms
+  Total generated tokens: 256
+  Average TBT: 77.2627 ms/token
+  Throughput (tokens/s): 12.94
+Tid 0 Request 176 finished.
+  Time in queue before prefill: 41214.2105 ms
+  Prefill time (approx): 363.3785 ms
+  TTFT: 41577.5890 ms
+  Latency: 60914.2702 ms
+  Total generated tokens: 256
+  Average TBT: 75.8301 ms/token
+  Throughput (tokens/s): 13.19
+Tid 0 Request 177 finished.
+  Time in queue before prefill: 40205.9805 ms
+  Prefill time (approx): 365.5059 ms
+  TTFT: 40571.4865 ms
+  Latency: 59540.6370 ms
+  Total generated tokens: 256
+  Average TBT: 74.3888 ms/token
+  Throughput (tokens/s): 13.44
+Tid 0 Request 178 finished.
+  Time in queue before prefill: 40378.7503 ms
+  Prefill time (approx): 366.2188 ms
+  TTFT: 40744.9691 ms
+  Latency: 59346.0760 ms
+  Total generated tokens: 256
+  Average TBT: 72.9455 ms/token
+  Throughput (tokens/s): 13.71
+Tid 0 Request 179 finished.
+  Time in queue before prefill: 40316.8786 ms
+  Prefill time (approx): 365.9723 ms
+  TTFT: 40682.8508 ms
+  Latency: 58916.2340 ms
+  Total generated tokens: 256
+  Average TBT: 71.5035 ms/token
+  Throughput (tokens/s): 13.99
+Tid 0 Request 180 finished.
+  Time in queue before prefill: 40489.9304 ms
+  Prefill time (approx): 364.3622 ms
+  TTFT: 40854.2926 ms
+  Latency: 58721.5912 ms
+  Total generated tokens: 256
+  Average TBT: 70.0678 ms/token
+  Throughput (tokens/s): 14.27
+Tid 0 Request 181 finished.
+  Time in queue before prefill: 40619.7605 ms
+  Prefill time (approx): 363.8771 ms
+  TTFT: 40983.6376 ms
+  Latency: 58485.3051 ms
+  Total generated tokens: 256
+  Average TBT: 68.6340 ms/token
+  Throughput (tokens/s): 14.57
+Tid 0 Request 182 finished.
+  Time in queue before prefill: 40829.0854 ms
+  Prefill time (approx): 364.7633 ms
+  TTFT: 41193.8486 ms
+  Latency: 58328.9773 ms
+  Total generated tokens: 256
+  Average TBT: 67.1966 ms/token
+  Throughput (tokens/s): 14.88
+Tid 0 Request 183 finished.
+  Time in queue before prefill: 40999.9411 ms
+  Prefill time (approx): 364.7914 ms
+  TTFT: 41364.7325 ms
+  Latency: 58133.3380 ms
+  Total generated tokens: 256
+  Average TBT: 65.7592 ms/token
+  Throughput (tokens/s): 15.21
+Tid 0 Request 184 finished.
+  Time in queue before prefill: 40585.7830 ms
+  Prefill time (approx): 365.0134 ms
+  TTFT: 40950.7964 ms
+  Latency: 57349.4959 ms
+  Total generated tokens: 256
+  Average TBT: 64.3086 ms/token
+  Throughput (tokens/s): 15.55
+Tid 0 Request 185 finished.
+  Time in queue before prefill: 40600.6415 ms
+  Prefill time (approx): 364.4228 ms
+  TTFT: 40965.0643 ms
+  Latency: 56997.5414 ms
+  Total generated tokens: 256
+  Average TBT: 62.8725 ms/token
+  Throughput (tokens/s): 15.91
+Tid 0 Request 186 finished.
+  Time in queue before prefill: 40927.0084 ms
+  Prefill time (approx): 365.6135 ms
+  TTFT: 41292.6219 ms
+  Latency: 56957.6681 ms
+  Total generated tokens: 256
+  Average TBT: 61.4316 ms/token
+  Throughput (tokens/s): 16.28
+prefill step time: 0.3592221736907959 seconds
+prefill step time: 0.36531639099121094 seconds
+prefill step time: 0.3673124313354492 seconds
+prefill step time: 0.3648521900177002 seconds
+prefill step time: 0.363863468170166 seconds
+prefill step time: 0.36544084548950195 seconds
+prefill step time: 0.36609697341918945 seconds
+prefill step time: 0.36479854583740234 seconds
+prefill step time: 0.3636789321899414 seconds
+prefill step time: 0.3656132221221924 seconds
+prefill step time: 0.36445093154907227 seconds
+prefill step time: 0.36396241188049316 seconds
+prefill step time: 0.3662874698638916 seconds
+INFO 07-10 06:10:28 [metrics.py:481] Avg prompt throughput: 10604.4 tokens/s, Avg generation throughput: 46.8 tokens/s, Running: 27 reqs, Swapped: 0 reqs, Pending: 138 reqs, GPU KV cache usage: 69.6%, CPU KV cache usage: 0.0%.
+prefill step time: 0.365497350692749 seconds
+prefill step time: 0.3650658130645752 seconds
+prefill step time: 0.36572909355163574 seconds
+prefill step time: 0.3633613586425781 seconds
+prefill step time: 0.36515045166015625 seconds
+prefill step time: 0.36589527130126953 seconds
+prefill step time: 0.3667185306549072 seconds
+prefill step time: 0.3649022579193115 seconds
+prefill step time: 0.36389923095703125 seconds
+prefill step time: 0.36524105072021484 seconds
+prefill step time: 0.36569762229919434 seconds
+decode step time: 0.039754390716552734 seconds
+decode step time: 0.035874366760253906 seconds
+decode step time: 0.035585880279541016 seconds
+decode step time: 0.0355677604675293 seconds
+decode step time: 0.035639286041259766 seconds
+decode step time: 0.0357356071472168 seconds
+decode step time: 0.03573250770568848 seconds
+decode step time: 0.03608059883117676 seconds
+decode step time: 0.035741329193115234 seconds
+decode step time: 0.035901546478271484 seconds
+decode step time: 0.035718679428100586 seconds
+decode step time: 0.0355226993560791 seconds
+decode step time: 0.035398006439208984 seconds
+decode step time: 0.03531074523925781 seconds
+decode step time: 0.0354766845703125 seconds
+decode step time: 0.035497426986694336 seconds
+decode step time: 0.03551626205444336 seconds
+decode step time: 0.035681724548339844 seconds
+decode step time: 0.03579449653625488 seconds
+decode step time: 0.03584718704223633 seconds
+decode step time: 0.035735368728637695 seconds
+decode step time: 0.035616159439086914 seconds
+decode step time: 0.03582167625427246 seconds
+decode step time: 0.03597092628479004 seconds
+decode step time: 0.03588676452636719 seconds
+INFO 07-10 06:10:33 [metrics.py:481] Avg prompt throughput: 8950.0 tokens/s, Avg generation throughput: 190.9 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 148 reqs, GPU KV cache usage: 98.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.03571128845214844 seconds
+decode step time: 0.03545975685119629 seconds
+decode step time: 0.03540396690368652 seconds
+decode step time: 0.03533315658569336 seconds
+decode step time: 0.03528952598571777 seconds
+decode step time: 0.03542327880859375 seconds
+decode step time: 0.0355679988861084 seconds
+decode step time: 0.035668134689331055 seconds
+decode step time: 0.035677194595336914 seconds
+decode step time: 0.03589296340942383 seconds
+decode step time: 0.03587508201599121 seconds
+decode step time: 0.03605484962463379 seconds
+decode step time: 0.03603935241699219 seconds
+decode step time: 0.03603649139404297 seconds
+decode step time: 0.03580141067504883 seconds
+decode step time: 0.03560638427734375 seconds
+decode step time: 0.03552126884460449 seconds
+decode step time: 0.03550863265991211 seconds
+decode step time: 0.03548288345336914 seconds
+decode step time: 0.035490989685058594 seconds
+decode step time: 0.03564786911010742 seconds
+decode step time: 0.035643815994262695 seconds
+decode step time: 0.03582000732421875 seconds
+decode step time: 0.03591322898864746 seconds
+decode step time: 0.03596639633178711 seconds
+decode step time: 0.03592801094055176 seconds
+decode step time: 0.03618335723876953 seconds
+decode step time: 0.03617382049560547 seconds
+decode step time: 0.03611397743225098 seconds
+decode step time: 0.03593587875366211 seconds
+decode step time: 0.03567314147949219 seconds
+decode step time: 0.03550148010253906 seconds
+decode step time: 0.03550457954406738 seconds
+decode step time: 0.03542184829711914 seconds
+decode step time: 0.0354456901550293 seconds
+decode step time: 0.03552818298339844 seconds
+decode step time: 0.035639286041259766 seconds
+decode step time: 0.03568458557128906 seconds
+decode step time: 0.03571748733520508 seconds
+decode step time: 0.03589344024658203 seconds
+decode step time: 0.03588747978210449 seconds
+decode step time: 0.03594255447387695 seconds
+decode step time: 0.03595471382141113 seconds
+decode step time: 0.03603506088256836 seconds
+decode step time: 0.03611922264099121 seconds
+decode step time: 0.03613162040710449 seconds
+decode step time: 0.035973310470581055 seconds
+Tid 0 Request 187 finished.
+  Time in queue before prefill: 40721.6895 ms
+  Prefill time (approx): 363.8501 ms
+  TTFT: 41085.5396 ms
+  Latency: 68035.6317 ms
+  Total generated tokens: 256
+  Average TBT: 105.6866 ms/token
+  Throughput (tokens/s): 9.46
+decode step time: 0.03451895713806152 seconds
+decode step time: 0.03426694869995117 seconds
+decode step time: 0.03425264358520508 seconds
+decode step time: 0.034256696701049805 seconds
+decode step time: 0.03437948226928711 seconds
+decode step time: 0.0344853401184082 seconds
+decode step time: 0.03470277786254883 seconds
+decode step time: 0.034751176834106445 seconds
+decode step time: 0.0345156192779541 seconds
+decode step time: 0.034441232681274414 seconds
+decode step time: 0.03431439399719238 seconds
+decode step time: 0.03438401222229004 seconds
+decode step time: 0.03446030616760254 seconds
+decode step time: 0.035761356353759766 seconds
+decode step time: 0.03587841987609863 seconds
+decode step time: 0.03594660758972168 seconds
+decode step time: 0.035771846771240234 seconds
+decode step time: 0.03555631637573242 seconds
+decode step time: 0.03546476364135742 seconds
+decode step time: 0.035188913345336914 seconds
+decode step time: 0.035144805908203125 seconds
+decode step time: 0.03533339500427246 seconds
+decode step time: 0.03537154197692871 seconds
+decode step time: 0.03552961349487305 seconds
+decode step time: 0.03451728820800781 seconds
+decode step time: 0.034772396087646484 seconds
+decode step time: 0.034859657287597656 seconds
+decode step time: 0.0346674919128418 seconds
+decode step time: 0.0343935489654541 seconds
+decode step time: 0.03432464599609375 seconds
+decode step time: 0.03443455696105957 seconds
+decode step time: 0.034525156021118164 seconds
+decode step time: 0.03464984893798828 seconds
+decode step time: 0.03480982780456543 seconds
+decode step time: 0.03497648239135742 seconds
+decode step time: 0.03466439247131348 seconds
+decode step time: 0.034478187561035156 seconds
+decode step time: 0.0343477725982666 seconds
+decode step time: 0.03439807891845703 seconds
+decode step time: 0.03453826904296875 seconds
+decode step time: 0.03470587730407715 seconds
+decode step time: 0.03487443923950195 seconds
+decode step time: 0.03479743003845215 seconds
+decode step time: 0.03456830978393555 seconds
+decode step time: 0.03444933891296387 seconds
+decode step time: 0.035462379455566406 seconds
+decode step time: 0.035375118255615234 seconds
+decode step time: 0.03545832633972168 seconds
+decode step time: 0.03560781478881836 seconds
+decode step time: 0.035719871520996094 seconds
+decode step time: 0.03589034080505371 seconds
+decode step time: 0.03598451614379883 seconds
+decode step time: 0.03596901893615723 seconds
+decode step time: 0.036097049713134766 seconds
+decode step time: 0.036016225814819336 seconds
+decode step time: 0.035651445388793945 seconds
+decode step time: 0.03449273109436035 seconds
+decode step time: 0.03440093994140625 seconds
+decode step time: 0.03444480895996094 seconds
+decode step time: 0.034651756286621094 seconds
+decode step time: 0.0347590446472168 seconds
+decode step time: 0.03487539291381836 seconds
+decode step time: 0.03489041328430176 seconds
+decode step time: 0.03478670120239258 seconds
+decode step time: 0.03456449508666992 seconds
+decode step time: 0.03450441360473633 seconds
+decode step time: 0.03449201583862305 seconds
+decode step time: 0.03455400466918945 seconds
+decode step time: 0.03472495079040527 seconds
+decode step time: 0.03474140167236328 seconds
+decode step time: 0.03485274314880371 seconds
+decode step time: 0.03503561019897461 seconds
+decode step time: 0.03480839729309082 seconds
+decode step time: 0.03463912010192871 seconds
+decode step time: 0.03455042839050293 seconds
+decode step time: 0.03456306457519531 seconds
+decode step time: 0.03465151786804199 seconds
+decode step time: 0.0366361141204834 seconds
+decode step time: 0.03600597381591797 seconds
+decode step time: 0.03578352928161621 seconds
+decode step time: 0.035948991775512695 seconds
+decode step time: 0.036208152770996094 seconds
+decode step time: 0.036293745040893555 seconds
+INFO 07-10 06:10:38 [metrics.py:481] Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 964.0 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 161 reqs, GPU KV cache usage: 98.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.03619647026062012 seconds
+decode step time: 0.03598904609680176 seconds
+decode step time: 0.03587841987609863 seconds
+decode step time: 0.03566932678222656 seconds
+decode step time: 0.035646677017211914 seconds
+decode step time: 0.03450369834899902 seconds
+decode step time: 0.03459310531616211 seconds
+decode step time: 0.03473329544067383 seconds
+decode step time: 0.034830331802368164 seconds
+decode step time: 0.034963130950927734 seconds
+decode step time: 0.03502798080444336 seconds
+decode step time: 0.035004615783691406 seconds
+decode step time: 0.034912109375 seconds
+decode step time: 0.034761667251586914 seconds
+Tid 0 Request 188 finished.
+  Time in queue before prefill: 47731.4818 ms
+  Prefill time (approx): 368.9644 ms
+  TTFT: 48100.4462 ms
+  Latency: 71403.8017 ms
+  Total generated tokens: 256
+  Average TBT: 91.3857 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 189 finished.
+  Time in queue before prefill: 47735.4968 ms
+  Prefill time (approx): 364.9571 ms
+  TTFT: 48100.4539 ms
+  Latency: 71037.2393 ms
+  Total generated tokens: 256
+  Average TBT: 89.9482 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 190 finished.
+  Time in queue before prefill: 47736.9416 ms
+  Prefill time (approx): 365.0596 ms
+  TTFT: 48102.0012 ms
+  Latency: 70672.0755 ms
+  Total generated tokens: 256
+  Average TBT: 88.5101 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 191 finished.
+  Time in queue before prefill: 47736.3555 ms
+  Prefill time (approx): 366.1563 ms
+  TTFT: 48102.5119 ms
+  Latency: 70304.7779 ms
+  Total generated tokens: 256
+  Average TBT: 87.0677 ms/token
+  Throughput (tokens/s): 11.49
+Tid 0 Request 192 finished.
+  Time in queue before prefill: 47737.2851 ms
+  Prefill time (approx): 362.9365 ms
+  TTFT: 48100.2216 ms
+  Latency: 69937.8710 ms
+  Total generated tokens: 256
+  Average TBT: 85.6378 ms/token
+  Throughput (tokens/s): 11.68
+Tid 0 Request 193 finished.
+  Time in queue before prefill: 47736.3727 ms
+  Prefill time (approx): 365.0651 ms
+  TTFT: 48101.4378 ms
+  Latency: 69572.2766 ms
+  Total generated tokens: 256
+  Average TBT: 84.1994 ms/token
+  Throughput (tokens/s): 11.88
+prefill step time: 0.35883259773254395 seconds
+prefill step time: 0.36981201171875 seconds
+prefill step time: 0.3681800365447998 seconds
+prefill step time: 0.3649609088897705 seconds
+prefill step time: 0.36394333839416504 seconds
+prefill step time: 0.36494994163513184 seconds
+decode step time: 0.0410923957824707 seconds
+decode step time: 0.037554025650024414 seconds
+decode step time: 0.036744117736816406 seconds
+decode step time: 0.03684735298156738 seconds
+decode step time: 0.036750078201293945 seconds
+decode step time: 0.03676772117614746 seconds
+decode step time: 0.03670144081115723 seconds
+decode step time: 0.03671908378601074 seconds
+decode step time: 0.03672623634338379 seconds
+decode step time: 0.03679013252258301 seconds
+decode step time: 0.03687310218811035 seconds
+decode step time: 0.036934614181518555 seconds
+decode step time: 0.03676414489746094 seconds
+decode step time: 0.03692197799682617 seconds
+decode step time: 0.037020206451416016 seconds
+decode step time: 0.03690314292907715 seconds
+decode step time: 0.03698396682739258 seconds
+decode step time: 0.036998748779296875 seconds
+decode step time: 0.03694653511047363 seconds
+decode step time: 0.03686094284057617 seconds
+decode step time: 0.03714323043823242 seconds
+decode step time: 0.03726482391357422 seconds
+decode step time: 0.037216901779174805 seconds
+decode step time: 0.03711366653442383 seconds
+decode step time: 0.03706169128417969 seconds
+decode step time: 0.03717660903930664 seconds
+decode step time: 0.03708696365356445 seconds
+decode step time: 0.03718090057373047 seconds
+decode step time: 0.03704261779785156 seconds
+decode step time: 0.036908626556396484 seconds
+decode step time: 0.036949872970581055 seconds
+decode step time: 0.03712034225463867 seconds
+decode step time: 0.037020206451416016 seconds
+decode step time: 0.03717470169067383 seconds
+decode step time: 0.03721308708190918 seconds
+decode step time: 0.037290334701538086 seconds
+decode step time: 0.03721117973327637 seconds
+decode step time: 0.03717684745788574 seconds
+decode step time: 0.037221670150756836 seconds
+decode step time: 0.03723764419555664 seconds
+Tid 0 Request 194 finished.
+  Time in queue before prefill: 49373.1320 ms
+  Prefill time (approx): 361.0535 ms
+  TTFT: 49734.1855 ms
+  Latency: 73036.2506 ms
+  Total generated tokens: 256
+  Average TBT: 91.3806 ms/token
+  Throughput (tokens/s): 10.94
+decode step time: 0.03389382362365723 seconds
+decode step time: 0.03398299217224121 seconds
+decode step time: 0.03381490707397461 seconds
+decode step time: 0.03373146057128906 seconds
+decode step time: 0.03384566307067871 seconds
+decode step time: 0.0339663028717041 seconds
+decode step time: 0.033976078033447266 seconds
+decode step time: 0.03403735160827637 seconds
+decode step time: 0.033850669860839844 seconds
+decode step time: 0.034696340560913086 seconds
+INFO 07-10 06:10:43 [metrics.py:481] Avg prompt throughput: 4872.6 tokens/s, Avg generation throughput: 468.7 tokens/s, Running: 36 reqs, Swapped: 0 reqs, Pending: 165 reqs, GPU KV cache usage: 96.6%, CPU KV cache usage: 0.0%.
+decode step time: 0.033454179763793945 seconds
+decode step time: 0.033655405044555664 seconds
+decode step time: 0.03379011154174805 seconds
+decode step time: 0.03376293182373047 seconds
+decode step time: 0.033921003341674805 seconds
+decode step time: 0.034067630767822266 seconds
+decode step time: 0.03416752815246582 seconds
+decode step time: 0.034034013748168945 seconds
+decode step time: 0.03385353088378906 seconds
+decode step time: 0.0336756706237793 seconds
+decode step time: 0.033850669860839844 seconds
+decode step time: 0.033986568450927734 seconds
+decode step time: 0.03412175178527832 seconds
+decode step time: 0.034056663513183594 seconds
+decode step time: 0.03381180763244629 seconds
+decode step time: 0.033855438232421875 seconds
+decode step time: 0.03391385078430176 seconds
+decode step time: 0.03399920463562012 seconds
+decode step time: 0.034124135971069336 seconds
+decode step time: 0.03409862518310547 seconds
+decode step time: 0.033843040466308594 seconds
+decode step time: 0.033806800842285156 seconds
+decode step time: 0.033992767333984375 seconds
+decode step time: 0.034026145935058594 seconds
+decode step time: 0.03420281410217285 seconds
+Tid 0 Request 195 finished.
+  Time in queue before prefill: 51114.4240 ms
+  Prefill time (approx): 359.5264 ms
+  TTFT: 51473.9504 ms
+  Latency: 74595.1045 ms
+  Total generated tokens: 256
+  Average TBT: 90.6712 ms/token
+  Throughput (tokens/s): 11.03
+Tid 0 Request 196 finished.
+  Time in queue before prefill: 51193.5101 ms
+  Prefill time (approx): 367.7719 ms
+  TTFT: 51561.2819 ms
+  Latency: 74313.6141 ms
+  Total generated tokens: 256
+  Average TBT: 89.2248 ms/token
+  Throughput (tokens/s): 11.21
+Tid 0 Request 197 finished.
+  Time in queue before prefill: 51482.1076 ms
+  Prefill time (approx): 365.5689 ms
+  TTFT: 51847.6765 ms
+  Latency: 74233.4020 ms
+  Total generated tokens: 256
+  Average TBT: 87.7872 ms/token
+  Throughput (tokens/s): 11.39
+Tid 0 Request 198 finished.
+  Time in queue before prefill: 51487.6323 ms
+  Prefill time (approx): 363.7545 ms
+  TTFT: 51851.3868 ms
+  Latency: 73871.5100 ms
+  Total generated tokens: 256
+  Average TBT: 86.3534 ms/token
+  Throughput (tokens/s): 11.58
+Tid 0 Request 199 finished.
+  Time in queue before prefill: 51530.2904 ms
+  Prefill time (approx): 365.4590 ms
+  TTFT: 51895.7493 ms
+  Latency: 73548.6341 ms
+  Total generated tokens: 256
+  Average TBT: 84.9133 ms/token
+  Throughput (tokens/s): 11.78
+Tid 0 Request 200 finished.
+  Time in queue before prefill: 51655.2374 ms
+  Prefill time (approx): 366.2479 ms
+  TTFT: 52021.4853 ms
+  Latency: 73305.4056 ms
+  Total generated tokens: 256
+  Average TBT: 83.4664 ms/token
+  Throughput (tokens/s): 11.98
+prefill step time: 0.35976386070251465 seconds
+prefill step time: 0.3693099021911621 seconds
+prefill step time: 0.36632752418518066 seconds
+prefill step time: 0.36087918281555176 seconds
+prefill step time: 0.3679366111755371 seconds
+prefill step time: 0.3645927906036377 seconds
+prefill step time: 0.3633999824523926 seconds
+decode step time: 0.04026985168457031 seconds
+decode step time: 0.03735756874084473 seconds
+decode step time: 0.036933183670043945 seconds
+decode step time: 0.036585092544555664 seconds
+decode step time: 0.03655600547790527 seconds
+decode step time: 0.03658437728881836 seconds
+decode step time: 0.036550045013427734 seconds
+decode step time: 0.036521196365356445 seconds
+decode step time: 0.036451101303100586 seconds
+decode step time: 0.036446332931518555 seconds
+decode step time: 0.03679084777832031 seconds
+Tid 0 Request 201 finished.
+  Time in queue before prefill: 51843.4250 ms
+  Prefill time (approx): 359.2834 ms
+  TTFT: 52202.7085 ms
+  Latency: 75683.6247 ms
+  Total generated tokens: 256
+  Average TBT: 92.0820 ms/token
+  Throughput (tokens/s): 10.86
+Tid 0 Request 202 finished.
+  Time in queue before prefill: 52160.3718 ms
+  Prefill time (approx): 365.3743 ms
+  TTFT: 52525.7461 ms
+  Latency: 75639.7166 ms
+  Total generated tokens: 256
+  Average TBT: 90.6430 ms/token
+  Throughput (tokens/s): 11.03
+Tid 0 Request 203 finished.
+  Time in queue before prefill: 52366.6849 ms
+  Prefill time (approx): 367.3680 ms
+  TTFT: 52734.0529 ms
+  Latency: 75479.6393 ms
+  Total generated tokens: 256
+  Average TBT: 89.1984 ms/token
+  Throughput (tokens/s): 11.21
+Tid 0 Request 204 finished.
+  Time in queue before prefill: 52655.6916 ms
+  Prefill time (approx): 364.9096 ms
+  TTFT: 53020.6013 ms
+  Latency: 75399.6117 ms
+  Total generated tokens: 256
+  Average TBT: 87.7608 ms/token
+  Throughput (tokens/s): 11.39
+Tid 0 Request 205 finished.
+  Time in queue before prefill: 52981.9326 ms
+  Prefill time (approx): 363.9688 ms
+  TTFT: 53345.9015 ms
+  Latency: 75359.2112 ms
+  Total generated tokens: 256
+  Average TBT: 86.3267 ms/token
+  Throughput (tokens/s): 11.58
+Tid 0 Request 206 finished.
+  Time in queue before prefill: 52990.5970 ms
+  Prefill time (approx): 365.5264 ms
+  TTFT: 53356.1234 ms
+  Latency: 75001.1919 ms
+  Total generated tokens: 256
+  Average TBT: 84.8826 ms/token
+  Throughput (tokens/s): 11.78
+Tid 0 Request 207 finished.
+  Time in queue before prefill: 53278.4197 ms
+  Prefill time (approx): 366.1563 ms
+  TTFT: 53644.5761 ms
+  Latency: 74921.7546 ms
+  Total generated tokens: 256
+  Average TBT: 83.4399 ms/token
+  Throughput (tokens/s): 11.98
+Tid 0 Request 208 finished.
+  Time in queue before prefill: 53248.8132 ms
+  Prefill time (approx): 364.8582 ms
+  TTFT: 53613.6713 ms
+  Latency: 74524.2629 ms
+  Total generated tokens: 256
+  Average TBT: 82.0023 ms/token
+  Throughput (tokens/s): 12.19
+Tid 0 Request 209 finished.
+  Time in queue before prefill: 52275.2190 ms
+  Prefill time (approx): 363.7376 ms
+  TTFT: 52638.9565 ms
+  Latency: 73184.0792 ms
+  Total generated tokens: 256
+  Average TBT: 80.5691 ms/token
+  Throughput (tokens/s): 12.41
+Tid 0 Request 210 finished.
+  Time in queue before prefill: 52277.7948 ms
+  Prefill time (approx): 365.6847 ms
+  TTFT: 52643.4796 ms
+  Latency: 72820.0834 ms
+  Total generated tokens: 256
+  Average TBT: 79.1239 ms/token
+  Throughput (tokens/s): 12.64
+Tid 0 Request 211 finished.
+  Time in queue before prefill: 52276.9172 ms
+  Prefill time (approx): 364.5301 ms
+  TTFT: 52641.4473 ms
+  Latency: 72451.5641 ms
+  Total generated tokens: 256
+  Average TBT: 77.6867 ms/token
+  Throughput (tokens/s): 12.87
+Tid 0 Request 212 finished.
+  Time in queue before prefill: 52277.9031 ms
+  Prefill time (approx): 364.0268 ms
+  TTFT: 52641.9299 ms
+  Latency: 72086.2346 ms
+  Total generated tokens: 256
+  Average TBT: 76.2522 ms/token
+  Throughput (tokens/s): 13.11
+Tid 0 Request 213 finished.
+  Time in queue before prefill: 52598.0890 ms
+  Prefill time (approx): 366.3533 ms
+  TTFT: 52964.4423 ms
+  Latency: 72040.5788 ms
+  Total generated tokens: 256
+  Average TBT: 74.8084 ms/token
+  Throughput (tokens/s): 13.37
+Tid 0 Request 214 finished.
+  Time in queue before prefill: 52924.6285 ms
+  Prefill time (approx): 365.5615 ms
+  TTFT: 53290.1900 ms
+  Latency: 71998.4829 ms
+  Total generated tokens: 256
+  Average TBT: 73.3659 ms/token
+  Throughput (tokens/s): 13.63
+Tid 0 Request 215 finished.
+  Time in queue before prefill: 52551.1978 ms
+  Prefill time (approx): 365.1295 ms
+  TTFT: 52916.3272 ms
+  Latency: 71257.6835 ms
+  Total generated tokens: 256
+  Average TBT: 71.9269 ms/token
+  Throughput (tokens/s): 13.90
+Tid 0 Request 216 finished.
+  Time in queue before prefill: 52553.6630 ms
+  Prefill time (approx): 365.7925 ms
+  TTFT: 52919.4555 ms
+  Latency: 70893.2552 ms
+  Total generated tokens: 256
+  Average TBT: 70.4855 ms/token
+  Throughput (tokens/s): 14.19
+Tid 0 Request 217 finished.
+  Time in queue before prefill: 52555.1519 ms
+  Prefill time (approx): 363.4243 ms
+  TTFT: 52918.5762 ms
+  Latency: 70527.1955 ms
+  Total generated tokens: 256
+  Average TBT: 69.0534 ms/token
+  Throughput (tokens/s): 14.48
+Tid 0 Request 218 finished.
+  Time in queue before prefill: 52554.4221 ms
+  Prefill time (approx): 365.2136 ms
+  TTFT: 52919.6358 ms
+  Latency: 70161.2775 ms
+  Total generated tokens: 256
+  Average TBT: 67.6143 ms/token
+  Throughput (tokens/s): 14.79
+Tid 0 Request 219 finished.
+  Time in queue before prefill: 52555.4764 ms
+  Prefill time (approx): 365.9778 ms
+  TTFT: 52921.4542 ms
+  Latency: 69795.3095 ms
+  Total generated tokens: 256
+  Average TBT: 66.1720 ms/token
+  Throughput (tokens/s): 15.11
+Tid 0 Request 220 finished.
+  Time in queue before prefill: 52556.9248 ms
+  Prefill time (approx): 366.7860 ms
+  TTFT: 52923.7108 ms
+  Latency: 69428.8311 ms
+  Total generated tokens: 256
+  Average TBT: 64.7260 ms/token
+  Throughput (tokens/s): 15.45
+Tid 0 Request 221 finished.
+  Time in queue before prefill: 52560.4982 ms
+  Prefill time (approx): 364.9764 ms
+  TTFT: 52925.4746 ms
+  Latency: 69062.5179 ms
+  Total generated tokens: 256
+  Average TBT: 63.2825 ms/token
+  Throughput (tokens/s): 15.80
+Tid 0 Request 222 finished.
+  Time in queue before prefill: 52561.4078 ms
+  Prefill time (approx): 363.9634 ms
+  TTFT: 52925.3712 ms
+  Latency: 68696.6953 ms
+  Total generated tokens: 256
+  Average TBT: 61.8483 ms/token
+  Throughput (tokens/s): 16.17
+Tid 0 Request 223 finished.
+  Time in queue before prefill: 52561.1980 ms
+  Prefill time (approx): 365.3049 ms
+  TTFT: 52926.5029 ms
+  Latency: 68330.7624 ms
+  Total generated tokens: 256
+  Average TBT: 60.4089 ms/token
+  Throughput (tokens/s): 16.55
+Tid 0 Request 224 finished.
+  Time in queue before prefill: 52562.8815 ms
+  Prefill time (approx): 365.7608 ms
+  TTFT: 52928.6423 ms
+  Latency: 67965.4050 ms
+  Total generated tokens: 256
+  Average TBT: 58.9677 ms/token
+  Throughput (tokens/s): 16.96
+prefill step time: 0.3587832450866699 seconds
+prefill step time: 0.3654470443725586 seconds
+prefill step time: 0.36846423149108887 seconds
+INFO 07-10 06:10:48 [metrics.py:481] Avg prompt throughput: 8091.2 tokens/s, Avg generation throughput: 260.2 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 162 reqs, GPU KV cache usage: 41.4%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3638346195220947 seconds
+prefill step time: 0.36527514457702637 seconds
+prefill step time: 0.3662240505218506 seconds
+prefill step time: 0.3656957149505615 seconds
+prefill step time: 0.36607909202575684 seconds
+prefill step time: 0.36406970024108887 seconds
+prefill step time: 0.3642616271972656 seconds
+prefill step time: 0.36552882194519043 seconds
+prefill step time: 0.36414456367492676 seconds
+prefill step time: 0.36504364013671875 seconds
+prefill step time: 0.36663246154785156 seconds
+prefill step time: 0.3666555881500244 seconds
+prefill step time: 0.36490297317504883 seconds
+prefill step time: 0.36419200897216797 seconds
+INFO 07-10 06:10:53 [metrics.py:481] Avg prompt throughput: 11160.7 tokens/s, Avg generation throughput: 2.7 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 162 reqs, GPU KV cache usage: 77.2%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36527538299560547 seconds
+prefill step time: 0.36446261405944824 seconds
+prefill step time: 0.3659799098968506 seconds
+prefill step time: 0.3649420738220215 seconds
+prefill step time: 0.3649783134460449 seconds
+prefill step time: 0.36513257026672363 seconds
+prefill step time: 0.3642868995666504 seconds
+prefill step time: 0.3657689094543457 seconds
+decode step time: 0.04096865653991699 seconds
+decode step time: 0.035454750061035156 seconds
+decode step time: 0.03549480438232422 seconds
+decode step time: 0.03641247749328613 seconds
+decode step time: 0.035733699798583984 seconds
+decode step time: 0.035591840744018555 seconds
+decode step time: 0.03557300567626953 seconds
+decode step time: 0.035692691802978516 seconds
+decode step time: 0.035706520080566406 seconds
+decode step time: 0.03599357604980469 seconds
+decode step time: 0.03589916229248047 seconds
+decode step time: 0.035630226135253906 seconds
+decode step time: 0.035372018814086914 seconds
+decode step time: 0.03537249565124512 seconds
+decode step time: 0.035222530364990234 seconds
+decode step time: 0.03534388542175293 seconds
+decode step time: 0.03539752960205078 seconds
+decode step time: 0.03561711311340332 seconds
+decode step time: 0.03558945655822754 seconds
+decode step time: 0.0355839729309082 seconds
+decode step time: 0.03560185432434082 seconds
+decode step time: 0.03571963310241699 seconds
+decode step time: 0.03610348701477051 seconds
+decode step time: 0.03592658042907715 seconds
+decode step time: 0.035704612731933594 seconds
+decode step time: 0.03536844253540039 seconds
+decode step time: 0.03534698486328125 seconds
+decode step time: 0.03523135185241699 seconds
+decode step time: 0.035405874252319336 seconds
+decode step time: 0.03535604476928711 seconds
+decode step time: 0.03560805320739746 seconds
+decode step time: 0.03550434112548828 seconds
+decode step time: 0.03571891784667969 seconds
+decode step time: 0.03588581085205078 seconds
+decode step time: 0.03594064712524414 seconds
+decode step time: 0.036071062088012695 seconds
+decode step time: 0.03598165512084961 seconds
+decode step time: 0.036106109619140625 seconds
+decode step time: 0.035561323165893555 seconds
+decode step time: 0.03546762466430664 seconds
+decode step time: 0.035878896713256836 seconds
+decode step time: 0.035741329193115234 seconds
+decode step time: 0.03555917739868164 seconds
+decode step time: 0.035428762435913086 seconds
+decode step time: 0.0353701114654541 seconds
+decode step time: 0.03530740737915039 seconds
+decode step time: 0.035520315170288086 seconds
+decode step time: 0.03563642501831055 seconds
+decode step time: 0.03587007522583008 seconds
+decode step time: 0.03575468063354492 seconds
+decode step time: 0.035863399505615234 seconds
+decode step time: 0.03560328483581543 seconds
+decode step time: 0.03596186637878418 seconds
+INFO 07-10 06:10:58 [metrics.py:481] Avg prompt throughput: 6508.8 tokens/s, Avg generation throughput: 401.6 tokens/s, Running: 38 reqs, Swapped: 0 reqs, Pending: 177 reqs, GPU KV cache usage: 99.0%, CPU KV cache usage: 0.0%.
+decode step time: 0.03600192070007324 seconds
+decode step time: 0.03572487831115723 seconds
+decode step time: 0.03571748733520508 seconds
+decode step time: 0.035410404205322266 seconds
+decode step time: 0.035457611083984375 seconds
+decode step time: 0.03544735908508301 seconds
+decode step time: 0.035433292388916016 seconds
+decode step time: 0.03538346290588379 seconds
+decode step time: 0.03566718101501465 seconds
+decode step time: 0.035598039627075195 seconds
+decode step time: 0.03576803207397461 seconds
+decode step time: 0.03603649139404297 seconds
+decode step time: 0.03583836555480957 seconds
+decode step time: 0.03615164756774902 seconds
+decode step time: 0.03632187843322754 seconds
+decode step time: 0.036237478256225586 seconds
+decode step time: 0.03591775894165039 seconds
+decode step time: 0.03587603569030762 seconds
+decode step time: 0.03584718704223633 seconds
+decode step time: 0.03564643859863281 seconds
+decode step time: 0.03565073013305664 seconds
+decode step time: 0.03558969497680664 seconds
+decode step time: 0.03553009033203125 seconds
+decode step time: 0.035471439361572266 seconds
+decode step time: 0.03581643104553223 seconds
+decode step time: 0.03565835952758789 seconds
+decode step time: 0.03592824935913086 seconds
+decode step time: 0.03593015670776367 seconds
+decode step time: 0.035864830017089844 seconds
+decode step time: 0.035584211349487305 seconds
+decode step time: 0.0360565185546875 seconds
+decode step time: 0.03627133369445801 seconds
+decode step time: 0.0364222526550293 seconds
+decode step time: 0.036107540130615234 seconds
+decode step time: 0.035614967346191406 seconds
+decode step time: 0.03574323654174805 seconds
+decode step time: 0.03565835952758789 seconds
+decode step time: 0.03549456596374512 seconds
+decode step time: 0.03550076484680176 seconds
+decode step time: 0.03567624092102051 seconds
+decode step time: 0.035681962966918945 seconds
+decode step time: 0.035696983337402344 seconds
+decode step time: 0.035881996154785156 seconds
+decode step time: 0.03461480140686035 seconds
+decode step time: 0.03480958938598633 seconds
+decode step time: 0.03485870361328125 seconds
+decode step time: 0.03490138053894043 seconds
+decode step time: 0.03448152542114258 seconds
+decode step time: 0.034363508224487305 seconds
+decode step time: 0.03430914878845215 seconds
+decode step time: 0.03449559211730957 seconds
+decode step time: 0.034554243087768555 seconds
+decode step time: 0.03484916687011719 seconds
+decode step time: 0.03476142883300781 seconds
+decode step time: 0.03480935096740723 seconds
+decode step time: 0.034456729888916016 seconds
+decode step time: 0.03448987007141113 seconds
+decode step time: 0.03441023826599121 seconds
+decode step time: 0.03461408615112305 seconds
+decode step time: 0.034707069396972656 seconds
+decode step time: 0.034932613372802734 seconds
+decode step time: 0.03478860855102539 seconds
+decode step time: 0.03489828109741211 seconds
+decode step time: 0.03458762168884277 seconds
+decode step time: 0.03547310829162598 seconds
+decode step time: 0.035279273986816406 seconds
+decode step time: 0.03548026084899902 seconds
+decode step time: 0.03533339500427246 seconds
+decode step time: 0.03570222854614258 seconds
+decode step time: 0.0356595516204834 seconds
+decode step time: 0.0356290340423584 seconds
+decode step time: 0.03580021858215332 seconds
+decode step time: 0.03588676452636719 seconds
+decode step time: 0.03600311279296875 seconds
+decode step time: 0.035982608795166016 seconds
+decode step time: 0.03482341766357422 seconds
+decode step time: 0.03460240364074707 seconds
+decode step time: 0.034497976303100586 seconds
+decode step time: 0.03522038459777832 seconds
+decode step time: 0.03457474708557129 seconds
+decode step time: 0.03464245796203613 seconds
+decode step time: 0.034894466400146484 seconds
+decode step time: 0.03480839729309082 seconds
+decode step time: 0.03495001792907715 seconds
+decode step time: 0.03464102745056152 seconds
+decode step time: 0.03468918800354004 seconds
+decode step time: 0.03458094596862793 seconds
+decode step time: 0.03450751304626465 seconds
+decode step time: 0.03456592559814453 seconds
+decode step time: 0.03469491004943848 seconds
+decode step time: 0.03479433059692383 seconds
+decode step time: 0.034842729568481445 seconds
+decode step time: 0.034606218338012695 seconds
+decode step time: 0.03487992286682129 seconds
+decode step time: 0.03474998474121094 seconds
+decode step time: 0.034752845764160156 seconds
+decode step time: 0.03567957878112793 seconds
+decode step time: 0.03559756278991699 seconds
+decode step time: 0.03551769256591797 seconds
+decode step time: 0.03556966781616211 seconds
+decode step time: 0.035755157470703125 seconds
+decode step time: 0.035874366760253906 seconds
+decode step time: 0.03597617149353027 seconds
+decode step time: 0.03608989715576172 seconds
+decode step time: 0.03606677055358887 seconds
+decode step time: 0.035650014877319336 seconds
+decode step time: 0.03594064712524414 seconds
+decode step time: 0.0350804328918457 seconds
+decode step time: 0.034894704818725586 seconds
+decode step time: 0.03468585014343262 seconds
+decode step time: 0.034694671630859375 seconds
+decode step time: 0.03479123115539551 seconds
+decode step time: 0.03488612174987793 seconds
+decode step time: 0.0349888801574707 seconds
+decode step time: 0.034993648529052734 seconds
+decode step time: 0.03514504432678223 seconds
+Tid 0 Request 225 finished.
+  Time in queue before prefill: 59141.7959 ms
+  Prefill time (approx): 358.8970 ms
+  TTFT: 59500.6928 ms
+  Latency: 83380.0383 ms
+  Total generated tokens: 256
+  Average TBT: 93.6445 ms/token
+  Throughput (tokens/s): 10.68
+Tid 0 Request 226 finished.
+  Time in queue before prefill: 59135.7625 ms
+  Prefill time (approx): 369.8745 ms
+  TTFT: 59505.6369 ms
+  Latency: 83014.0049 ms
+  Total generated tokens: 256
+  Average TBT: 92.1897 ms/token
+  Throughput (tokens/s): 10.85
+Tid 0 Request 227 finished.
+  Time in queue before prefill: 59141.8386 ms
+  Prefill time (approx): 368.2501 ms
+  TTFT: 59510.0887 ms
+  Latency: 82648.3989 ms
+  Total generated tokens: 256
+  Average TBT: 90.7385 ms/token
+  Throughput (tokens/s): 11.02
+Tid 0 Request 228 finished.
+  Time in queue before prefill: 59145.3025 ms
+  Prefill time (approx): 365.0258 ms
+  TTFT: 59510.3283 ms
+  Latency: 82281.7912 ms
+  Total generated tokens: 256
+  Average TBT: 89.2999 ms/token
+  Throughput (tokens/s): 11.20
+Tid 0 Request 229 finished.
+  Time in queue before prefill: 59145.9966 ms
+  Prefill time (approx): 364.0099 ms
+  TTFT: 59510.0064 ms
+  Latency: 81915.6799 ms
+  Total generated tokens: 256
+  Average TBT: 87.8654 ms/token
+  Throughput (tokens/s): 11.38
+Tid 0 Request 230 finished.
+  Time in queue before prefill: 59145.3013 ms
+  Prefill time (approx): 365.0508 ms
+  TTFT: 59510.3521 ms
+  Latency: 81549.1855 ms
+  Total generated tokens: 256
+  Average TBT: 86.4268 ms/token
+  Throughput (tokens/s): 11.57
+prefill step time: 0.3697986602783203 seconds
+prefill step time: 0.3677833080291748 seconds
+INFO 07-10 06:11:03 [metrics.py:481] Avg prompt throughput: 1579.4 tokens/s, Avg generation throughput: 826.4 tokens/s, Running: 33 reqs, Swapped: 0 reqs, Pending: 192 reqs, GPU KV cache usage: 88.0%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3651456832885742 seconds
+prefill step time: 0.3656797409057617 seconds
+prefill step time: 0.36693549156188965 seconds
+prefill step time: 0.3642888069152832 seconds
+decode step time: 0.0392460823059082 seconds
+decode step time: 0.03667569160461426 seconds
+decode step time: 0.03601193428039551 seconds
+decode step time: 0.03612256050109863 seconds
+decode step time: 0.03614926338195801 seconds
+decode step time: 0.036002397537231445 seconds
+decode step time: 0.03624725341796875 seconds
+decode step time: 0.03625130653381348 seconds
+decode step time: 0.03629708290100098 seconds
+decode step time: 0.036156415939331055 seconds
+decode step time: 0.03627347946166992 seconds
+decode step time: 0.03627443313598633 seconds
+decode step time: 0.03641629219055176 seconds
+decode step time: 0.03639554977416992 seconds
+decode step time: 0.03642916679382324 seconds
+decode step time: 0.03687739372253418 seconds
+decode step time: 0.0365445613861084 seconds
+decode step time: 0.03666090965270996 seconds
+decode step time: 0.03650379180908203 seconds
+decode step time: 0.036580801010131836 seconds
+decode step time: 0.0366668701171875 seconds
+decode step time: 0.03635048866271973 seconds
+decode step time: 0.03683161735534668 seconds
+decode step time: 0.03650259971618652 seconds
+decode step time: 0.03713488578796387 seconds
+decode step time: 0.03694963455200195 seconds
+decode step time: 0.036908626556396484 seconds
+decode step time: 0.03692340850830078 seconds
+decode step time: 0.03697347640991211 seconds
+decode step time: 0.0368502140045166 seconds
+decode step time: 0.03653669357299805 seconds
+decode step time: 0.03693842887878418 seconds
+decode step time: 0.036937713623046875 seconds
+decode step time: 0.03673553466796875 seconds
+decode step time: 0.03682756423950195 seconds
+decode step time: 0.03644967079162598 seconds
+decode step time: 0.03642082214355469 seconds
+decode step time: 0.036696672439575195 seconds
+decode step time: 0.03691387176513672 seconds
+decode step time: 0.03623533248901367 seconds
+decode step time: 0.03623628616333008 seconds
+decode step time: 0.036339759826660156 seconds
+decode step time: 0.03638315200805664 seconds
+decode step time: 0.03661847114562988 seconds
+decode step time: 0.03623390197753906 seconds
+decode step time: 0.03611278533935547 seconds
+decode step time: 0.03614664077758789 seconds
+decode step time: 0.036032676696777344 seconds
+decode step time: 0.036508798599243164 seconds
+decode step time: 0.036133766174316406 seconds
+decode step time: 0.03673410415649414 seconds
+decode step time: 0.03648066520690918 seconds
+decode step time: 0.03659701347351074 seconds
+decode step time: 0.036551475524902344 seconds
+decode step time: 0.03663825988769531 seconds
+decode step time: 0.036463260650634766 seconds
+decode step time: 0.036490678787231445 seconds
+decode step time: 0.0364837646484375 seconds
+decode step time: 0.03666853904724121 seconds
+decode step time: 0.036536216735839844 seconds
+decode step time: 0.036817312240600586 seconds
+decode step time: 0.03682971000671387 seconds
+decode step time: 0.036711692810058594 seconds
+decode step time: 0.03693127632141113 seconds
+decode step time: 0.036649227142333984 seconds
+decode step time: 0.03710508346557617 seconds
+decode step time: 0.036946773529052734 seconds
+decode step time: 0.03660726547241211 seconds
+decode step time: 0.03701138496398926 seconds
+decode step time: 0.0369114875793457 seconds
+decode step time: 0.036936283111572266 seconds
+decode step time: 0.0368189811706543 seconds
+decode step time: 0.03666877746582031 seconds
+decode step time: 0.03709673881530762 seconds
+decode step time: 0.037036895751953125 seconds
+Tid 0 Request 231 finished.
+  Time in queue before prefill: 62379.4873 ms
+  Prefill time (approx): 359.8289 ms
+  TTFT: 62739.3162 ms
+  Latency: 86410.5482 ms
+  Total generated tokens: 256
+  Average TBT: 92.8284 ms/token
+  Throughput (tokens/s): 10.77
+Tid 0 Request 232 finished.
+  Time in queue before prefill: 62372.7298 ms
+  Prefill time (approx): 369.3750 ms
+  TTFT: 62742.1048 ms
+  Latency: 86042.9592 ms
+  Total generated tokens: 256
+  Average TBT: 91.3759 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 233 finished.
+  Time in queue before prefill: 62376.7109 ms
+  Prefill time (approx): 366.3905 ms
+  TTFT: 62743.1014 ms
+  Latency: 85676.0070 ms
+  Total generated tokens: 256
+  Average TBT: 89.9330 ms/token
+  Throughput (tokens/s): 11.12
+Tid 0 Request 234 finished.
+  Time in queue before prefill: 62379.1511 ms
+  Prefill time (approx): 360.9412 ms
+  TTFT: 62740.0923 ms
+  Latency: 85310.5154 ms
+  Total generated tokens: 256
+  Average TBT: 88.5115 ms/token
+  Throughput (tokens/s): 11.30
+Tid 0 Request 235 finished.
+  Time in queue before prefill: 62373.7636 ms
+  Prefill time (approx): 368.0222 ms
+  TTFT: 62741.7858 ms
+  Latency: 84942.6272 ms
+  Total generated tokens: 256
+  Average TBT: 87.0621 ms/token
+  Throughput (tokens/s): 11.49
+Tid 0 Request 236 finished.
+  Time in queue before prefill: 62377.9967 ms
+  Prefill time (approx): 364.6667 ms
+  TTFT: 62742.6634 ms
+  Latency: 84576.3948 ms
+  Total generated tokens: 256
+  Average TBT: 85.6225 ms/token
+  Throughput (tokens/s): 11.68
+Tid 0 Request 237 finished.
+  Time in queue before prefill: 62379.2145 ms
+  Prefill time (approx): 363.4646 ms
+  TTFT: 62742.6791 ms
+  Latency: 84211.3276 ms
+  Total generated tokens: 256
+  Average TBT: 84.1908 ms/token
+  Throughput (tokens/s): 11.88
+prefill step time: 0.3605363368988037 seconds
+prefill step time: 0.36740636825561523 seconds
+INFO 07-10 06:11:09 [metrics.py:481] Avg prompt throughput: 4708.6 tokens/s, Avg generation throughput: 532.8 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 201 reqs, GPU KV cache usage: 86.0%, CPU KV cache usage: 0.0%.
+prefill step time: 0.3664054870605469 seconds
+prefill step time: 0.3653101921081543 seconds
+prefill step time: 0.36626410484313965 seconds
+prefill step time: 0.36428260803222656 seconds
+prefill step time: 0.3642125129699707 seconds
+decode step time: 0.039925336837768555 seconds
+decode step time: 0.037076711654663086 seconds
+decode step time: 0.036911964416503906 seconds
+decode step time: 0.036881446838378906 seconds
+decode step time: 0.036594390869140625 seconds
+decode step time: 0.0370328426361084 seconds
+decode step time: 0.0371098518371582 seconds
+decode step time: 0.03714752197265625 seconds
+decode step time: 0.03696846961975098 seconds
+decode step time: 0.03672051429748535 seconds
+decode step time: 0.037097930908203125 seconds
+Tid 0 Request 238 finished.
+  Time in queue before prefill: 63158.6015 ms
+  Prefill time (approx): 358.8703 ms
+  TTFT: 63517.4718 ms
+  Latency: 87198.0059 ms
+  Total generated tokens: 256
+  Average TBT: 92.8648 ms/token
+  Throughput (tokens/s): 10.77
+Tid 0 Request 239 finished.
+  Time in queue before prefill: 62968.4522 ms
+  Prefill time (approx): 365.5405 ms
+  TTFT: 63333.9927 ms
+  Latency: 86647.5904 ms
+  Total generated tokens: 256
+  Average TBT: 91.4259 ms/token
+  Throughput (tokens/s): 10.94
+Tid 0 Request 240 finished.
+  Time in queue before prefill: 63062.1979 ms
+  Prefill time (approx): 368.5544 ms
+  TTFT: 63430.7523 ms
+  Latency: 86373.7273 ms
+  Total generated tokens: 256
+  Average TBT: 89.9725 ms/token
+  Throughput (tokens/s): 11.11
+Tid 0 Request 241 finished.
+  Time in queue before prefill: 63197.8061 ms
+  Prefill time (approx): 363.8995 ms
+  TTFT: 63561.7056 ms
+  Latency: 86138.7281 ms
+  Total generated tokens: 256
+  Average TBT: 88.5373 ms/token
+  Throughput (tokens/s): 11.29
+Tid 0 Request 242 finished.
+  Time in queue before prefill: 62898.1915 ms
+  Prefill time (approx): 365.3355 ms
+  TTFT: 63263.5269 ms
+  Latency: 85473.6168 ms
+  Total generated tokens: 256
+  Average TBT: 87.0984 ms/token
+  Throughput (tokens/s): 11.48
+Tid 0 Request 243 finished.
+  Time in queue before prefill: 62559.8011 ms
+  Prefill time (approx): 366.2829 ms
+  TTFT: 62926.0840 ms
+  Latency: 84768.3125 ms
+  Total generated tokens: 256
+  Average TBT: 85.6558 ms/token
+  Throughput (tokens/s): 11.67
+Tid 0 Request 244 finished.
+  Time in queue before prefill: 62848.1984 ms
+  Prefill time (approx): 365.7544 ms
+  TTFT: 63213.9528 ms
+  Latency: 84688.8847 ms
+  Total generated tokens: 256
+  Average TBT: 84.2154 ms/token
+  Throughput (tokens/s): 11.87
+Tid 0 Request 245 finished.
+  Time in queue before prefill: 63017.4820 ms
+  Prefill time (approx): 366.1392 ms
+  TTFT: 63383.6212 ms
+  Latency: 84490.8466 ms
+  Total generated tokens: 256
+  Average TBT: 82.7734 ms/token
+  Throughput (tokens/s): 12.08
+Tid 0 Request 246 finished.
+  Time in queue before prefill: 62481.5965 ms
+  Prefill time (approx): 364.1295 ms
+  TTFT: 62845.7260 ms
+  Latency: 83587.2004 ms
+  Total generated tokens: 256
+  Average TBT: 81.3391 ms/token
+  Throughput (tokens/s): 12.29
+Tid 0 Request 247 finished.
+  Time in queue before prefill: 62532.4833 ms
+  Prefill time (approx): 364.3267 ms
+  TTFT: 62896.8101 ms
+  Latency: 83271.2250 ms
+  Total generated tokens: 256
+  Average TBT: 79.8997 ms/token
+  Throughput (tokens/s): 12.52
+Tid 0 Request 248 finished.
+  Time in queue before prefill: 62819.5343 ms
+  Prefill time (approx): 365.5901 ms
+  TTFT: 63185.1244 ms
+  Latency: 83192.2603 ms
+  Total generated tokens: 256
+  Average TBT: 78.4594 ms/token
+  Throughput (tokens/s): 12.75
+Tid 0 Request 249 finished.
+  Time in queue before prefill: 60885.1891 ms
+  Prefill time (approx): 364.2056 ms
+  TTFT: 61249.3947 ms
+  Latency: 80890.5334 ms
+  Total generated tokens: 256
+  Average TBT: 77.0241 ms/token
+  Throughput (tokens/s): 12.98
+Tid 0 Request 250 finished.
+  Time in queue before prefill: 61171.6669 ms
+  Prefill time (approx): 365.1078 ms
+  TTFT: 61536.7746 ms
+  Latency: 80811.1696 ms
+  Total generated tokens: 256
+  Average TBT: 75.5859 ms/token
+  Throughput (tokens/s): 13.23
+Tid 0 Request 251 finished.
+  Time in queue before prefill: 61380.3587 ms
+  Prefill time (approx): 366.6973 ms
+  TTFT: 61747.0560 ms
+  Latency: 80653.0225 ms
+  Total generated tokens: 256
+  Average TBT: 74.1410 ms/token
+  Throughput (tokens/s): 13.49
+Tid 0 Request 252 finished.
+  Time in queue before prefill: 61342.7012 ms
+  Prefill time (approx): 366.7185 ms
+  TTFT: 61709.4197 ms
+  Latency: 80246.9695 ms
+  Total generated tokens: 256
+  Average TBT: 72.6963 ms/token
+  Throughput (tokens/s): 13.76
+Tid 0 Request 253 finished.
+  Time in queue before prefill: 61341.5043 ms
+  Prefill time (approx): 364.9654 ms
+  TTFT: 61706.4698 ms
+  Latency: 79877.3971 ms
+  Total generated tokens: 256
+  Average TBT: 71.2585 ms/token
+  Throughput (tokens/s): 14.03
+Tid 0 Request 254 finished.
+  Time in queue before prefill: 61341.3820 ms
+  Prefill time (approx): 364.2547 ms
+  TTFT: 61705.6367 ms
+  Latency: 79510.6785 ms
+  Total generated tokens: 256
+  Average TBT: 69.8237 ms/token
+  Throughput (tokens/s): 14.32
+Tid 0 Request 255 finished.
+  Time in queue before prefill: 61341.9859 ms
+  Prefill time (approx): 365.3529 ms
+  TTFT: 61707.3388 ms
+  Latency: 79145.1437 ms
+  Total generated tokens: 256
+  Average TBT: 68.3835 ms/token
+  Throughput (tokens/s): 14.62
+Tid 0 Request 256 finished.
+  Time in queue before prefill: 61343.5962 ms
+  Prefill time (approx): 364.5794 ms
+  TTFT: 61708.1757 ms
+  Latency: 78778.7325 ms
+  Total generated tokens: 256
+  Average TBT: 66.9434 ms/token
+  Throughput (tokens/s): 14.94
+Tid 0 Request 257 finished.
+  Time in queue before prefill: 61343.9689 ms
+  Prefill time (approx): 366.0524 ms
+  TTFT: 61710.0213 ms
+  Latency: 78412.5478 ms
+  Total generated tokens: 256
+  Average TBT: 65.5001 ms/token
+  Throughput (tokens/s): 15.27
+Tid 0 Request 258 finished.
+  Time in queue before prefill: 61347.7738 ms
+  Prefill time (approx): 365.0155 ms
+  TTFT: 61712.7893 ms
+  Latency: 78046.0484 ms
+  Total generated tokens: 256
+  Average TBT: 64.0520 ms/token
+  Throughput (tokens/s): 15.61
+Tid 0 Request 259 finished.
+  Time in queue before prefill: 61668.6630 ms
+  Prefill time (approx): 365.0458 ms
+  TTFT: 62033.7088 ms
+  Latency: 78000.1009 ms
+  Total generated tokens: 256
+  Average TBT: 62.6133 ms/token
+  Throughput (tokens/s): 15.97
+Tid 0 Request 260 finished.
+  Time in queue before prefill: 61993.8281 ms
+  Prefill time (approx): 365.1993 ms
+  TTFT: 62359.0274 ms
+  Latency: 77958.3807 ms
+  Total generated tokens: 256
+  Average TBT: 61.1739 ms/token
+  Throughput (tokens/s): 16.35
+Tid 0 Request 261 finished.
+  Time in queue before prefill: 61390.2032 ms
+  Prefill time (approx): 364.3551 ms
+  TTFT: 61754.5583 ms
+  Latency: 76987.7236 ms
+  Total generated tokens: 256
+  Average TBT: 59.7379 ms/token
+  Throughput (tokens/s): 16.74
+prefill step time: 0.36021852493286133 seconds
+prefill step time: 0.36475396156311035 seconds
+prefill step time: 0.36868762969970703 seconds
+prefill step time: 0.36441564559936523 seconds
+prefill step time: 0.36477184295654297 seconds
+prefill step time: 0.36445069313049316 seconds
+prefill step time: 0.36621856689453125 seconds
+prefill step time: 0.3656628131866455 seconds
+INFO 07-10 06:11:14 [metrics.py:481] Avg prompt throughput: 10152.5 tokens/s, Avg generation throughput: 80.1 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 202 reqs, GPU KV cache usage: 54.2%, CPU KV cache usage: 0.0%.
+prefill step time: 0.36529541015625 seconds
+prefill step time: 0.3651156425476074 seconds
+prefill step time: 0.3639183044433594 seconds
+prefill step time: 0.3663005828857422 seconds
+[final] Tid 0 finished.
+[final] Average first token time: 31370.345607968688ms
+[final] Average finished time: 52131.096419487294ms
+[final] Average TBT: 81.4147090647788 ms/token
+[final] Average throughput: 12.477072355918718 tokens/s
+[final] Total requests served: 262, total time: 180.00s, generated: 490
+[final] Throughput: 1.455556 requests/s

@@ -1,0 +1,22 @@
+{
+  "created_at": "2026-07-09T21:55:10",
+  "duration_seconds": 180.0,
+  "logs_root": "/mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part1-colocate/logs/colocate",
+  "repo_root": "/mnt/data/rtx/gpu/sm-sched",
+  "schedulers": [
+    "mps-30",
+    "mps-50",
+    "orion",
+    "MorphX",
+    "stream",
+    "tgs",
+    "timeslice"
+  ],
+  "MorphX_note": "MorphX-88 is intentionally omitted; plain MorphX removes MorphX_SPLIT_HINT unless --MorphX-split-hint or --MorphX-split-hint-for is set",
+  "MorphX_split_hint": "76",
+  "MorphX_split_hint_overrides": [],
+  "tables": [
+    "llm-1-mm",
+    "llm-4-mm"
+  ]
+}

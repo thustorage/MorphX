@@ -1,0 +1,34 @@
+# label: Figure15 LLM/neutrino
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/neutrino -p dmat /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload llm --model llama-3-8b --input-length 4096 --output-length 3 --runs 1
+# started: 2026-07-10T10:11:17.612649
+INFO 07-10 10:11:21 [__init__.py:256] Automatically detected platform cuda.
+INFO 07-10 10:11:28 [config.py:583] This model supports multiple tasks: {'embed', 'generate', 'classify', 'score', 'reward'}. Defaulting to 'generate'.
+WARNING 07-10 10:11:28 [cuda.py:96] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-10 10:11:28 [llm_engine.py:260] Initializing a V0 LLM engine (v0.1.dev24+g232ce74.d20251027) with config: model='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', speculative_config=None, tokenizer='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4099, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-10 10:11:29 [cuda.py:220] Using FlashInfer backend.
+INFO 07-10 10:11:29 [importing.py:16] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 07-10 10:11:30 [parallel_state.py:967] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 07-10 10:11:30 [model_runner.py:1145] Starting to load model /huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2...
+INFO 07-10 10:11:41 [loader.py:429] Loading weights took 2.85 seconds
+INFO 07-10 10:11:41 [model_runner.py:1181] Model loading took 14.9596 GB and 11.745421 seconds
+INFO 07-10 10:12:40 [worker.py:267] Memory profiling takes 58.67 seconds
+INFO 07-10 10:12:40 [worker.py:267] the current vLLM instance can use total_gpu_memory (39.49GiB) x gpu_memory_utilization (0.90) = 35.54GiB
+INFO 07-10 10:12:40 [worker.py:267] model weights take 14.96GiB; non_torch_memory takes 0.08GiB; PyTorch activation peak memory takes 0.76GiB; the rest of the memory reserved for KV Cache is 19.74GiB.
+INFO 07-10 10:12:40 [executor_base.py:111] # cuda blocks: 10107, # CPU blocks: 2048
+INFO 07-10 10:12:40 [executor_base.py:116] Maximum concurrency for 4099 tokens per request: 39.45x
+INFO 07-10 10:12:42 [llm_engine.py:471] init engine (profile, create kv cache, warmup model) took 60.26 seconds
+use_async_output_proc: False
+prefill step time: 2.774930953979492 seconds
+decode step time: 0.5679700374603271 seconds
+decode step time: 0.017514467239379883 seconds
+[LLM] Warmup finished.
+prefill step time: 0.35146236419677734 seconds
+decode step time: 0.018195629119873047 seconds
+decode step time: 0.017757415771484375 seconds
+[LLM] Run 0: latency=390.381 ms, tokens=3
+LLM latency: 1 runs -> avg_ms=390.381 ms, min_ms=390.381 ms, max_ms=390.381 ms, ttft_avg_ms=352.892 ms
+[warn] callback dmat_callback.py not found
+# finished: 2026-07-10T10:12:47.695879
+# returncode: 0
+# elapsed_seconds: 90.083

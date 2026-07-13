@@ -1,0 +1,11 @@
+# label: Figure15 GEMM/neutrino
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/neutrino -p dmat /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload gemm --mm-size 8192 --runs 1
+# started: 2026-07-10T10:05:33.974091
+[GEMM] Warmup finished.
+[GEMM] Run 0: latency=7.358 ms, approx GFLOPS=149428.44
+GEMM latency: 1 runs -> avg_ms=7.358 ms, min_ms=7.358 ms, max_ms=7.358 ms, gflops_avg=149428.438 ms
+[warn] callback dmat_callback.py not found
+# finished: 2026-07-10T10:05:37.158702
+# returncode: 0
+# elapsed_seconds: 3.184

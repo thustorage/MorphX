@@ -1,0 +1,8 @@
+{
+    "time": 180,
+    "model": "glm-9b",
+    "type": "poisson", 
+    "rps": 5, 
+    "input_length": 4096, 
+    "output_length": 160
+} 

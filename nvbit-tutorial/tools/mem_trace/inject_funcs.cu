@@ -1,0 +1,106 @@
+/*
+ * SPDX-FileCopyrightText: Copyright (c) 2019 NVIDIA CORPORATION & AFFILIATES.
+ * All rights reserved.
+ * SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ * list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ * this list of conditions and the following disclaimer in the documentation
+ * and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#include <stdint.h>
+#include <stdio.h>
+
+#include "utils/utils.h"
+
+/* for channel */
+#include "utils/channel.hpp"
+
+/* contains definition of the mem_access_t structure */
+#include "common.h"
+
+#define SIGN_EXTEND64(x) ((((int64_t)(x)) << 32) >> 32)
+
+/* Generic address generation code - needed by NVBit for nvbit_add_call_arg_mref_addr64 */
+extern "C" __device__ __noinline__ uint64_t
+gen_mref_addr(uint32_t ra_high, int is_ra64, uint32_t ra_low, int ra_stride,
+              uint32_t ru_high, int is_ru64, uint32_t ru_low, int32_t imm,
+              uint32_t mref_idx /* unused */) {
+    int64_t base_addr = 0;
+
+    if (is_ra64) {
+        base_addr +=
+            (((uint64_t)ra_high) << 32) | ((uint64_t)ra_low * ra_stride);
+    } else {
+        base_addr += SIGN_EXTEND64(ra_low * ra_stride);
+    }
+
+    if (is_ru64) {
+        base_addr += (((uint64_t)ru_high) << 32) | ((uint64_t)ru_low);
+    } else {
+        base_addr += SIGN_EXTEND64(ru_low);
+    }
+
+    return base_addr + imm;
+}
+
+extern "C" __device__ __noinline__ void instrument_mem(int pred, int opcode_id,
+                                                       uint64_t addr,
+                                                       uint64_t grid_launch_id,
+                                                       uint64_t pchannel_dev) {
+    /* if thread is predicated off, return */
+    if (!pred) {
+        return;
+    }
+
+    int active_mask = __ballot_sync(__activemask(), 1);
+    const int laneid = get_laneid();
+    const int first_laneid = __ffs(active_mask) - 1;
+
+    /*
+     * Instead of sending all 32 addresses, only count how many active
+     * and non-zero addresses are present in the warp and send that count.
+     * This reduces channel traffic while preserving correct total counts.
+     */
+    mem_access_t ma;
+    ma.grid_launch_id = grid_launch_id;
+    ma.opcode_id = opcode_id;
+
+    /* count non-zero addresses sampled from lanes */
+    int valid_addrs = 0;
+    uint64_t lane_addr = addr;
+    /* each lane's addr is available via shuffle; check each lane's addr */
+    for (int i = 0; i < 32; i++) {
+        uint64_t other_addr = __shfl_sync(active_mask, lane_addr, i);
+        if (other_addr != 0)
+            valid_addrs++;
+    }
+    ma.count = (uint32_t)valid_addrs;
+
+    /* first active lane pushes the aggregated count on the channel */
+    if (first_laneid == laneid) {
+        ChannelDev* channel_dev = (ChannelDev*)pchannel_dev;
+        channel_dev->push(&ma, sizeof(mem_access_t));
+    }
+}

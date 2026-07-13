@@ -1,0 +1,14 @@
+# label: Figure15 GEMM/ncu
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: sudo -n env PATH=/home/rtx/miniconda3/envs/MorphX/bin:/home/rtx/.local/bin:/usr/local/cuda-12.4/bin:/home/rtx/usr/bin:/usr/local/cuda/bin:/home/rtx/miniconda3/envs/MorphX/bin:/home/rtx/.local/bin:/home/rtx/.nvm/versions/node/v24.18.0/bin:/usr/local/cuda-12.4/bin:/home/rtx/usr/bin:/usr/local/cuda/bin:/home/rtx/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/opt/mellanox/doca/tools:/opt/mellanox/doca/tools/ LD_LIBRARY_PATH=/mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/runtime-libs:/mnt/data/rtx/llvm-project/install/lib/x86_64-unknown-linux-gnu:/mnt/data/rtx/llvm-project/build/lib/x86_64-unknown-linux-gnu:/mnt/data/rtx/miniconda3/envs/MorphX/lib:/usr/mpi/gcc/openmpi-4.1.7rc1/lib:/usr/local/cuda-12.4/lib64:/usr/local/cuda-12.4/targets/x86_64-linux/lib:/usr/local/cuda-12.4/extras/CUPTI/lib64:/home/rtx/usr/lib:/usr/local/cuda/lib64:/usr/local/cuda-12.4/lib64:/usr/local/cuda-12.4/targets/x86_64-linux/lib:/usr/local/cuda-12.4/extras/CUPTI/lib64:/home/rtx/usr/lib:/usr/local/cuda/lib64 NCU_PROFILING=1 ncu -o /mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/logs/overhead/gemm/ncu_output -f --profile-from-start off --metrics dram__bytes_read.sum,dram__bytes_write.sum,gpu__time_duration.sum --target-processes all /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload gemm --mm-size 8192 --runs 1
+# started: 2026-07-10T10:05:29.844679
+==PROF== Connected to process 1677984 (/mnt/data/rtx/miniconda3/envs/MorphX/bin/python3.10)
+==PROF== Profiling "_ZN7cutlassL6KernelINS_4gemm6..." - 0: 0%....50%....100% - 1 pass
+[GEMM] Warmup finished.
+[GEMM] Run 0: latency=917.185 ms, approx GFLOPS=1198.79
+GEMM latency: 1 runs -> avg_ms=917.185 ms, min_ms=917.185 ms, max_ms=917.185 ms, gflops_avg=1198.790 ms
+==PROF== Disconnected from process 1677984
+==PROF== Report: /mnt/data/rtx/gpu/sm-sched/logs/20260709-131830/part3-overhead/logs/overhead/gemm/ncu_output.ncu-rep
+# finished: 2026-07-10T10:05:33.973375
+# returncode: 0
+# elapsed_seconds: 4.129

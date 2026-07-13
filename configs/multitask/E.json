@@ -1,0 +1,19 @@
+{
+    "time": 10,
+    "tasks": [
+        {
+            "model": "llama-2-7b",
+            "type": "poisson", 
+            "rps": 0.2, 
+            "input_length": 1155, 
+            "output_length": 211
+        },
+        {
+            "model": "llama-2-7b",
+            "type": "poisson",
+            "rps": 0.2, 
+            "input_length": 1155, 
+            "output_length": 211
+        }
+    ]
+}

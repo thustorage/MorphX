@@ -1,0 +1,14 @@
+# label: Figure15 GEMV/MorphX
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload gemm --mm-m 8192 --mm-n 16 --mm-k 8192 --runs 5
+# started: 2026-07-10T10:07:14.299512
+[GEMM] Warmup finished.
+[GEMM] Run 0: latency=0.238 ms, approx GFLOPS=9037.58
+[GEMM] Run 1: latency=0.188 ms, approx GFLOPS=11416.71
+[GEMM] Run 2: latency=0.185 ms, approx GFLOPS=11608.02
+[GEMM] Run 3: latency=0.183 ms, approx GFLOPS=11708.01
+[GEMM] Run 4: latency=0.185 ms, approx GFLOPS=11637.02
+GEMM latency: 5 runs -> avg_ms=0.196 ms, min_ms=0.183 ms, max_ms=0.238 ms, stdev_ms=0.023 ms, gflops_avg=11081.469 ms
+# finished: 2026-07-10T10:07:17.884960
+# returncode: 0
+# elapsed_seconds: 3.585

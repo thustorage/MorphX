@@ -1,0 +1,6 @@
+series	kernel	blocks	occup	ci	waves	source
+16	_ZN7cutlassL6KernelINS_4gemm6kernel4Gemm	512	2	0.307496	4	new
+128	_ZN7cutlassL6KernelINS_4gemm6kernel4Gemm	256	1	0.555375	4	new
+512	_ZN7cutlassL6KernelINS_4gemm6kernel4Gemm	2048	1	0.660175	10	new
+8192	_ZN7cutlassL6KernelINS_4gemm6kernel4Gemm	16384	1	1.000000	10	new
+ggnn	_ZN4ggnn3symINS_14SymQueryKernelIiffLj64	1000000	10	1.000000	10	new

@@ -1,0 +1,6 @@
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload dnn --runs 1
+DNN latency: 1 runs -> avg_ms=131094.232 ms, min_ms=131094.232 ms, max_ms=131094.232 ms
+# finished: 2026-07-10T10:05:19.947120
+# returncode: 0
+# elapsed_seconds: 364.425

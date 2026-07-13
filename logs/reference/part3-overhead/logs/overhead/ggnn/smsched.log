@@ -1,0 +1,14 @@
+# label: Figure15 GGNN/MorphX
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload ggnn --ggnn-base-size 1000000 --ggnn-query-size 10000 --runs 5
+# started: 2026-07-10T10:09:25.739764
+[GGNN] Warmup finished.
+[GGNN] Run 0: latency=51.609 ms
+[GGNN] Run 1: latency=51.671 ms
+[GGNN] Run 2: latency=51.532 ms
+[GGNN] Run 3: latency=51.411 ms
+[GGNN] Run 4: latency=51.680 ms
+GGNN latency: 5 runs -> avg_ms=51.581 ms, min_ms=51.411 ms, max_ms=51.680 ms, stdev_ms=0.112 ms
+# finished: 2026-07-10T10:09:52.080050
+# returncode: 0
+# elapsed_seconds: 26.340

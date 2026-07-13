@@ -1,0 +1,87 @@
+# label: Figure16 ggnn
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload ggnn --ggnn-base-size 1000000 --ggnn-query-size 10000 --runs 1
+# started: 2026-07-10T10:24:34.183243
+[MorphX] kernel _ZN2at6native12_GLOBAL__N_143distributio: blocks: 864, occup: 4, waves: 3, CI: 0.378963, WaveTime: 396.968000us
+[MorphX] AvgWave 0: 108, 396.968000us
+[MorphX] AvgWave 1: 72, 317.485000us
+[MorphX] AvgWave 2: 36, 150.436000us
+[MorphX] kernel _ZN4ggnn3topINS_14TopMergeKernelIiffLj12: blocks: 1000000, occup: 16, waves: 10, CI: 0.641157, WaveTime: 73.436000us
+[MorphX] AvgWave 0: 108, 73.436000us
+[MorphX] AvgWave 1: 96, 72.475000us
+[MorphX] AvgWave 2: 84, 72.271000us
+[MorphX] AvgWave 3: 72, 69.705000us
+[MorphX] AvgWave 4: 60, 69.466000us
+[MorphX] AvgWave 5: 48, 69.108000us
+[MorphX] AvgWave 6: 36, 67.893000us
+[MorphX] AvgWave 7: 24, 66.832000us
+[MorphX] AvgWave 8: 12, 66.254000us
+[MorphX] AvgWave 9: 4, 47.084000us
+[MorphX] kernel _ZN3cub32CUB_200802_SM___CUDA_ARCH_LIST_: blocks: 245, occup: 8, waves: 2, CI: 0.011735, WaveTime: 160.624172us
+[MorphX] AvgWave 0: 23, 34.207000us
+[MorphX] AvgWave 1: 8, 1.885000us
+[MorphX] kernel _ZN3cub32CUB_200802_SM___CUDA_ARCH_LIST_: blocks: 1, occup: 2, waves: 1, CI: 0.009259, WaveTime: 683.208000us
+[MorphX] AvgWave 0: 1, 6.326000us
+[MorphX] kernel _ZN3cub32CUB_200802_SM___CUDA_ARCH_LIST_: blocks: 245, occup: 8, waves: 2, CI: 0.043679, WaveTime: 85.991477us
+[MorphX] AvgWave 0: 23, 18.313000us
+[MorphX] AvgWave 1: 8, 3.756000us
+[MorphX] kernel _ZN3cub32CUB_200802_SM___CUDA_ARCH_LIST_: blocks: 1, occup: 6, waves: 1, CI: 0.009259, WaveTime: 1180.764000us
+[MorphX] AvgWave 0: 1, 10.933000us
+[MorphX] kernel _ZN4ggnn6divideIfEEvPT_S2_S1_: blocks: 1, occup: 32, waves: 1, CI: 0.009259, WaveTime: 5445.468000us
+[MorphX] AvgWave 0: 1, 50.421000us
+[MorphX] kernel _ZN4ggnn6selectINS_18WRSSelectionKernelI: blocks: 32768, occup: 12, waves: 10, CI: 0.627082, WaveTime: 44.605000us
+[MorphX] AvgWave 0: 108, 44.605000us
+[MorphX] AvgWave 1: 96, 35.743000us
+[MorphX] AvgWave 2: 84, 35.763000us
+[MorphX] AvgWave 3: 72, 36.425000us
+[MorphX] AvgWave 4: 60, 36.236000us
+[MorphX] AvgWave 5: 48, 35.331000us
+[MorphX] AvgWave 6: 36, 36.965000us
+[MorphX] AvgWave 7: 24, 35.213000us
+[MorphX] AvgWave 8: 12, 33.500000us
+[MorphX] AvgWave 9: 7, 27.971000us
+[MorphX] kernel _ZN4ggnn3symINS_14SymQueryKernelIiffLj64: blocks: 1000000, occup: 10, waves: 10, CI: 1.000000, WaveTime: 113.580000us
+[MorphX] AvgWave 0: 108, 113.580000us
+[MorphX] AvgWave 1: 96, 100.986000us
+[MorphX] AvgWave 2: 84, 101.604000us
+[MorphX] AvgWave 3: 72, 101.445000us
+[MorphX] AvgWave 4: 60, 104.701000us
+[MorphX] AvgWave 5: 48, 107.272000us
+[MorphX] AvgWave 6: 36, 109.637000us
+[MorphX] AvgWave 7: 24, 110.166000us
+[MorphX] AvgWave 8: 12, 100.898000us
+[MorphX] AvgWave 9: 4, 87.755000us
+[MorphX] kernel _ZN4ggnn16sym_buffer_mergeINS_20SymBuffe: blocks: 100000, occup: 16, waves: 10, CI: 0.670258, WaveTime: 13.459000us
+[MorphX] AvgWave 0: 108, 13.459000us
+[MorphX] AvgWave 1: 96, 10.759000us
+[MorphX] AvgWave 2: 84, 11.729000us
+[MorphX] AvgWave 3: 72, 9.149000us
+[MorphX] AvgWave 4: 60, 10.439000us
+[MorphX] AvgWave 5: 48, 10.231000us
+[MorphX] AvgWave 6: 36, 9.853000us
+[MorphX] AvgWave 7: 24, 10.119000us
+[MorphX] AvgWave 8: 12, 10.297000us
+[MorphX] AvgWave 9: 10, 9.021000us
+[MorphX] kernel _ZN4ggnn5mergeINS_11MergeKernelIiffLj32E: blocks: 1000000, occup: 28, waves: 10, CI: 1.000000, WaveTime: 2972.772000us
+[MorphX] AvgWave 0: 108, 2972.772000us
+[MorphX] AvgWave 1: 96, 2769.018000us
+[MorphX] AvgWave 2: 84, 2770.735000us
+[MorphX] AvgWave 3: 72, 2727.649000us
+[MorphX] AvgWave 4: 60, 2690.236000us
+[MorphX] AvgWave 5: 48, 2695.199000us
+[MorphX] AvgWave 6: 36, 2672.327000us
+[MorphX] AvgWave 7: 24, 2711.767000us
+[MorphX] AvgWave 8: 12, 2693.685000us
+[MorphX] AvgWave 9: 3, 2662.498000us
+[MorphX] kernel _ZN4ggnn5queryINS_11QueryKernelIiffLj32E: blocks: 10000, occup: 28, waves: 5, CI: 1.000000, WaveTime: 13786.536000us
+[MorphX] AvgWave 0: 108, 13786.536000us
+[MorphX] AvgWave 1: 81, 13274.974000us
+[MorphX] AvgWave 2: 54, 12842.709000us
+[MorphX] AvgWave 3: 27, 12633.908000us
+[MorphX] AvgWave 4: 7, 10960.458000us
+[GGNN] Warmup finished.
+[GGNN] Run 0: latency=50.949 ms
+GGNN latency: 1 runs -> avg_ms=50.949 ms, min_ms=50.949 ms, max_ms=50.949 ms
+# finished: 2026-07-10T10:25:02.500753
+# returncode: 0
+# elapsed_seconds: 28.317

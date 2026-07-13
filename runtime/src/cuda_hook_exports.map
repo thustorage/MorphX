@@ -1,0 +1,20 @@
+{
+  global:
+    cuGetProcAddress;
+    cuGetProcAddress_v2;
+    cuLaunchKernel;
+    cuLaunchKernel_ptsz;
+    cuLaunchKernelEx;
+    cuLaunchKernelEx_ptsz;
+    cuModuleLoad;
+    cuModuleLoadData;
+    cuModuleLoadDataEx;
+    cuModuleLoadFatBinary;
+    cuModuleGetFunction;
+    cuLibraryLoadData;
+    cuLibraryGetKernel;
+    cuLibraryGetModule;
+    cuKernelGetFunction;
+  local:
+    *;
+};

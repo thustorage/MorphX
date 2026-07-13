@@ -1,0 +1,3224 @@
+INFO 07-09 17:24:39 [__init__.py:256] Automatically detected platform cuda.
+Running in multi-thread mode.
+CPU affinity assignments:
+  LLM: [0]
+  GGNN: [1]
+Starting engine initialization on LLM worker
+[LLM] Worker 0 (PID 2676024): bound to CPUs [0]
+Starting GGNN worker (base_size=1000000, query_size=10000, dim=128, k_query=10)
+[GGNN] Worker 3 (PID 2676024): bound to CPUs [1]
+[LLM] Worker 0 (PID 2676024): initializing engine (will schedule 159 requests)
+[GGNN] Worker 3 (PID 2676024): Warmup query completed in 54.38 ms
+[GGNN] Worker 3 (PID 2676024): warmup completed, waiting for start
+INFO 07-09 17:25:09 [config.py:583] This model supports multiple tasks: {'embed', 'classify', 'score', 'generate', 'reward'}. Defaulting to 'generate'.
+WARNING 07-09 17:25:09 [cuda.py:96] To see benefits of async output processing, enable CUDA graph. Since, enforce-eager is enabled, async output processor cannot be used
+INFO 07-09 17:25:09 [llm_engine.py:260] Initializing a V0 LLM engine (v0.1.dev24+g232ce74.d20251027) with config: model='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', speculative_config=None, tokenizer='/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=4096, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=True, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='xgrammar', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=/huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=None, chunked_prefill_enabled=False, use_async_output_proc=False, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"splitting_ops":[],"compile_sizes":[],"cudagraph_capture_sizes":[],"max_capture_size":0}, use_cached_outputs=False, 
+INFO 07-09 17:25:11 [cuda.py:220] Using FlashInfer backend.
+INFO 07-09 17:25:11 [importing.py:16] Triton not installed or not compatible; certain GPU-related functions will not be available.
+INFO 07-09 17:25:11 [parallel_state.py:967] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0
+INFO 07-09 17:25:11 [model_runner.py:1145] Starting to load model /huggingface-cache/hub/models--meta-llama--Meta-Llama-3-8B-Instruct/snapshots/8afb486c1db24fe5011ec46dfbe5b5dccdb575c2...
+INFO 07-09 17:25:14 [loader.py:429] Loading weights took 2.79 seconds
+INFO 07-09 17:25:14 [model_runner.py:1181] Model loading took 14.9596 GB and 2.928778 seconds
+INFO 07-09 17:25:15 [worker.py:267] Memory profiling takes 0.76 seconds
+INFO 07-09 17:25:15 [worker.py:267] the current vLLM instance can use total_gpu_memory (39.49GiB) x gpu_memory_utilization (0.90) = 35.54GiB
+INFO 07-09 17:25:15 [worker.py:267] model weights take 14.96GiB; non_torch_memory takes 0.08GiB; PyTorch activation peak memory takes 1.53GiB; the rest of the memory reserved for KV Cache is 18.97GiB.
+INFO 07-09 17:25:15 [executor_base.py:111] # cuda blocks: 9713, # CPU blocks: 2048
+INFO 07-09 17:25:15 [executor_base.py:116] Maximum concurrency for 4096 tokens per request: 37.94x
+INFO 07-09 17:25:17 [llm_engine.py:471] init engine (profile, create kv cache, warmup model) took 2.49 seconds
+use_async_output_proc: False
+[LLM] Worker 0 (PID 2676024): engine initialized
+prefill step time: 0.032018423080444336 seconds
+decode step time: 0.022522926330566406 seconds
+decode step time: 0.019135475158691406 seconds
+decode step time: 0.019098281860351562 seconds
+decode step time: 0.019094228744506836 seconds
+decode step time: 0.01908278465270996 seconds
+decode step time: 0.019121646881103516 seconds
+decode step time: 0.019142866134643555 seconds
+decode step time: 0.019089937210083008 seconds
+decode step time: 0.01910710334777832 seconds
+decode step time: 0.0191192626953125 seconds
+decode step time: 0.019102811813354492 seconds
+decode step time: 0.01817798614501953 seconds
+decode step time: 0.01533651351928711 seconds
+decode step time: 0.015277385711669922 seconds
+decode step time: 0.015195369720458984 seconds
+decode step time: 0.015177249908447266 seconds
+decode step time: 0.015105724334716797 seconds
+decode step time: 0.015120744705200195 seconds
+decode step time: 0.015114784240722656 seconds
+decode step time: 0.015120506286621094 seconds
+decode step time: 0.01510167121887207 seconds
+decode step time: 0.015104055404663086 seconds
+decode step time: 0.015108108520507812 seconds
+decode step time: 0.015066385269165039 seconds
+decode step time: 0.01509237289428711 seconds
+decode step time: 0.015096426010131836 seconds
+decode step time: 0.015097379684448242 seconds
+decode step time: 0.015100717544555664 seconds
+decode step time: 0.015075445175170898 seconds
+decode step time: 0.015121698379516602 seconds
+decode step time: 0.015140056610107422 seconds
+decode step time: 0.015117406845092773 seconds
+decode step time: 0.01510000228881836 seconds
+decode step time: 0.015113115310668945 seconds
+decode step time: 0.015068531036376953 seconds
+decode step time: 0.015119791030883789 seconds
+decode step time: 0.015117168426513672 seconds
+decode step time: 0.015128374099731445 seconds
+decode step time: 0.015122652053833008 seconds
+decode step time: 0.015087366104125977 seconds
+decode step time: 0.015105724334716797 seconds
+decode step time: 0.015086174011230469 seconds
+decode step time: 0.015169858932495117 seconds
+decode step time: 0.015097379684448242 seconds
+decode step time: 0.015101909637451172 seconds
+decode step time: 0.015156269073486328 seconds
+decode step time: 0.015141963958740234 seconds
+decode step time: 0.015148639678955078 seconds
+decode step time: 0.015132427215576172 seconds
+decode step time: 0.0151214599609375 seconds
+decode step time: 0.015123367309570312 seconds
+INFO 07-09 17:25:22 [metrics.py:481] Avg prompt throughput: 7.0 tokens/s, Avg generation throughput: 10.4 tokens/s, Running: 1 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.015155315399169922 seconds
+decode step time: 0.015148639678955078 seconds
+decode step time: 0.015139341354370117 seconds
+decode step time: 0.015152454376220703 seconds
+decode step time: 0.01513981819152832 seconds
+decode step time: 0.015146017074584961 seconds
+decode step time: 0.01515340805053711 seconds
+decode step time: 0.015148401260375977 seconds
+decode step time: 0.015201091766357422 seconds
+decode step time: 0.01515650749206543 seconds
+decode step time: 0.015157222747802734 seconds
+decode step time: 0.015160799026489258 seconds
+decode step time: 0.015187740325927734 seconds
+decode step time: 0.015185117721557617 seconds
+decode step time: 0.01512908935546875 seconds
+decode step time: 0.015256404876708984 seconds
+decode step time: 0.015253543853759766 seconds
+decode step time: 0.015145063400268555 seconds
+decode step time: 0.015200376510620117 seconds
+decode step time: 0.015165328979492188 seconds
+decode step time: 0.015166521072387695 seconds
+decode step time: 0.015172004699707031 seconds
+decode step time: 0.01518392562866211 seconds
+decode step time: 0.015176057815551758 seconds
+decode step time: 0.01515817642211914 seconds
+decode step time: 0.015156030654907227 seconds
+decode step time: 0.015173912048339844 seconds
+decode step time: 0.015240669250488281 seconds
+decode step time: 0.015144824981689453 seconds
+decode step time: 0.015184164047241211 seconds
+decode step time: 0.015185356140136719 seconds
+decode step time: 0.015154600143432617 seconds
+decode step time: 0.015227794647216797 seconds
+decode step time: 0.015220403671264648 seconds
+decode step time: 0.015186309814453125 seconds
+decode step time: 0.015203475952148438 seconds
+decode step time: 0.015182971954345703 seconds
+decode step time: 0.015205860137939453 seconds
+decode step time: 0.01519322395324707 seconds
+decode step time: 0.015197515487670898 seconds
+decode step time: 0.015176773071289062 seconds
+decode step time: 0.015199422836303711 seconds
+decode step time: 0.015456676483154297 seconds
+decode step time: 0.015369415283203125 seconds
+decode step time: 0.01535344123840332 seconds
+decode step time: 0.015362262725830078 seconds
+decode step time: 0.015345096588134766 seconds
+decode step time: 0.01535344123840332 seconds
+decode step time: 0.015391826629638672 seconds
+decode step time: 0.01538991928100586 seconds
+decode step time: 0.015381097793579102 seconds
+decode step time: 0.015381813049316406 seconds
+decode step time: 0.015363454818725586 seconds
+decode step time: 0.015351533889770508 seconds
+decode step time: 0.015341043472290039 seconds
+decode step time: 0.01535344123840332 seconds
+decode step time: 0.015367984771728516 seconds
+decode step time: 0.015369415283203125 seconds
+decode step time: 0.015352249145507812 seconds
+decode step time: 0.015360593795776367 seconds
+decode step time: 0.015323162078857422 seconds
+decode step time: 0.015366077423095703 seconds
+decode step time: 0.015378952026367188 seconds
+decode step time: 0.015362977981567383 seconds
+decode step time: 0.015384674072265625 seconds
+decode step time: 0.01533818244934082 seconds
+decode step time: 0.015347480773925781 seconds
+decode step time: 0.015330314636230469 seconds
+decode step time: 0.015350341796875 seconds
+decode step time: 0.015354394912719727 seconds
+decode step time: 0.015348672866821289 seconds
+decode step time: 0.015378475189208984 seconds
+decode step time: 0.015359878540039062 seconds
+decode step time: 0.01534271240234375 seconds
+decode step time: 0.015357732772827148 seconds
+decode step time: 0.015359878540039062 seconds
+decode step time: 0.015372991561889648 seconds
+decode step time: 0.015354394912719727 seconds
+decode step time: 0.015388965606689453 seconds
+decode step time: 0.01546478271484375 seconds
+decode step time: 0.015432119369506836 seconds
+decode step time: 0.015352249145507812 seconds
+decode step time: 0.015351057052612305 seconds
+decode step time: 0.015357017517089844 seconds
+decode step time: 0.015356779098510742 seconds
+decode step time: 0.015667438507080078 seconds
+decode step time: 0.015361785888671875 seconds
+decode step time: 0.015347719192504883 seconds
+decode step time: 0.015587091445922852 seconds
+decode step time: 0.015434503555297852 seconds
+decode step time: 0.015367507934570312 seconds
+decode step time: 0.015347003936767578 seconds
+decode step time: 0.015357255935668945 seconds
+decode step time: 0.015345096588134766 seconds
+decode step time: 0.01535487174987793 seconds
+decode step time: 0.015361547470092773 seconds
+decode step time: 0.015365839004516602 seconds
+decode step time: 0.015508651733398438 seconds
+decode step time: 0.015353679656982422 seconds
+decode step time: 0.015358686447143555 seconds
+decode step time: 0.015369892120361328 seconds
+decode step time: 0.015437602996826172 seconds
+decode step time: 0.015350818634033203 seconds
+decode step time: 0.015323400497436523 seconds
+decode step time: 0.015447854995727539 seconds
+decode step time: 0.015729188919067383 seconds
+decode step time: 0.015422344207763672 seconds
+decode step time: 0.015352487564086914 seconds
+decode step time: 0.015335798263549805 seconds
+decode step time: 0.015344619750976562 seconds
+decode step time: 0.015351057052612305 seconds
+decode step time: 0.01536107063293457 seconds
+decode step time: 0.015366077423095703 seconds
+decode step time: 0.016117334365844727 seconds
+decode step time: 0.015587568283081055 seconds
+decode step time: 0.015433549880981445 seconds
+decode step time: 0.015348434448242188 seconds
+decode step time: 0.01536250114440918 seconds
+decode step time: 0.01538848876953125 seconds
+decode step time: 0.015350580215454102 seconds
+decode step time: 0.015359640121459961 seconds
+decode step time: 0.01538395881652832 seconds
+decode step time: 0.015373706817626953 seconds
+decode step time: 0.015407085418701172 seconds
+decode step time: 0.015400409698486328 seconds
+decode step time: 0.015371561050415039 seconds
+decode step time: 0.01535344123840332 seconds
+decode step time: 0.015365362167358398 seconds
+decode step time: 0.015367269515991211 seconds
+decode step time: 0.015368938446044922 seconds
+decode step time: 0.015331268310546875 seconds
+decode step time: 0.015346288681030273 seconds
+decode step time: 0.015367984771728516 seconds
+decode step time: 0.015349626541137695 seconds
+decode step time: 0.015367746353149414 seconds
+decode step time: 0.015394449234008789 seconds
+decode step time: 0.015344619750976562 seconds
+decode step time: 0.015331745147705078 seconds
+decode step time: 0.01539921760559082 seconds
+decode step time: 0.015429019927978516 seconds
+decode step time: 0.015364885330200195 seconds
+decode step time: 0.015391349792480469 seconds
+decode step time: 0.01571822166442871 seconds
+decode step time: 0.015635251998901367 seconds
+decode step time: 0.015399932861328125 seconds
+decode step time: 0.015421390533447266 seconds
+decode step time: 0.015434503555297852 seconds
+decode step time: 0.015395164489746094 seconds
+decode step time: 0.015410423278808594 seconds
+decode step time: 0.01542520523071289 seconds
+decode step time: 0.01541757583618164 seconds
+decode step time: 0.015416622161865234 seconds
+decode step time: 0.015415668487548828 seconds
+decode step time: 0.015456914901733398 seconds
+decode step time: 0.015366554260253906 seconds
+decode step time: 0.015373706817626953 seconds
+decode step time: 0.015352725982666016 seconds
+decode step time: 0.015401124954223633 seconds
+decode step time: 0.01538538932800293 seconds
+decode step time: 0.015377998352050781 seconds
+decode step time: 0.015392065048217773 seconds
+decode step time: 0.015601634979248047 seconds
+decode step time: 0.015755414962768555 seconds
+decode step time: 0.01537775993347168 seconds
+decode step time: 0.015366077423095703 seconds
+decode step time: 0.015371322631835938 seconds
+decode step time: 0.015392065048217773 seconds
+decode step time: 0.015375137329101562 seconds
+decode step time: 0.015367269515991211 seconds
+decode step time: 0.01535797119140625 seconds
+decode step time: 0.015414953231811523 seconds
+decode step time: 0.015470743179321289 seconds
+decode step time: 0.015778779983520508 seconds
+decode step time: 0.015400409698486328 seconds
+decode step time: 0.015452384948730469 seconds
+decode step time: 0.015407323837280273 seconds
+decode step time: 0.015433549880981445 seconds
+decode step time: 0.015408754348754883 seconds
+decode step time: 0.015392541885375977 seconds
+decode step time: 0.015426874160766602 seconds
+decode step time: 0.015392065048217773 seconds
+decode step time: 0.01534891128540039 seconds
+decode step time: 0.015540361404418945 seconds
+decode step time: 0.015578269958496094 seconds
+decode step time: 0.015382766723632812 seconds
+decode step time: 0.015387296676635742 seconds
+decode step time: 0.015386581420898438 seconds
+decode step time: 0.01538991928100586 seconds
+decode step time: 0.015358448028564453 seconds
+decode step time: 0.015370845794677734 seconds
+decode step time: 0.015389204025268555 seconds
+decode step time: 0.015447378158569336 seconds
+decode step time: 0.01537466049194336 seconds
+[LLM] Worker 0 (PID 2676024): warmup completed, waiting for start
+[LLM] Worker 0 (PID 2676024): started
+[GGNN] Worker 3 (PID 2676024): started
+prefill step time: 0.06880855560302734 seconds
+decode step time: 0.1137380599975586 seconds
+decode step time: 0.07372522354125977 seconds
+decode step time: 0.10541868209838867 seconds
+decode step time: 0.06312942504882812 seconds
+decode step time: 0.0641329288482666 seconds
+decode step time: 0.0637209415435791 seconds
+decode step time: 0.06350588798522949 seconds
+decode step time: 0.0630640983581543 seconds
+decode step time: 0.06422972679138184 seconds
+decode step time: 0.06404376029968262 seconds
+decode step time: 0.06327486038208008 seconds
+decode step time: 0.06372451782226562 seconds
+decode step time: 0.06362533569335938 seconds
+decode step time: 0.06320881843566895 seconds
+prefill step time: 0.11455631256103516 seconds
+prefill step time: 0.11538386344909668 seconds
+INFO 07-09 17:25:27 [metrics.py:481] Avg prompt throughput: 23.1 tokens/s, Avg generation throughput: 41.8 tokens/s, Running: 3 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.1%, CPU KV cache usage: 0.0%.
+prefill step time: 0.11777186393737793 seconds
+decode step time: 0.06424427032470703 seconds
+decode step time: 0.11417746543884277 seconds
+prefill step time: 0.14267969131469727 seconds
+decode step time: 0.06463456153869629 seconds
+decode step time: 0.06375765800476074 seconds
+decode step time: 0.05888867378234863 seconds
+decode step time: 0.06453561782836914 seconds
+decode step time: 0.06925201416015625 seconds
+decode step time: 0.10870766639709473 seconds
+decode step time: 0.06372594833374023 seconds
+decode step time: 0.019855260848999023 seconds
+decode step time: 0.016104698181152344 seconds
+decode step time: 0.015941381454467773 seconds
+decode step time: 0.01595163345336914 seconds
+decode step time: 0.01595020294189453 seconds
+decode step time: 0.1007695198059082 seconds
+decode step time: 0.02453160285949707 seconds
+decode step time: 0.016061782836914062 seconds
+decode step time: 0.01600790023803711 seconds
+decode step time: 0.10592412948608398 seconds
+decode step time: 0.11468243598937988 seconds
+decode step time: 0.024236679077148438 seconds
+decode step time: 0.015978336334228516 seconds
+decode step time: 0.020597457885742188 seconds
+decode step time: 0.10578441619873047 seconds
+decode step time: 0.06611800193786621 seconds
+decode step time: 0.05945277214050293 seconds
+decode step time: 0.02434825897216797 seconds
+decode step time: 0.0159604549407959 seconds
+decode step time: 0.015936613082885742 seconds
+decode step time: 0.05704975128173828 seconds
+decode step time: 0.016887187957763672 seconds
+decode step time: 0.06503701210021973 seconds
+decode step time: 0.01622629165649414 seconds
+prefill step time: 0.015984535217285156 seconds
+decode step time: 0.016027212142944336 seconds
+decode step time: 0.01601243019104004 seconds
+decode step time: 0.016021013259887695 seconds
+decode step time: 0.016008615493774414 seconds
+decode step time: 0.016026973724365234 seconds
+decode step time: 0.015958070755004883 seconds
+decode step time: 0.015937089920043945 seconds
+decode step time: 0.015968799591064453 seconds
+decode step time: 0.01598191261291504 seconds
+decode step time: 0.015967130661010742 seconds
+decode step time: 0.1057887077331543 seconds
+decode step time: 0.1143031120300293 seconds
+decode step time: 0.07440185546875 seconds
+decode step time: 0.016129016876220703 seconds
+decode step time: 0.016256093978881836 seconds
+decode step time: 0.06448006629943848 seconds
+decode step time: 0.06368732452392578 seconds
+decode step time: 0.06696677207946777 seconds
+prefill step time: 0.01598072052001953 seconds
+decode step time: 0.016185522079467773 seconds
+decode step time: 0.017840862274169922 seconds
+decode step time: 0.01626110076904297 seconds
+decode step time: 0.016070842742919922 seconds
+decode step time: 0.016062259674072266 seconds
+[LLM] Worker 0 (PID 2676024): Request 6 served.
+    Arrival time: 1783617929.8967 s
+    Time in queue: 0.0004 s
+    Time to first token: 16.4363 ms
+    Request latency: 103.4338 ms
+    Generated tokens: 6
+    Time per token: 17.3995 ms/token
+    Current batch size: 7
+decode step time: 0.015995502471923828 seconds
+decode step time: 0.10486364364624023 seconds
+decode step time: 0.06397128105163574 seconds
+decode step time: 0.11423659324645996 seconds
+decode step time: 0.06451535224914551 seconds
+decode step time: 0.11491107940673828 seconds
+decode step time: 0.1142416000366211 seconds
+decode step time: 0.11538457870483398 seconds
+prefill step time: 0.11535930633544922 seconds
+decode step time: 0.0750417709350586 seconds
+decode step time: 0.10441184043884277 seconds
+decode step time: 0.11458468437194824 seconds
+decode step time: 0.11404275894165039 seconds
+decode step time: 0.115081787109375 seconds
+decode step time: 0.11409115791320801 seconds
+decode step time: 0.11420226097106934 seconds
+[LLM] Worker 0 (PID 2676024): Request 1 served.
+    Arrival time: 1783617927.0279 s
+    Time in queue: 0.0006 s
+    Time to first token: 115.2618 ms
+    Request latency: 4561.4688 ms
+    Generated tokens: 72
+    Time per token: 62.6226 ms/token
+    Current batch size: 7
+decode step time: 0.11439394950866699 seconds
+decode step time: 0.11470627784729004 seconds
+decode step time: 0.11404609680175781 seconds
+decode step time: 0.11402487754821777 seconds
+decode step time: 0.11485433578491211 seconds
+decode step time: 0.024237871170043945 seconds
+decode step time: 0.056735992431640625 seconds
+decode step time: 0.017294883728027344 seconds
+INFO 07-09 17:25:32 [metrics.py:481] Avg prompt throughput: 80.7 tokens/s, Avg generation throughput: 91.1 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+decode step time: 0.05815315246582031 seconds
+decode step time: 0.01658177375793457 seconds
+decode step time: 0.016167640686035156 seconds
+decode step time: 0.0161435604095459 seconds
+decode step time: 0.016065120697021484 seconds
+decode step time: 0.016104459762573242 seconds
+decode step time: 0.05603599548339844 seconds
+decode step time: 0.024474620819091797 seconds
+decode step time: 0.016151905059814453 seconds
+decode step time: 0.016146421432495117 seconds
+decode step time: 0.01604485511779785 seconds
+decode step time: 0.016014575958251953 seconds
+decode step time: 0.01603388786315918 seconds
+decode step time: 0.01601266860961914 seconds
+decode step time: 0.016035079956054688 seconds
+decode step time: 0.06400799751281738 seconds
+decode step time: 0.056173086166381836 seconds
+decode step time: 0.05811667442321777 seconds
+decode step time: 0.0751643180847168 seconds
+decode step time: 0.10401606559753418 seconds
+decode step time: 0.07469677925109863 seconds
+decode step time: 0.016216278076171875 seconds
+decode step time: 0.01606011390686035 seconds
+decode step time: 0.016022205352783203 seconds
+decode step time: 0.016025781631469727 seconds
+decode step time: 0.016039371490478516 seconds
+decode step time: 0.01598501205444336 seconds
+decode step time: 0.0159914493560791 seconds
+decode step time: 0.05531620979309082 seconds
+decode step time: 0.05947470664978027 seconds
+decode step time: 0.02433156967163086 seconds
+decode step time: 0.01608562469482422 seconds
+decode step time: 0.01602792739868164 seconds
+decode step time: 0.01602339744567871 seconds
+decode step time: 0.016043901443481445 seconds
+decode step time: 0.016062498092651367 seconds
+decode step time: 0.01605963706970215 seconds
+decode step time: 0.015975236892700195 seconds
+decode step time: 0.01595163345336914 seconds
+prefill step time: 0.016409635543823242 seconds
+decode step time: 0.05563545227050781 seconds
+decode step time: 0.02077007293701172 seconds
+decode step time: 0.06548547744750977 seconds
+decode step time: 0.06573128700256348 seconds
+decode step time: 0.01616835594177246 seconds
+decode step time: 0.016161441802978516 seconds
+decode step time: 0.06019425392150879 seconds
+[LLM] Worker 0 (PID 2676024): Request 3 served.
+    Arrival time: 1783617927.2607 s
+    Time in queue: 0.0006 s
+    Time to first token: 118.4638 ms
+    Request latency: 6504.4260 ms
+    Generated tokens: 126
+    Time per token: 51.0877 ms/token
+    Current batch size: 7
+decode step time: 0.016405582427978516 seconds
+decode step time: 0.016119003295898438 seconds
+decode step time: 0.016065359115600586 seconds
+decode step time: 0.01598668098449707 seconds
+decode step time: 0.01599907875061035 seconds
+decode step time: 0.0160067081451416 seconds
+decode step time: 0.016020774841308594 seconds
+decode step time: 0.016004323959350586 seconds
+decode step time: 0.015972614288330078 seconds
+decode step time: 0.015932559967041016 seconds
+decode step time: 0.01597142219543457 seconds
+decode step time: 0.015981435775756836 seconds
+decode step time: 0.06634759902954102 seconds
+decode step time: 0.06438088417053223 seconds
+decode step time: 0.10481595993041992 seconds
+decode step time: 0.07462143898010254 seconds
+decode step time: 0.06437277793884277 seconds
+decode step time: 0.1056053638458252 seconds
+decode step time: 0.11407661437988281 seconds
+decode step time: 0.06407332420349121 seconds
+decode step time: 0.11400604248046875 seconds
+decode step time: 0.1145017147064209 seconds
+decode step time: 0.0751044750213623 seconds
+decode step time: 0.01652359962463379 seconds
+decode step time: 0.10403752326965332 seconds
+decode step time: 0.06400012969970703 seconds
+decode step time: 0.11535334587097168 seconds
+decode step time: 0.02420806884765625 seconds
+decode step time: 0.01606011390686035 seconds
+decode step time: 0.01600956916809082 seconds
+decode step time: 0.055707454681396484 seconds
+decode step time: 0.05910825729370117 seconds
+decode step time: 0.064483642578125 seconds
+decode step time: 0.11421680450439453 seconds
+decode step time: 0.11389660835266113 seconds
+decode step time: 0.11476993560791016 seconds
+decode step time: 0.11440300941467285 seconds
+decode step time: 0.11441397666931152 seconds
+decode step time: 0.07495594024658203 seconds
+decode step time: 0.10405254364013672 seconds
+decode step time: 0.07496881484985352 seconds
+decode step time: 0.06638550758361816 seconds
+decode step time: 0.016106128692626953 seconds
+decode step time: 0.015990495681762695 seconds
+decode step time: 0.016017436981201172 seconds
+decode step time: 0.056856632232666016 seconds
+decode step time: 0.017029523849487305 seconds
+decode step time: 0.05752873420715332 seconds
+decode step time: 0.10866546630859375 seconds
+decode step time: 0.11423850059509277 seconds
+decode step time: 0.11438250541687012 seconds
+decode step time: 0.06452226638793945 seconds
+decode step time: 0.06458353996276855 seconds
+decode step time: 0.11421847343444824 seconds
+decode step time: 0.11486530303955078 seconds
+decode step time: 0.06434226036071777 seconds
+INFO 07-09 17:25:37 [metrics.py:481] Avg prompt throughput: 10.1 tokens/s, Avg generation throughput: 122.4 tokens/s, Running: 6 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.9%, CPU KV cache usage: 0.0%.
+decode step time: 0.05852341651916504 seconds
+decode step time: 0.11446642875671387 seconds
+decode step time: 0.07457542419433594 seconds
+decode step time: 0.10401272773742676 seconds
+decode step time: 0.0639493465423584 seconds
+decode step time: 0.11473417282104492 seconds
+decode step time: 0.11461067199707031 seconds
+decode step time: 0.11459589004516602 seconds
+[LLM] Worker 0 (PID 2676024): Request 4 served.
+    Arrival time: 1783617927.5597 s
+    Time in queue: 0.0005 s
+    Time to first token: 143.2588 ms
+    Request latency: 10538.3217 ms
+    Generated tokens: 188
+    Time per token: 55.5886 ms/token
+    Current batch size: 6
+decode step time: 0.0238039493560791 seconds
+decode step time: 0.016030550003051758 seconds
+decode step time: 0.015939950942993164 seconds
+decode step time: 0.0158994197845459 seconds
+decode step time: 0.015962839126586914 seconds
+decode step time: 0.015975475311279297 seconds
+decode step time: 0.01596212387084961 seconds
+decode step time: 0.015911340713500977 seconds
+decode step time: 0.01588606834411621 seconds
+decode step time: 0.015906333923339844 seconds
+decode step time: 0.06337738037109375 seconds
+decode step time: 0.016448259353637695 seconds
+decode step time: 0.01602935791015625 seconds
+decode step time: 0.01601409912109375 seconds
+decode step time: 0.015949487686157227 seconds
+decode step time: 0.01592564582824707 seconds
+decode step time: 0.015905141830444336 seconds
+decode step time: 0.064849853515625 seconds
+decode step time: 0.015992403030395508 seconds
+decode step time: 0.10569572448730469 seconds
+decode step time: 0.06399273872375488 seconds
+decode step time: 0.05905008316040039 seconds
+decode step time: 0.02453470230102539 seconds
+decode step time: 0.016047954559326172 seconds
+decode step time: 0.016022443771362305 seconds
+[LLM] Worker 0 (PID 2676024): Request 5 served.
+    Arrival time: 1783617929.1841 s
+    Time in queue: 0.0004 s
+    Time to first token: 16.4163 ms
+    Request latency: 9624.9075 ms
+    Generated tokens: 182
+    Time per token: 53.0856 ms/token
+    Current batch size: 5
+decode step time: 0.01595139503479004 seconds
+decode step time: 0.01587986946105957 seconds
+decode step time: 0.05671334266662598 seconds
+decode step time: 0.06767678260803223 seconds
+decode step time: 0.016025543212890625 seconds
+decode step time: 0.015925168991088867 seconds
+decode step time: 0.015903234481811523 seconds
+decode step time: 0.015889883041381836 seconds
+decode step time: 0.06457018852233887 seconds
+decode step time: 0.01618790626525879 seconds
+decode step time: 0.10568785667419434 seconds
+decode step time: 0.06398248672485352 seconds
+decode step time: 0.024351119995117188 seconds
+decode step time: 0.015890121459960938 seconds
+decode step time: 0.015900373458862305 seconds
+decode step time: 0.06583142280578613 seconds
+[LLM] Worker 0 (PID 2676024): Request 0 served.
+    Arrival time: 1783617925.9576 s
+    Time in queue: 0.0010 s
+    Time to first token: 69.8760 ms
+    Request latency: 13454.3579 ms
+    Generated tokens: 245
+    Time per token: 54.8544 ms/token
+    Current batch size: 4
+decode step time: 0.015956878662109375 seconds
+decode step time: 0.01582646369934082 seconds
+decode step time: 0.015827417373657227 seconds
+decode step time: 0.015801429748535156 seconds
+decode step time: 0.05720353126525879 seconds
+prefill step time: 0.016443490982055664 seconds
+decode step time: 0.06532621383666992 seconds
+decode step time: 0.016025304794311523 seconds
+decode step time: 0.015965938568115234 seconds
+decode step time: 0.01606440544128418 seconds
+decode step time: 0.015883922576904297 seconds
+decode step time: 0.056955575942993164 seconds
+decode step time: 0.10763406753540039 seconds
+decode step time: 0.06401276588439941 seconds
+decode step time: 0.06413078308105469 seconds
+decode step time: 0.02435445785522461 seconds
+decode step time: 0.05604743957519531 seconds
+decode step time: 0.017435789108276367 seconds
+decode step time: 0.0160369873046875 seconds
+decode step time: 0.01594400405883789 seconds
+decode step time: 0.015898466110229492 seconds
+decode step time: 0.10554814338684082 seconds
+decode step time: 0.07477545738220215 seconds
+decode step time: 0.015979766845703125 seconds
+decode step time: 0.01596856117248535 seconds
+decode step time: 0.10578250885009766 seconds
+decode step time: 0.024569034576416016 seconds
+decode step time: 0.06611180305480957 seconds
+decode step time: 0.10469889640808105 seconds
+decode step time: 0.06409311294555664 seconds
+decode step time: 0.06426215171813965 seconds
+decode step time: 0.018758296966552734 seconds
+decode step time: 0.0661015510559082 seconds
+decode step time: 0.016202688217163086 seconds
+decode step time: 0.01595020294189453 seconds
+decode step time: 0.015848398208618164 seconds
+decode step time: 0.015860795974731445 seconds
+decode step time: 0.01589226722717285 seconds
+decode step time: 0.015841007232666016 seconds
+decode step time: 0.0158538818359375 seconds
+decode step time: 0.01580667495727539 seconds
+decode step time: 0.015813827514648438 seconds
+decode step time: 0.01584458351135254 seconds
+decode step time: 0.0158231258392334 seconds
+decode step time: 0.01582503318786621 seconds
+decode step time: 0.016035795211791992 seconds
+decode step time: 0.015809059143066406 seconds
+decode step time: 0.015806913375854492 seconds
+decode step time: 0.05634927749633789 seconds
+decode step time: 0.10830163955688477 seconds
+decode step time: 0.11497735977172852 seconds
+decode step time: 0.0750725269317627 seconds
+decode step time: 0.10424637794494629 seconds
+decode step time: 0.06373906135559082 seconds
+decode step time: 0.059897661209106445 seconds
+decode step time: 0.07523322105407715 seconds
+decode step time: 0.06453895568847656 seconds
+decode step time: 0.015915870666503906 seconds
+decode step time: 0.015889883041381836 seconds
+decode step time: 0.05648660659790039 seconds
+decode step time: 0.017142534255981445 seconds
+decode step time: 0.016125917434692383 seconds
+decode step time: 0.015964508056640625 seconds
+decode step time: 0.015933990478515625 seconds
+decode step time: 0.015900611877441406 seconds
+decode step time: 0.055982351303100586 seconds
+decode step time: 0.05785417556762695 seconds
+decode step time: 0.06458091735839844 seconds
+decode step time: 0.0638282299041748 seconds
+decode step time: 0.06405520439147949 seconds
+decode step time: 0.06416797637939453 seconds
+INFO 07-09 17:25:42 [metrics.py:481] Avg prompt throughput: 2.2 tokens/s, Avg generation throughput: 101.4 tokens/s, Running: 4 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 0.6%, CPU KV cache usage: 0.0%.
+decode step time: 0.11468172073364258 seconds
+decode step time: 0.06422686576843262 seconds
+decode step time: 0.06428670883178711 seconds
+decode step time: 0.060138702392578125 seconds
+decode step time: 0.06443262100219727 seconds
+decode step time: 0.07504010200500488 seconds
+prefill step time: 0.06367993354797363 seconds
+prefill step time: 0.016344308853149414 seconds
+decode step time: 0.01618647575378418 seconds
+decode step time: 0.016088485717773438 seconds
+decode step time: 0.0640106201171875 seconds
+decode step time: 0.01631927490234375 seconds
+decode step time: 0.01608109474182129 seconds
+[LLM] Worker 0 (PID 2676024): Request 7 served.
+    Arrival time: 1783617930.7153 s
+    Time in queue: 0.0006 s
+    Time to first token: 115.9911 ms
+    Request latency: 12336.3039 ms
+    Generated tokens: 248
+    Time per token: 49.4750 ms/token
+    Current batch size: 6
+decode step time: 0.015983104705810547 seconds
+decode step time: 0.05621337890625 seconds
+decode step time: 0.10831356048583984 seconds
+decode step time: 0.024483680725097656 seconds
+decode step time: 0.01597118377685547 seconds
+decode step time: 0.01592397689819336 seconds
+decode step time: 0.015926122665405273 seconds
+decode step time: 0.1031651496887207 seconds
+decode step time: 0.06428337097167969 seconds
+decode step time: 0.1152029037475586 seconds
+decode step time: 0.023834943771362305 seconds
+decode step time: 0.015995264053344727 seconds
+decode step time: 0.015958309173583984 seconds
+decode step time: 0.01593756675720215 seconds
+decode step time: 0.01593303680419922 seconds
+decode step time: 0.015906572341918945 seconds
+decode step time: 0.015963315963745117 seconds
+decode step time: 0.015947818756103516 seconds
+decode step time: 0.015919208526611328 seconds
+decode step time: 0.1051945686340332 seconds
+decode step time: 0.06407499313354492 seconds
+decode step time: 0.06374692916870117 seconds
+decode step time: 0.0601806640625 seconds
+decode step time: 0.06471061706542969 seconds
+decode step time: 0.06416964530944824 seconds
+decode step time: 0.11398172378540039 seconds
+decode step time: 0.06443047523498535 seconds
+decode step time: 0.06472277641296387 seconds
+decode step time: 0.06812310218811035 seconds
+decode step time: 0.0672609806060791 seconds
+decode step time: 0.10635781288146973 seconds
+decode step time: 0.07492876052856445 seconds
+decode step time: 0.10406208038330078 seconds
+decode step time: 0.06424307823181152 seconds
+decode step time: 0.02425241470336914 seconds
+decode step time: 0.016307830810546875 seconds
+decode step time: 0.01650214195251465 seconds
+decode step time: 0.015935659408569336 seconds
+decode step time: 0.016103029251098633 seconds
+decode step time: 0.015914440155029297 seconds
+decode step time: 0.015929698944091797 seconds
+decode step time: 0.05633258819580078 seconds
+prefill step time: 0.061211585998535156 seconds
+prefill step time: 0.10744071006774902 seconds
+decode step time: 0.06444597244262695 seconds
+decode step time: 0.05937695503234863 seconds
+decode step time: 0.11487102508544922 seconds
+decode step time: 0.11479711532592773 seconds
+decode step time: 0.11451911926269531 seconds
+decode step time: 0.024038076400756836 seconds
+decode step time: 0.016047954559326172 seconds
+decode step time: 0.016168594360351562 seconds
+decode step time: 0.05776524543762207 seconds
+decode step time: 0.10801100730895996 seconds
+decode step time: 0.11458253860473633 seconds
+decode step time: 0.06385946273803711 seconds
+decode step time: 0.024277448654174805 seconds
+decode step time: 0.01610112190246582 seconds
+prefill step time: 0.015944719314575195 seconds
+decode step time: 0.016187667846679688 seconds
+decode step time: 0.01614856719970703 seconds
+decode step time: 0.016148805618286133 seconds
+decode step time: 0.016190052032470703 seconds
+decode step time: 0.01622796058654785 seconds
+decode step time: 0.016179323196411133 seconds
+decode step time: 0.06612372398376465 seconds
+decode step time: 0.0560603141784668 seconds
+decode step time: 0.019857168197631836 seconds
+decode step time: 0.01635909080505371 seconds
+decode step time: 0.016210556030273438 seconds
+decode step time: 0.016141653060913086 seconds
+decode step time: 0.016184329986572266 seconds
+decode step time: 0.016196489334106445 seconds
+decode step time: 0.016132831573486328 seconds
+decode step time: 0.016112565994262695 seconds
+decode step time: 0.016170740127563477 seconds
+decode step time: 0.016184329986572266 seconds
+decode step time: 0.05667400360107422 seconds
+decode step time: 0.01697540283203125 seconds
+decode step time: 0.0577089786529541 seconds
+decode step time: 0.10837316513061523 seconds
+decode step time: 0.024241924285888672 seconds
+decode step time: 0.01617884635925293 seconds
+decode step time: 0.01616072654724121 seconds
+decode step time: 0.0161898136138916 seconds
+[LLM] Worker 0 (PID 2676024): Request 13 served.
+    Arrival time: 1783617945.1586 s
+    Time in queue: 0.0003 s
+    Time to first token: 107.8095 ms
+    Request latency: 1765.1467 ms
+    Generated tokens: 41
+    Time per token: 41.4334 ms/token
+    Current batch size: 8
+decode step time: 0.10645365715026855 seconds
+prefill step time: 0.14383935928344727 seconds
+decode step time: 0.11471748352050781 seconds
+decode step time: 0.11428070068359375 seconds
+INFO 07-09 17:25:47 [metrics.py:481] Avg prompt throughput: 86.7 tokens/s, Avg generation throughput: 119.4 tokens/s, Running: 8 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.11589741706848145 seconds
+decode step time: 0.06448054313659668 seconds
+[LLM] Worker 0 (PID 2676024): Request 2 served.
+    Arrival time: 1783617927.1436 s
+    Time in queue: 0.0004 s
+    Time to first token: 115.9296 ms
+    Request latency: 20446.3305 ms
+    Generated tokens: 399
+    Time per token: 51.0814 ms/token
+    Current batch size: 8
+decode step time: 0.05834817886352539 seconds
+decode step time: 0.11479306221008301 seconds
+decode step time: 0.06473398208618164 seconds
+decode step time: 0.11455249786376953 seconds
+decode step time: 0.07477355003356934 seconds
+decode step time: 0.10369253158569336 seconds
+decode step time: 0.1147613525390625 seconds
+decode step time: 0.11539220809936523 seconds
+decode step time: 0.11468362808227539 seconds
+decode step time: 0.07253289222717285 seconds
+decode step time: 0.10670280456542969 seconds
+decode step time: 0.11421370506286621 seconds
+decode step time: 0.11486482620239258 seconds
+decode step time: 0.11501526832580566 seconds
+decode step time: 0.11445856094360352 seconds
+decode step time: 0.11462569236755371 seconds
+decode step time: 0.11512279510498047 seconds
+decode step time: 0.06419205665588379 seconds
+decode step time: 0.11533331871032715 seconds
+decode step time: 0.11462879180908203 seconds
+decode step time: 0.11385631561279297 seconds
+decode step time: 0.07506585121154785 seconds
+decode step time: 0.10411500930786133 seconds
+decode step time: 0.11530733108520508 seconds
+decode step time: 0.11435866355895996 seconds
+decode step time: 0.11434316635131836 seconds
+prefill step time: 0.11872744560241699 seconds
+decode step time: 0.11450505256652832 seconds
+[LLM] Worker 0 (PID 2676024): Request 16 served.
+    Arrival time: 1783617950.2881 s
+    Time in queue: 0.0006 s
+    Time to first token: 119.4246 ms
+    Request latency: 235.0802 ms
+    Generated tokens: 2
+    Time per token: 115.6557 ms/token
+    Current batch size: 8
+decode step time: 0.11560201644897461 seconds
+prefill step time: 0.28956007957458496 seconds
+prefill step time: 0.3374011516571045 seconds
+decode step time: 0.06520390510559082 seconds
+decode step time: 0.11609840393066406 seconds
+decode step time: 0.11477375030517578 seconds
+[LLM] Worker 0 (PID 2676024): Request 9 served.
+    Arrival time: 1783617939.5360 s
+    Time in queue: 0.0006 s
+    Time to first token: 17.1349 ms
+    Request latency: 12032.8550 ms
+    Generated tokens: 195
+    Time per token: 61.9367 ms/token
+    Current batch size: 9
+decode step time: 0.11430168151855469 seconds
+decode step time: 0.0758368968963623 seconds
+decode step time: 0.10491800308227539 seconds
+decode step time: 0.11543583869934082 seconds
+decode step time: 0.11526036262512207 seconds
+decode step time: 0.11451601982116699 seconds
+[LLM] Worker 0 (PID 2676024): Request 10 served.
+    Arrival time: 1783617942.8376 s
+    Time in queue: 0.0007 s
+    Time to first token: 64.3885 ms
+    Request latency: 9377.2731 ms
+    Generated tokens: 130
+    Time per token: 72.1929 ms/token
+    Current batch size: 8
+decode step time: 0.11510396003723145 seconds
+decode step time: 0.11583828926086426 seconds
+INFO 07-09 17:25:52 [metrics.py:481] Avg prompt throughput: 935.1 tokens/s, Avg generation throughput: 60.5 tokens/s, Running: 7 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.7%, CPU KV cache usage: 0.0%.
+prefill step time: 0.20218205451965332 seconds
+prefill step time: 0.2722439765930176 seconds
+prefill step time: 0.27063965797424316 seconds
+decode step time: 0.06594705581665039 seconds
+decode step time: 0.1161949634552002 seconds
+decode step time: 0.11602067947387695 seconds
+decode step time: 0.11523127555847168 seconds
+prefill step time: 0.19546961784362793 seconds
+decode step time: 0.1170339584350586 seconds
+decode step time: 0.11602187156677246 seconds
+decode step time: 0.11498069763183594 seconds
+decode step time: 0.1155545711517334 seconds
+decode step time: 0.07212615013122559 seconds
+prefill step time: 0.19554519653320312 seconds
+decode step time: 0.06705331802368164 seconds
+decode step time: 0.11629700660705566 seconds
+decode step time: 0.1156759262084961 seconds
+decode step time: 0.1150965690612793 seconds
+decode step time: 0.11620736122131348 seconds
+decode step time: 0.116241455078125 seconds
+decode step time: 0.06544661521911621 seconds
+decode step time: 0.06016230583190918 seconds
+decode step time: 0.1174626350402832 seconds
+decode step time: 0.11639952659606934 seconds
+decode step time: 0.11585593223571777 seconds
+decode step time: 0.11522030830383301 seconds
+decode step time: 0.11641407012939453 seconds
+decode step time: 0.11614990234375 seconds
+decode step time: 0.1164853572845459 seconds
+prefill step time: 0.1962113380432129 seconds
+decode step time: 0.07731127738952637 seconds
+decode step time: 0.10566473007202148 seconds
+prefill step time: 0.11360359191894531 seconds
+decode step time: 0.06622648239135742 seconds
+decode step time: 0.11628413200378418 seconds
+decode step time: 0.11496782302856445 seconds
+prefill step time: 0.13612914085388184 seconds
+decode step time: 0.11650300025939941 seconds
+decode step time: 0.11529684066772461 seconds
+decode step time: 0.11543893814086914 seconds
+decode step time: 0.07326984405517578 seconds
+INFO 07-09 17:25:57 [metrics.py:481] Avg prompt throughput: 1564.7 tokens/s, Avg generation throughput: 81.1 tokens/s, Running: 15 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.2%, CPU KV cache usage: 0.0%.
+decode step time: 0.1087644100189209 seconds
+decode step time: 0.1158590316772461 seconds
+[LLM] Worker 0 (PID 2676024): Request 19 served.
+    Arrival time: 1783617952.4488 s
+    Time in queue: 0.0007 s
+    Time to first token: 202.9762 ms
+    Request latency: 5293.9000 ms
+    Generated tokens: 36
+    Time per token: 145.4550 ms/token
+    Current batch size: 15
+decode step time: 0.11581897735595703 seconds
+decode step time: 0.11611056327819824 seconds
+decode step time: 0.11566662788391113 seconds
+decode step time: 0.11542248725891113 seconds
+decode step time: 0.06568551063537598 seconds
+decode step time: 0.06004023551940918 seconds
+decode step time: 0.11598372459411621 seconds
+decode step time: 0.11545825004577637 seconds
+decode step time: 0.11616969108581543 seconds
+decode step time: 0.11644220352172852 seconds
+prefill step time: 0.11371040344238281 seconds
+decode step time: 0.06596112251281738 seconds
+decode step time: 0.0603022575378418 seconds
+decode step time: 0.11598491668701172 seconds
+decode step time: 0.11558341979980469 seconds
+[LLM] Worker 0 (PID 2676024): Request 14 served.
+    Arrival time: 1783617946.1871 s
+    Time in queue: 0.0004 s
+    Time to first token: 16.3639 ms
+    Request latency: 13098.9251 ms
+    Generated tokens: 120
+    Time per token: 109.9375 ms/token
+    Current batch size: 15
+decode step time: 0.11532092094421387 seconds
+decode step time: 0.11651301383972168 seconds
+decode step time: 0.11588239669799805 seconds
+decode step time: 0.1152644157409668 seconds
+decode step time: 0.11661100387573242 seconds
+[LLM] Worker 0 (PID 2676024): Request 23 served.
+    Arrival time: 1783617954.3529 s
+    Time in queue: 0.0006 s
+    Time to first token: 196.2147 ms
+    Request latency: 5519.3741 ms
+    Generated tokens: 46
+    Time per token: 118.2924 ms/token
+    Current batch size: 14
+decode step time: 0.11551403999328613 seconds
+decode step time: 0.11522030830383301 seconds
+decode step time: 0.11520791053771973 seconds
+decode step time: 0.11641860008239746 seconds
+decode step time: 0.1157691478729248 seconds
+decode step time: 0.11603355407714844 seconds
+prefill step time: 0.11374497413635254 seconds
+decode step time: 0.11637234687805176 seconds
+decode step time: 0.11615777015686035 seconds
+prefill step time: 0.11384844779968262 seconds
+prefill step time: 0.06465673446655273 seconds
+decode step time: 0.11606597900390625 seconds
+decode step time: 0.11506009101867676 seconds
+decode step time: 0.11628484725952148 seconds
+decode step time: 0.11538100242614746 seconds
+decode step time: 0.11542248725891113 seconds
+decode step time: 0.11565184593200684 seconds
+decode step time: 0.11568617820739746 seconds
+decode step time: 0.11585783958435059 seconds
+decode step time: 0.11583447456359863 seconds
+decode step time: 0.0732262134552002 seconds
+decode step time: 0.10848617553710938 seconds
+prefill step time: 0.11389803886413574 seconds
+decode step time: 0.07538175582885742 seconds
+INFO 07-09 17:26:02 [metrics.py:481] Avg prompt throughput: 18.3 tokens/s, Avg generation throughput: 120.4 tokens/s, Running: 17 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.05976700782775879 seconds
+decode step time: 0.10893392562866211 seconds
+decode step time: 0.11551046371459961 seconds
+prefill step time: 0.11403441429138184 seconds
+decode step time: 0.1166982650756836 seconds
+decode step time: 0.1156156063079834 seconds
+decode step time: 0.11549592018127441 seconds
+decode step time: 0.11621785163879395 seconds
+decode step time: 0.11546897888183594 seconds
+decode step time: 0.11594533920288086 seconds
+prefill step time: 0.11304664611816406 seconds
+decode step time: 0.11717486381530762 seconds
+decode step time: 0.11588716506958008 seconds
+decode step time: 0.11624646186828613 seconds
+decode step time: 0.11542177200317383 seconds
+decode step time: 0.11586785316467285 seconds
+decode step time: 0.11617374420166016 seconds
+decode step time: 0.11587882041931152 seconds
+decode step time: 0.11507701873779297 seconds
+prefill step time: 0.11288046836853027 seconds
+decode step time: 0.0663151741027832 seconds
+decode step time: 0.060582637786865234 seconds
+decode step time: 0.11562085151672363 seconds
+decode step time: 0.11604118347167969 seconds
+decode step time: 0.11599087715148926 seconds
+decode step time: 0.11555290222167969 seconds
+decode step time: 0.11526346206665039 seconds
+decode step time: 0.06569457054138184 seconds
+decode step time: 0.1104428768157959 seconds
+decode step time: 0.11639404296875 seconds
+decode step time: 0.11563301086425781 seconds
+prefill step time: 0.15114164352416992 seconds
+decode step time: 0.11662459373474121 seconds
+decode step time: 0.11614799499511719 seconds
+decode step time: 0.11587142944335938 seconds
+decode step time: 0.11614274978637695 seconds
+decode step time: 0.11568975448608398 seconds
+decode step time: 0.11540937423706055 seconds
+decode step time: 0.11623024940490723 seconds
+decode step time: 0.11626815795898438 seconds
+decode step time: 0.1153864860534668 seconds
+decode step time: 0.11484622955322266 seconds
+decode step time: 0.11657238006591797 seconds
+decode step time: 0.11571025848388672 seconds
+decode step time: 0.07430028915405273 seconds
+INFO 07-09 17:26:07 [metrics.py:481] Avg prompt throughput: 92.3 tokens/s, Avg generation throughput: 160.1 tokens/s, Running: 21 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.0%, CPU KV cache usage: 0.0%.
+decode step time: 0.1079857349395752 seconds
+decode step time: 0.07406997680664062 seconds
+decode step time: 0.10849714279174805 seconds
+decode step time: 0.11617159843444824 seconds
+decode step time: 0.11599278450012207 seconds
+decode step time: 0.11594367027282715 seconds
+decode step time: 0.11524128913879395 seconds
+decode step time: 0.1156778335571289 seconds
+decode step time: 0.11619877815246582 seconds
+decode step time: 0.11624503135681152 seconds
+decode step time: 0.11552071571350098 seconds
+decode step time: 0.11536693572998047 seconds
+prefill step time: 0.13341426849365234 seconds
+prefill step time: 0.13690423965454102 seconds
+decode step time: 0.11685061454772949 seconds
+decode step time: 0.1151132583618164 seconds
+decode step time: 0.1155242919921875 seconds
+decode step time: 0.11637568473815918 seconds
+decode step time: 0.0733191967010498 seconds
+decode step time: 0.10866570472717285 seconds
+decode step time: 0.11671042442321777 seconds
+decode step time: 0.11577534675598145 seconds
+decode step time: 0.11575603485107422 seconds
+decode step time: 0.11585617065429688 seconds
+decode step time: 0.11514544486999512 seconds
+decode step time: 0.11626815795898438 seconds
+prefill step time: 0.11413311958312988 seconds
+decode step time: 0.11736321449279785 seconds
+decode step time: 0.11542367935180664 seconds
+decode step time: 0.11607909202575684 seconds
+decode step time: 0.11579656600952148 seconds
+decode step time: 0.11653518676757812 seconds
+decode step time: 0.11562824249267578 seconds
+decode step time: 0.11540365219116211 seconds
+decode step time: 0.1160883903503418 seconds
+prefill step time: 0.11371827125549316 seconds
+decode step time: 0.11741232872009277 seconds
+decode step time: 0.11538028717041016 seconds
+decode step time: 0.1156456470489502 seconds
+decode step time: 0.11546802520751953 seconds
+decode step time: 0.11594557762145996 seconds
+decode step time: 0.11650800704956055 seconds
+decode step time: 0.11569476127624512 seconds
+decode step time: 0.11568593978881836 seconds
+INFO 07-09 17:26:12 [metrics.py:481] Avg prompt throughput: 65.7 tokens/s, Avg generation throughput: 181.1 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.11539316177368164 seconds
+decode step time: 0.11618471145629883 seconds
+decode step time: 0.1161956787109375 seconds
+decode step time: 0.11615562438964844 seconds
+decode step time: 0.11549568176269531 seconds
+decode step time: 0.1154012680053711 seconds
+decode step time: 0.11567330360412598 seconds
+prefill step time: 0.11388897895812988 seconds
+decode step time: 0.06660985946655273 seconds
+decode step time: 0.0611572265625 seconds
+decode step time: 0.11541461944580078 seconds
+decode step time: 0.11618447303771973 seconds
+decode step time: 0.11631894111633301 seconds
+prefill step time: 0.11431598663330078 seconds
+decode step time: 0.11717009544372559 seconds
+decode step time: 0.11614823341369629 seconds
+decode step time: 0.11629748344421387 seconds
+prefill step time: 0.10322046279907227 seconds
+decode step time: 0.11720395088195801 seconds
+decode step time: 0.11619734764099121 seconds
+decode step time: 0.11590743064880371 seconds
+[LLM] Worker 0 (PID 2676024): Request 28 served.
+    Arrival time: 1783617960.5741 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1975 ms
+    Request latency: 14721.4615 ms
+    Generated tokens: 114
+    Time per token: 129.2678 ms/token
+    Current batch size: 28
+decode step time: 0.11490321159362793 seconds
+prefill step time: 0.11361360549926758 seconds
+decode step time: 0.11717724800109863 seconds
+prefill step time: 0.31044888496398926 seconds
+decode step time: 0.06866145133972168 seconds
+decode step time: 0.11617231369018555 seconds
+decode step time: 0.11532473564147949 seconds
+decode step time: 0.11597990989685059 seconds
+decode step time: 0.11638116836547852 seconds
+prefill step time: 0.3437654972076416 seconds
+prefill step time: 0.09501528739929199 seconds
+decode step time: 0.11911630630493164 seconds
+decode step time: 0.11691617965698242 seconds
+decode step time: 0.11585617065429688 seconds
+decode step time: 0.11573505401611328 seconds
+decode step time: 0.07271909713745117 seconds
+decode step time: 0.10862016677856445 seconds
+decode step time: 0.11652112007141113 seconds
+INFO 07-09 17:26:17 [metrics.py:481] Avg prompt throughput: 1084.8 tokens/s, Avg generation throughput: 177.3 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.1154944896697998 seconds
+decode step time: 0.11599516868591309 seconds
+[LLM] Worker 0 (PID 2676024): Request 15 served.
+    Arrival time: 1783617947.0314 s
+    Time in queue: 0.0005 s
+    Time to first token: 144.3858 ms
+    Request latency: 30928.8878 ms
+    Generated tokens: 233
+    Time per token: 132.6918 ms/token
+    Current batch size: 31
+decode step time: 0.1155695915222168 seconds
+decode step time: 0.11619806289672852 seconds
+prefill step time: 0.11319613456726074 seconds
+decode step time: 0.11835312843322754 seconds
+decode step time: 0.11587047576904297 seconds
+decode step time: 0.11605501174926758 seconds
+[LLM] Worker 0 (PID 2676024): Request 42 served.
+    Arrival time: 1783617974.8360 s
+    Time in queue: 0.0005 s
+    Time to first token: 103.8353 ms
+    Request latency: 3832.1226 ms
+    Generated tokens: 25
+    Time per token: 155.3453 ms/token
+    Current batch size: 31
+decode step time: 0.11616969108581543 seconds
+decode step time: 0.1162412166595459 seconds
+decode step time: 0.11677289009094238 seconds
+decode step time: 0.1167917251586914 seconds
+decode step time: 0.11624860763549805 seconds
+decode step time: 0.11583375930786133 seconds
+decode step time: 0.1156620979309082 seconds
+[LLM] Worker 0 (PID 2676024): Request 37 served.
+    Arrival time: 1783617969.0669 s
+    Time in queue: 0.0004 s
+    Time to first token: 137.3522 ms
+    Request latency: 10430.4223 ms
+    Generated tokens: 75
+    Time per token: 139.0955 ms/token
+    Current batch size: 30
+decode step time: 0.11647868156433105 seconds
+decode step time: 0.11603522300720215 seconds
+decode step time: 0.11653900146484375 seconds
+decode step time: 0.07280635833740234 seconds
+decode step time: 0.10941624641418457 seconds
+decode step time: 0.11653470993041992 seconds
+decode step time: 0.11691141128540039 seconds
+decode step time: 0.11666631698608398 seconds
+decode step time: 0.11595702171325684 seconds
+prefill step time: 0.14940357208251953 seconds
+decode step time: 0.11958432197570801 seconds
+decode step time: 0.11674189567565918 seconds
+decode step time: 0.11614847183227539 seconds
+prefill step time: 0.13375067710876465 seconds
+decode step time: 0.11789274215698242 seconds
+[LLM] Worker 0 (PID 2676024): Request 32 served.
+    Arrival time: 1783617962.8224 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.4440 ms
+    Request latency: 18455.6456 ms
+    Generated tokens: 138
+    Time per token: 133.8774 ms/token
+    Current batch size: 31
+decode step time: 0.11592340469360352 seconds
+[LLM] Worker 0 (PID 2676024): Request 39 served.
+    Arrival time: 1783617971.6244 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1350 ms
+    Request latency: 9771.9934 ms
+    Generated tokens: 69
+    Time per token: 142.0273 ms/token
+    Current batch size: 30
+decode step time: 0.11644577980041504 seconds
+decode step time: 0.11676383018493652 seconds
+decode step time: 0.11600732803344727 seconds
+[LLM] Worker 0 (PID 2676024): Request 43 served.
+    Arrival time: 1783617975.4133 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.0485 ms
+    Request latency: 6338.9125 ms
+    Generated tokens: 45
+    Time per token: 141.4742 ms/token
+    Current batch size: 29
+decode step time: 0.11611056327819824 seconds
+decode step time: 0.1164236068725586 seconds
+decode step time: 0.11610770225524902 seconds
+decode step time: 0.11644387245178223 seconds
+decode step time: 0.11682677268981934 seconds
+decode step time: 0.1167137622833252 seconds
+decode step time: 0.11675477027893066 seconds
+decode step time: 0.1166994571685791 seconds
+decode step time: 0.11621427536010742 seconds
+INFO 07-09 17:26:22 [metrics.py:481] Avg prompt throughput: 106.6 tokens/s, Avg generation throughput: 231.4 tokens/s, Running: 28 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.11620545387268066 seconds
+decode step time: 0.07441210746765137 seconds
+decode step time: 0.10852503776550293 seconds
+decode step time: 0.11616849899291992 seconds
+decode step time: 0.11651873588562012 seconds
+decode step time: 0.11643028259277344 seconds
+decode step time: 0.11695718765258789 seconds
+decode step time: 0.11679673194885254 seconds
+decode step time: 0.11627745628356934 seconds
+decode step time: 0.1160581111907959 seconds
+decode step time: 0.06677508354187012 seconds
+decode step time: 0.11234140396118164 seconds
+[LLM] Worker 0 (PID 2676024): Request 22 served.
+    Arrival time: 1783617953.6150 s
+    Time in queue: 0.0005 s
+    Time to first token: 196.0220 ms
+    Request latency: 30523.5803 ms
+    Generated tokens: 236
+    Time per token: 129.0534 ms/token
+    Current batch size: 28
+prefill step time: 0.11214351654052734 seconds
+prefill step time: 0.06406426429748535 seconds
+decode step time: 0.11866903305053711 seconds
+decode step time: 0.11597561836242676 seconds
+prefill step time: 0.11405539512634277 seconds
+decode step time: 0.1184995174407959 seconds
+decode step time: 0.11562108993530273 seconds
+prefill step time: 0.2836165428161621 seconds
+decode step time: 0.11971116065979004 seconds
+decode step time: 0.11571478843688965 seconds
+decode step time: 0.11602091789245605 seconds
+decode step time: 0.11647939682006836 seconds
+prefill step time: 0.11372518539428711 seconds
+decode step time: 0.11849665641784668 seconds
+decode step time: 0.1170492172241211 seconds
+decode step time: 0.11655902862548828 seconds
+decode step time: 0.11655831336975098 seconds
+decode step time: 0.11607933044433594 seconds
+decode step time: 0.11635899543762207 seconds
+decode step time: 0.116607666015625 seconds
+prefill step time: 0.2429821491241455 seconds
+decode step time: 0.11890316009521484 seconds
+decode step time: 0.11658430099487305 seconds
+prefill step time: 0.20337963104248047 seconds
+prefill step time: 0.14482808113098145 seconds
+decode step time: 0.11854052543640137 seconds
+decode step time: 0.11626958847045898 seconds
+decode step time: 0.11671757698059082 seconds
+decode step time: 0.1167442798614502 seconds
+INFO 07-09 17:26:27 [metrics.py:481] Avg prompt throughput: 992.0 tokens/s, Avg generation throughput: 198.6 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 17.2%, CPU KV cache usage: 0.0%.
+[LLM] Worker 0 (PID 2676024): Request 34 served.
+    Arrival time: 1783617964.6953 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.3142 ms
+    Request latency: 23239.5451 ms
+    Generated tokens: 170
+    Time per token: 136.8416 ms/token
+    Current batch size: 35
+decode step time: 0.11648154258728027 seconds
+[LLM] Worker 0 (PID 2676024): Request 44 served.
+    Arrival time: 1783617975.6469 s
+    Time in queue: 0.0009 s
+    Time to first token: 311.3694 ms
+    Request latency: 12407.8305 ms
+    Generated tokens: 87
+    Time per token: 140.6565 ms/token
+    Current batch size: 34
+[LLM] Worker 0 (PID 2676024): Request 54 served.
+    Arrival time: 1783617985.6715 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1951 ms
+    Request latency: 2383.2862 ms
+    Generated tokens: 15
+    Time per token: 162.0779 ms/token
+    Current batch size: 34
+decode step time: 0.11634469032287598 seconds
+decode step time: 0.11677742004394531 seconds
+decode step time: 0.06736183166503906 seconds
+decode step time: 0.1134488582611084 seconds
+decode step time: 0.11710667610168457 seconds
+decode step time: 0.11689472198486328 seconds
+decode step time: 0.11664843559265137 seconds
+decode step time: 0.11670708656311035 seconds
+decode step time: 0.11610937118530273 seconds
+[LLM] Worker 0 (PID 2676024): Request 25 served.
+    Arrival time: 1783617956.5357 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.0122 ms
+    Request latency: 32537.4637 ms
+    Generated tokens: 245
+    Time per token: 132.8830 ms/token
+    Current batch size: 32
+decode step time: 0.11653804779052734 seconds
+prefill step time: 0.11373448371887207 seconds
+decode step time: 0.11898398399353027 seconds
+decode step time: 0.11693716049194336 seconds
+decode step time: 0.11692619323730469 seconds
+decode step time: 0.11681008338928223 seconds
+prefill step time: 0.11249160766601562 seconds
+prefill step time: 0.1453244686126709 seconds
+decode step time: 0.11834573745727539 seconds
+decode step time: 0.11652708053588867 seconds
+decode step time: 0.11679387092590332 seconds
+[LLM] Worker 0 (PID 2676024): Request 56 served.
+    Arrival time: 1783617987.1057 s
+    Time in queue: 0.0008 s
+    Time to first token: 204.3049 ms
+    Request latency: 3298.6689 ms
+    Generated tokens: 23
+    Time per token: 140.6529 ms/token
+    Current batch size: 34
+decode step time: 0.11638617515563965 seconds
+[LLM] Worker 0 (PID 2676024): Request 29 served.
+    Arrival time: 1783617960.9237 s
+    Time in queue: 0.0003 s
+    Time to first token: 114.2516 ms
+    Request latency: 29599.7412 ms
+    Generated tokens: 218
+    Time per token: 135.8778 ms/token
+    Current batch size: 33
+decode step time: 0.11620521545410156 seconds
+[LLM] Worker 0 (PID 2676024): Request 41 served.
+    Arrival time: 1783617974.1060 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.7475 ms
+    Request latency: 16536.4914 ms
+    Generated tokens: 114
+    Time per token: 145.3252 ms/token
+    Current batch size: 32
+prefill step time: 0.14974546432495117 seconds
+decode step time: 0.11847114562988281 seconds
+[LLM] Worker 0 (PID 2676024): Request 26 served.
+    Arrival time: 1783617956.9519 s
+    Time in queue: 0.0006 s
+    Time to first token: 136.7941 ms
+    Request latency: 33962.8649 ms
+    Generated tokens: 253
+    Time per token: 134.2304 ms/token
+    Current batch size: 32
+prefill step time: 0.11208820343017578 seconds
+decode step time: 0.11809206008911133 seconds
+decode step time: 0.11691141128540039 seconds
+prefill step time: 0.11829018592834473 seconds
+decode step time: 0.1184849739074707 seconds
+[LLM] Worker 0 (PID 2676024): Request 49 served.
+    Arrival time: 1783617981.0239 s
+    Time in queue: 0.0004 s
+    Time to first token: 134.2354 ms
+    Request latency: 10485.3628 ms
+    Generated tokens: 72
+    Time per token: 145.7905 ms/token
+    Current batch size: 33
+decode step time: 0.11729788780212402 seconds
+prefill step time: 0.1125638484954834 seconds
+decode step time: 0.11837935447692871 seconds
+decode step time: 0.11652040481567383 seconds
+decode step time: 0.11614751815795898 seconds
+prefill step time: 0.11366963386535645 seconds
+decode step time: 0.11896800994873047 seconds
+[LLM] Worker 0 (PID 2676024): Request 36 served.
+    Arrival time: 1783617968.9326 s
+    Time in queue: 0.0005 s
+    Time to first token: 133.9679 ms
+    Request latency: 23405.1707 ms
+    Generated tokens: 163
+    Time per token: 143.6494 ms/token
+    Current batch size: 34
+decode step time: 0.11536979675292969 seconds
+[LLM] Worker 0 (PID 2676024): Request 62 served.
+    Arrival time: 1783617990.9157 s
+    Time in queue: 0.0005 s
+    Time to first token: 112.6473 ms
+    Request latency: 1540.0717 ms
+    Generated tokens: 10
+    Time per token: 158.6027 ms/token
+    Current batch size: 33
+decode step time: 0.11620616912841797 seconds
+decode step time: 0.11638641357421875 seconds
+decode step time: 0.11664772033691406 seconds
+decode step time: 0.1166238784790039 seconds
+decode step time: 0.11644721031188965 seconds
+INFO 07-09 17:26:33 [metrics.py:481] Avg prompt throughput: 176.9 tokens/s, Avg generation throughput: 223.5 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.1%, CPU KV cache usage: 0.0%.
+prefill step time: 0.11832451820373535 seconds
+prefill step time: 0.06399083137512207 seconds
+decode step time: 0.1187901496887207 seconds
+decode step time: 0.11693930625915527 seconds
+decode step time: 0.11721277236938477 seconds
+decode step time: 0.11690473556518555 seconds
+[LLM] Worker 0 (PID 2676024): Request 20 served.
+    Arrival time: 1783617952.6522 s
+    Time in queue: 0.0008 s
+    Time to first token: 273.1025 ms
+    Request latency: 41061.6608 ms
+    Generated tokens: 300
+    Time per token: 136.4166 ms/token
+    Current batch size: 34
+decode step time: 0.11579608917236328 seconds
+[LLM] Worker 0 (PID 2676024): Request 8 served.
+    Arrival time: 1783617933.4416 s
+    Time in queue: 0.0007 s
+    Time to first token: 17.1182 ms
+    Request latency: 60391.0542 ms
+    Generated tokens: 620
+    Time per token: 97.5346 ms/token
+    Current batch size: 33
+decode step time: 0.11523842811584473 seconds
+decode step time: 0.11668539047241211 seconds
+decode step time: 0.11600923538208008 seconds
+decode step time: 0.11684870719909668 seconds
+decode step time: 0.11686158180236816 seconds
+prefill step time: 0.11391234397888184 seconds
+decode step time: 0.11815214157104492 seconds
+decode step time: 0.11585378646850586 seconds
+decode step time: 0.07414841651916504 seconds
+[LLM] Worker 0 (PID 2676024): Request 24 served.
+    Arrival time: 1783617956.1531 s
+    Time in queue: 0.0006 s
+    Time to first token: 196.9063 ms
+    Request latency: 38702.9452 ms
+    Generated tokens: 285
+    Time per token: 135.5846 ms/token
+    Current batch size: 33
+decode step time: 0.10842657089233398 seconds
+decode step time: 0.11665916442871094 seconds
+decode step time: 0.11583232879638672 seconds
+[LLM] Worker 0 (PID 2676024): Request 59 served.
+    Arrival time: 1783617989.7867 s
+    Time in queue: 0.0004 s
+    Time to first token: 112.9582 ms
+    Request latency: 5417.5384 ms
+    Generated tokens: 37
+    Time per token: 147.3495 ms/token
+    Current batch size: 32
+decode step time: 0.11634159088134766 seconds
+decode step time: 0.11616945266723633 seconds
+decode step time: 0.06656312942504883 seconds
+[LLM] Worker 0 (PID 2676024): Request 11 served.
+    Arrival time: 1783617942.9023 s
+    Time in queue: 0.0003 s
+    Time to first token: 16.7220 ms
+    Request latency: 52607.7230 ms
+    Generated tokens: 446
+    Time per token: 118.1820 ms/token
+    Current batch size: 31
+decode step time: 0.10936307907104492 seconds
+decode step time: 0.1168680191040039 seconds
+decode step time: 0.11644911766052246 seconds
+decode step time: 0.1168215274810791 seconds
+decode step time: 0.11631464958190918 seconds
+[LLM] Worker 0 (PID 2676024): Request 17 served.
+    Arrival time: 1783617950.6402 s
+    Time in queue: 0.0009 s
+    Time to first token: 290.5073 ms
+    Request latency: 45456.9647 ms
+    Generated tokens: 331
+    Time per token: 136.8681 ms/token
+    Current batch size: 30
+decode step time: 0.11521291732788086 seconds
+decode step time: 0.11588263511657715 seconds
+decode step time: 0.1164696216583252 seconds
+decode step time: 0.11644482612609863 seconds
+decode step time: 0.11664962768554688 seconds
+decode step time: 0.11638998985290527 seconds
+decode step time: 0.11489367485046387 seconds
+decode step time: 0.11615586280822754 seconds
+decode step time: 0.11601758003234863 seconds
+decode step time: 0.11628174781799316 seconds
+prefill step time: 0.11358761787414551 seconds
+decode step time: 0.11772775650024414 seconds
+decode step time: 0.11545705795288086 seconds
+decode step time: 0.11593222618103027 seconds
+decode step time: 0.11609578132629395 seconds
+decode step time: 0.07194089889526367 seconds
+decode step time: 0.10945296287536621 seconds
+INFO 07-09 17:26:38 [metrics.py:481] Avg prompt throughput: 24.2 tokens/s, Avg generation throughput: 248.0 tokens/s, Running: 30 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 11.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.11603903770446777 seconds
+prefill step time: 0.11366510391235352 seconds
+decode step time: 0.11749672889709473 seconds
+decode step time: 0.11606311798095703 seconds
+decode step time: 0.11586999893188477 seconds
+[LLM] Worker 0 (PID 2676024): Request 40 served.
+    Arrival time: 1783617973.5056 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.3489 ms
+    Request latency: 25137.4822 ms
+    Generated tokens: 178
+    Time per token: 141.3736 ms/token
+    Current batch size: 31
+decode step time: 0.11554145812988281 seconds
+decode step time: 0.11643600463867188 seconds
+decode step time: 0.1161048412322998 seconds
+decode step time: 0.11680865287780762 seconds
+decode step time: 0.11631894111633301 seconds
+decode step time: 0.07339143753051758 seconds
+decode step time: 0.11347484588623047 seconds
+decode step time: 0.11652517318725586 seconds
+decode step time: 0.1166684627532959 seconds
+decode step time: 0.1165609359741211 seconds
+decode step time: 0.11698269844055176 seconds
+decode step time: 0.11555624008178711 seconds
+decode step time: 0.11589908599853516 seconds
+decode step time: 0.11606478691101074 seconds
+decode step time: 0.11639785766601562 seconds
+[LLM] Worker 0 (PID 2676024): Request 51 served.
+    Arrival time: 1783617984.2522 s
+    Time in queue: 0.0004 s
+    Time to first token: 64.4836 ms
+    Request latency: 16122.0133 ms
+    Generated tokens: 116
+    Time per token: 139.6307 ms/token
+    Current batch size: 30
+decode step time: 0.07315421104431152 seconds
+decode step time: 0.1096649169921875 seconds
+decode step time: 0.11650681495666504 seconds
+[LLM] Worker 0 (PID 2676024): Request 55 served.
+    Arrival time: 1783617986.6197 s
+    Time in queue: 0.0008 s
+    Time to first token: 243.8533 ms
+    Request latency: 14060.3843 ms
+    Generated tokens: 104
+    Time per token: 134.1411 ms/token
+    Current batch size: 29
+decode step time: 0.11608695983886719 seconds
+decode step time: 0.07260704040527344 seconds
+decode step time: 0.10936594009399414 seconds
+decode step time: 0.07302117347717285 seconds
+decode step time: 0.10922813415527344 seconds
+decode step time: 0.11691069602966309 seconds
+decode step time: 0.11513590812683105 seconds
+decode step time: 0.11620879173278809 seconds
+decode step time: 0.11643481254577637 seconds
+decode step time: 0.11614656448364258 seconds
+prefill step time: 0.07232451438903809 seconds
+decode step time: 0.10894227027893066 seconds
+decode step time: 0.11591410636901855 seconds
+decode step time: 0.11580181121826172 seconds
+decode step time: 0.1159200668334961 seconds
+prefill step time: 0.11331057548522949 seconds
+decode step time: 0.11786198616027832 seconds
+decode step time: 0.11539983749389648 seconds
+[LLM] Worker 0 (PID 2676024): Request 46 served.
+    Arrival time: 1783617976.8467 s
+    Time in queue: 0.0004 s
+    Time to first token: 95.4595 ms
+    Request latency: 25805.6464 ms
+    Generated tokens: 194
+    Time per token: 133.2134 ms/token
+    Current batch size: 30
+decode step time: 0.11550116539001465 seconds
+decode step time: 0.11581778526306152 seconds
+decode step time: 0.1161952018737793 seconds
+[LLM] Worker 0 (PID 2676024): Request 18 served.
+    Arrival time: 1783617950.9311 s
+    Time in queue: 0.0009 s
+    Time to first token: 338.3517 ms
+    Request latency: 52075.5594 ms
+    Generated tokens: 388
+    Time per token: 133.6879 ms/token
+    Current batch size: 29
+decode step time: 0.11568927764892578 seconds
+INFO 07-09 17:26:43 [metrics.py:481] Avg prompt throughput: 9.7 tokens/s, Avg generation throughput: 243.4 tokens/s, Running: 28 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.7%, CPU KV cache usage: 0.0%.
+decode step time: 0.11555337905883789 seconds
+decode step time: 0.1153874397277832 seconds
+decode step time: 0.11513543128967285 seconds
+decode step time: 0.1160128116607666 seconds
+[LLM] Worker 0 (PID 2676024): Request 31 served.
+    Arrival time: 1783617962.3420 s
+    Time in queue: 0.0003 s
+    Time to first token: 114.2774 ms
+    Request latency: 41253.2611 ms
+    Generated tokens: 309
+    Time per token: 133.5681 ms/token
+    Current batch size: 28
+prefill step time: 0.11359405517578125 seconds
+decode step time: 0.11763548851013184 seconds
+decode step time: 0.1154322624206543 seconds
+decode step time: 0.11545157432556152 seconds
+decode step time: 0.11573982238769531 seconds
+decode step time: 0.11598396301269531 seconds
+decode step time: 0.11614274978637695 seconds
+decode step time: 0.11550593376159668 seconds
+decode step time: 0.11503148078918457 seconds
+decode step time: 0.11578917503356934 seconds
+decode step time: 0.11611056327819824 seconds
+decode step time: 0.1164705753326416 seconds
+decode step time: 0.11621975898742676 seconds
+decode step time: 0.11543679237365723 seconds
+decode step time: 0.11568188667297363 seconds
+decode step time: 0.11573123931884766 seconds
+decode step time: 0.11587214469909668 seconds
+prefill step time: 0.07128453254699707 seconds
+decode step time: 0.1096944808959961 seconds
+decode step time: 0.11648821830749512 seconds
+decode step time: 0.11588168144226074 seconds
+decode step time: 0.11616921424865723 seconds
+decode step time: 0.1152806282043457 seconds
+decode step time: 0.11626386642456055 seconds
+decode step time: 0.11598658561706543 seconds
+[LLM] Worker 0 (PID 2676024): Request 71 served.
+    Arrival time: 1783618001.7631 s
+    Time in queue: 0.0005 s
+    Time to first token: 72.8457 ms
+    Request latency: 4727.2673 ms
+    Generated tokens: 38
+    Time per token: 125.7952 ms/token
+    Current batch size: 29
+prefill step time: 0.11417555809020996 seconds
+decode step time: 0.11765074729919434 seconds
+decode step time: 0.11539697647094727 seconds
+decode step time: 0.11548566818237305 seconds
+decode step time: 0.1161048412322998 seconds
+decode step time: 0.1159212589263916 seconds
+prefill step time: 0.11322474479675293 seconds
+decode step time: 0.11722660064697266 seconds
+[LLM] Worker 0 (PID 2676024): Request 61 served.
+    Arrival time: 1783617990.6433 s
+    Time in queue: 0.0007 s
+    Time to first token: 150.4824 ms
+    Request latency: 16787.3495 ms
+    Generated tokens: 131
+    Time per token: 127.9759 ms/token
+    Current batch size: 30
+decode step time: 0.11530661582946777 seconds
+decode step time: 0.1158609390258789 seconds
+decode step time: 0.07257485389709473 seconds
+decode step time: 0.10889387130737305 seconds
+prefill step time: 0.0697476863861084 seconds
+prefill step time: 0.10893988609313965 seconds
+decode step time: 0.11768603324890137 seconds
+INFO 07-09 17:26:48 [metrics.py:481] Avg prompt throughput: 39.8 tokens/s, Avg generation throughput: 217.0 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.0%, CPU KV cache usage: 0.0%.
+decode step time: 0.11565375328063965 seconds
+decode step time: 0.11601948738098145 seconds
+decode step time: 0.11579680442810059 seconds
+decode step time: 0.11503434181213379 seconds
+decode step time: 0.11582756042480469 seconds
+decode step time: 0.11585545539855957 seconds
+decode step time: 0.11555767059326172 seconds
+decode step time: 0.11649656295776367 seconds
+[LLM] Worker 0 (PID 2676024): Request 35 served.
+    Arrival time: 1783617965.9401 s
+    Time in queue: 0.0007 s
+    Time to first token: 151.9015 ms
+    Request latency: 43157.4335 ms
+    Generated tokens: 322
+    Time per token: 133.9736 ms/token
+    Current batch size: 31
+decode step time: 0.07287478446960449 seconds
+decode step time: 0.10756468772888184 seconds
+decode step time: 0.11638689041137695 seconds
+decode step time: 0.11587667465209961 seconds
+decode step time: 0.11543393135070801 seconds
+decode step time: 0.11584782600402832 seconds
+decode step time: 0.024580717086791992 seconds
+decode step time: 0.018517255783081055 seconds
+decode step time: 0.058826446533203125 seconds
+decode step time: 0.11134696006774902 seconds
+decode step time: 0.11603140830993652 seconds
+decode step time: 0.11599564552307129 seconds
+decode step time: 0.11610865592956543 seconds
+decode step time: 0.11563873291015625 seconds
+decode step time: 0.1156156063079834 seconds
+decode step time: 0.1158747673034668 seconds
+decode step time: 0.07001519203186035 seconds
+decode step time: 0.10980057716369629 seconds
+decode step time: 0.11600852012634277 seconds
+decode step time: 0.11593031883239746 seconds
+decode step time: 0.11616945266723633 seconds
+decode step time: 0.11678671836853027 seconds
+decode step time: 0.11561870574951172 seconds
+decode step time: 0.11562776565551758 seconds
+decode step time: 0.11583828926086426 seconds
+decode step time: 0.11591577529907227 seconds
+decode step time: 0.1166524887084961 seconds
+decode step time: 0.1155080795288086 seconds
+decode step time: 0.07249140739440918 seconds
+decode step time: 0.10864806175231934 seconds
+decode step time: 0.1166086196899414 seconds
+prefill step time: 0.1122443675994873 seconds
+decode step time: 0.11742210388183594 seconds
+decode step time: 0.1157991886138916 seconds
+decode step time: 0.11632943153381348 seconds
+decode step time: 0.11626172065734863 seconds
+decode step time: 0.11539840698242188 seconds
+decode step time: 0.1156153678894043 seconds
+INFO 07-09 17:26:53 [metrics.py:481] Avg prompt throughput: 1.4 tokens/s, Avg generation throughput: 271.6 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 9.4%, CPU KV cache usage: 0.0%.
+decode step time: 0.1155705451965332 seconds
+decode step time: 0.11667418479919434 seconds
+decode step time: 0.11618995666503906 seconds
+decode step time: 0.11645174026489258 seconds
+decode step time: 0.11615538597106934 seconds
+decode step time: 0.11628484725952148 seconds
+decode step time: 0.11563682556152344 seconds
+prefill step time: 0.1133580207824707 seconds
+decode step time: 0.1179358959197998 seconds
+decode step time: 0.07281374931335449 seconds
+decode step time: 0.10913467407226562 seconds
+decode step time: 0.11552834510803223 seconds
+prefill step time: 0.1141653060913086 seconds
+decode step time: 0.1174461841583252 seconds
+decode step time: 0.11570000648498535 seconds
+decode step time: 0.11575198173522949 seconds
+decode step time: 0.11571550369262695 seconds
+decode step time: 0.07289266586303711 seconds
+decode step time: 0.10894894599914551 seconds
+decode step time: 0.11616253852844238 seconds
+decode step time: 0.11605978012084961 seconds
+decode step time: 0.11626219749450684 seconds
+decode step time: 0.11663484573364258 seconds
+[LLM] Worker 0 (PID 2676024): Request 21 served.
+    Arrival time: 1783617952.9257 s
+    Time in queue: 0.0007 s
+    Time to first token: 271.4188 ms
+    Request latency: 62872.2088 ms
+    Generated tokens: 482
+    Time per token: 130.1472 ms/token
+    Current batch size: 33
+decode step time: 0.11303520202636719 seconds
+decode step time: 0.11547970771789551 seconds
+decode step time: 0.11559414863586426 seconds
+decode step time: 0.11603426933288574 seconds
+prefill step time: 0.11361360549926758 seconds
+decode step time: 0.11722898483276367 seconds
+decode step time: 0.1149148941040039 seconds
+decode step time: 0.11554598808288574 seconds
+decode step time: 0.11590981483459473 seconds
+decode step time: 0.1157689094543457 seconds
+decode step time: 0.11580967903137207 seconds
+[LLM] Worker 0 (PID 2676024): Request 52 served.
+    Arrival time: 1783617984.5563 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.4793 ms
+    Request latency: 32536.0434 ms
+    Generated tokens: 251
+    Time per token: 129.6863 ms/token
+    Current batch size: 33
+decode step time: 0.1139218807220459 seconds
+decode step time: 0.1154947280883789 seconds
+prefill step time: 0.14286088943481445 seconds
+prefill step time: 0.14392662048339844 seconds
+decode step time: 0.11733508110046387 seconds
+decode step time: 0.075531005859375 seconds
+decode step time: 0.018697023391723633 seconds
+decode step time: 0.06033778190612793 seconds
+decode step time: 0.01906728744506836 seconds
+decode step time: 0.018826723098754883 seconds
+decode step time: 0.018697500228881836 seconds
+[LLM] Worker 0 (PID 2676024): Request 65 served.
+    Arrival time: 1783617992.1025 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1138 ms
+    Request latency: 25858.5935 ms
+    Generated tokens: 213
+    Time per token: 121.4362 ms/token
+    Current batch size: 34
+decode step time: 0.018625497817993164 seconds
+decode step time: 0.018538951873779297 seconds
+decode step time: 0.018494129180908203 seconds
+decode step time: 0.018504858016967773 seconds
+decode step time: 0.018572330474853516 seconds
+decode step time: 0.018559932708740234 seconds
+decode step time: 0.018458843231201172 seconds
+decode step time: 0.018457651138305664 seconds
+[LLM] Worker 0 (PID 2676024): Request 67 served.
+    Arrival time: 1783617993.1702 s
+    Time in queue: 0.0003 s
+    Time to first token: 64.3709 ms
+    Request latency: 24957.8826 ms
+    Generated tokens: 214
+    Time per token: 116.8709 ms/token
+    Current batch size: 33
+decode step time: 0.018468141555786133 seconds
+decode step time: 0.01845693588256836 seconds
+decode step time: 0.058812618255615234 seconds
+INFO 07-09 17:26:58 [metrics.py:481] Avg prompt throughput: 123.9 tokens/s, Avg generation throughput: 330.2 tokens/s, Running: 32 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.9%, CPU KV cache usage: 0.0%.
+decode step time: 0.11208629608154297 seconds
+decode step time: 0.02458500862121582 seconds
+decode step time: 0.018594980239868164 seconds
+decode step time: 0.018558502197265625 seconds
+decode step time: 0.018522024154663086 seconds
+decode step time: 0.10744547843933105 seconds
+decode step time: 0.11623287200927734 seconds
+prefill step time: 0.04458498954772949 seconds
+decode step time: 0.018782377243041992 seconds
+decode step time: 0.01870894432067871 seconds
+decode step time: 0.018690824508666992 seconds
+decode step time: 0.018606185913085938 seconds
+decode step time: 0.0185701847076416 seconds
+decode step time: 0.0185697078704834 seconds
+decode step time: 0.06728219985961914 seconds
+[LLM] Worker 0 (PID 2676024): Request 50 served.
+    Arrival time: 1783617984.1393 s
+    Time in queue: 0.0004 s
+    Time to first token: 112.6094 ms
+    Request latency: 34764.9667 ms
+    Generated tokens: 287
+    Time per token: 121.1621 ms/token
+    Current batch size: 33
+decode step time: 0.10771322250366211 seconds
+decode step time: 0.11564826965332031 seconds
+decode step time: 0.11512494087219238 seconds
+[LLM] Worker 0 (PID 2676024): Request 75 served.
+    Arrival time: 1783618006.4911 s
+    Time in queue: 0.0007 s
+    Time to first token: 114.8989 ms
+    Request latency: 12759.3975 ms
+    Generated tokens: 125
+    Time per token: 101.9718 ms/token
+    Current batch size: 32
+decode step time: 0.11573171615600586 seconds
+decode step time: 0.11651611328125 seconds
+decode step time: 0.11563372611999512 seconds
+decode step time: 0.11527705192565918 seconds
+decode step time: 0.11590433120727539 seconds
+decode step time: 0.11597919464111328 seconds
+decode step time: 0.02446150779724121 seconds
+decode step time: 0.018675565719604492 seconds
+decode step time: 0.10820817947387695 seconds
+prefill step time: 0.11937260627746582 seconds
+decode step time: 0.11839747428894043 seconds
+[LLM] Worker 0 (PID 2676024): Request 76 served.
+    Arrival time: 1783618007.1977 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.7125 ms
+    Request latency: 13161.8071 ms
+    Generated tokens: 130
+    Time per token: 101.1480 ms/token
+    Current batch size: 32
+decode step time: 0.1135261058807373 seconds
+decode step time: 0.11542749404907227 seconds
+prefill step time: 0.11376667022705078 seconds
+prefill step time: 0.06498003005981445 seconds
+decode step time: 0.11741447448730469 seconds
+decode step time: 0.1160125732421875 seconds
+[LLM] Worker 0 (PID 2676024): Request 45 served.
+    Arrival time: 1783617976.5016 s
+    Time in queue: 0.0009 s
+    Time to first token: 344.7022 ms
+    Request latency: 44511.6639 ms
+    Generated tokens: 363
+    Time per token: 122.0082 ms/token
+    Current batch size: 33
+decode step time: 0.11475348472595215 seconds
+decode step time: 0.11634635925292969 seconds
+[LLM] Worker 0 (PID 2676024): Request 60 served.
+    Arrival time: 1783617989.9000 s
+    Time in queue: 0.0004 s
+    Time to first token: 145.8235 ms
+    Request latency: 31350.0538 ms
+    Generated tokens: 270
+    Time per token: 116.0009 ms/token
+    Current batch size: 32
+decode step time: 0.11412835121154785 seconds
+decode step time: 0.11547684669494629 seconds
+decode step time: 0.11528873443603516 seconds
+decode step time: 0.11644268035888672 seconds
+decode step time: 0.11588883399963379 seconds
+decode step time: 0.11522054672241211 seconds
+decode step time: 0.11485028266906738 seconds
+decode step time: 0.11560273170471191 seconds
+decode step time: 0.11572098731994629 seconds
+decode step time: 0.11629414558410645 seconds
+[LLM] Worker 0 (PID 2676024): Request 80 served.
+    Arrival time: 1783618014.0082 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.8532 ms
+    Request latency: 8419.6727 ms
+    Generated tokens: 88
+    Time per token: 95.4692 ms/token
+    Current batch size: 31
+decode step time: 0.11553144454956055 seconds
+decode step time: 0.11522173881530762 seconds
+decode step time: 0.11530041694641113 seconds
+decode step time: 0.11549997329711914 seconds
+[LLM] Worker 0 (PID 2676024): Request 70 served.
+    Arrival time: 1783617998.1733 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1195 ms
+    Request latency: 24725.3561 ms
+    Generated tokens: 223
+    Time per token: 110.8614 ms/token
+    Current batch size: 30
+[LLM] Worker 0 (PID 2676024): Request 72 served.
+    Arrival time: 1783618002.3011 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.7478 ms
+    Request latency: 20597.4963 ms
+    Generated tokens: 188
+    Time per token: 109.5388 ms/token
+    Current batch size: 30
+decode step time: 0.11538839340209961 seconds
+decode step time: 0.06517791748046875 seconds
+decode step time: 0.1115102767944336 seconds
+[LLM] Worker 0 (PID 2676024): Request 38 served.
+    Arrival time: 1783617970.5669 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.5608 ms
+    Request latency: 52630.5807 ms
+    Generated tokens: 423
+    Time per token: 124.4455 ms/token
+    Current batch size: 28
+decode step time: 0.06447792053222656 seconds
+INFO 07-09 17:27:03 [metrics.py:481] Avg prompt throughput: 78.7 tokens/s, Avg generation throughput: 317.7 tokens/s, Running: 26 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.4%, CPU KV cache usage: 0.0%.
+[LLM] Worker 0 (PID 2676024): Request 48 served.
+    Arrival time: 1783617980.5147 s
+    Time in queue: 0.0005 s
+    Time to first token: 149.9827 ms
+    Request latency: 42749.8927 ms
+    Generated tokens: 353
+    Time per token: 121.0225 ms/token
+    Current batch size: 27
+decode step time: 0.11106705665588379 seconds
+prefill step time: 0.11300420761108398 seconds
+decode step time: 0.11717963218688965 seconds
+decode step time: 0.11531424522399902 seconds
+decode step time: 0.024268627166748047 seconds
+[LLM] Worker 0 (PID 2676024): Request 77 served.
+    Arrival time: 1783618007.8525 s
+    Time in queue: 0.0004 s
+    Time to first token: 70.2536 ms
+    Request latency: 15902.8788 ms
+    Generated tokens: 153
+    Time per token: 104.1620 ms/token
+    Current batch size: 27
+decode step time: 0.06017422676086426 seconds
+decode step time: 0.10939216613769531 seconds
+decode step time: 0.11652183532714844 seconds
+decode step time: 0.024352073669433594 seconds
+decode step time: 0.017946958541870117 seconds
+decode step time: 0.017913341522216797 seconds
+decode step time: 0.01790332794189453 seconds
+decode step time: 0.017908096313476562 seconds
+decode step time: 0.060323238372802734 seconds
+decode step time: 0.018157005310058594 seconds
+decode step time: 0.1101539134979248 seconds
+decode step time: 0.1151890754699707 seconds
+[LLM] Worker 0 (PID 2676024): Request 12 served.
+    Arrival time: 1783617945.0964 s
+    Time in queue: 0.0006 s
+    Time to first token: 61.8603 ms
+    Request latency: 79368.4814 ms
+    Generated tokens: 663
+    Time per token: 119.7985 ms/token
+    Current batch size: 26
+decode step time: 0.11475825309753418 seconds
+decode step time: 0.11546778678894043 seconds
+decode step time: 0.11578822135925293 seconds
+decode step time: 0.02422332763671875 seconds
+decode step time: 0.017842769622802734 seconds
+decode step time: 0.017850160598754883 seconds
+decode step time: 0.01783895492553711 seconds
+decode step time: 0.01786518096923828 seconds
+decode step time: 0.01804494857788086 seconds
+decode step time: 0.10555386543273926 seconds
+decode step time: 0.11591935157775879 seconds
+decode step time: 0.11603975296020508 seconds
+decode step time: 0.11582136154174805 seconds
+[LLM] Worker 0 (PID 2676024): Request 33 served.
+    Arrival time: 1783617963.6418 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.4706 ms
+    Request latency: 61761.0810 ms
+    Generated tokens: 509
+    Time per token: 121.3536 ms/token
+    Current batch size: 25
+[LLM] Worker 0 (PID 2676024): Request 69 served.
+    Arrival time: 1783617997.2808 s
+    Time in queue: 0.0005 s
+    Time to first token: 114.1047 ms
+    Request latency: 28122.0636 ms
+    Generated tokens: 263
+    Time per token: 106.9006 ms/token
+    Current batch size: 25
+prefill step time: 0.11439228057861328 seconds
+decode step time: 0.11619138717651367 seconds
+decode step time: 0.11536717414855957 seconds
+decode step time: 0.11631178855895996 seconds
+decode step time: 0.11513090133666992 seconds
+decode step time: 0.11508631706237793 seconds
+decode step time: 0.11543917655944824 seconds
+decode step time: 0.11630964279174805 seconds
+decode step time: 0.11582636833190918 seconds
+decode step time: 0.11480116844177246 seconds
+[LLM] Worker 0 (PID 2676024): Request 66 served.
+    Arrival time: 1783617993.0510 s
+    Time in queue: 0.0005 s
+    Time to first token: 118.8476 ms
+    Request latency: 33525.5840 ms
+    Generated tokens: 306
+    Time per token: 109.5303 ms/token
+    Current batch size: 24
+decode step time: 0.11504626274108887 seconds
+decode step time: 0.1156158447265625 seconds
+decode step time: 0.11600756645202637 seconds
+decode step time: 0.06532835960388184 seconds
+decode step time: 0.11120486259460449 seconds
+[LLM] Worker 0 (PID 2676024): Request 57 served.
+    Arrival time: 1783617987.3105 s
+    Time in queue: 0.0006 s
+    Time to first token: 145.4849 ms
+    Request latency: 39798.4922 ms
+    Generated tokens: 350
+    Time per token: 113.6189 ms/token
+    Current batch size: 23
+decode step time: 0.1141505241394043 seconds
+decode step time: 0.114837646484375 seconds
+decode step time: 0.11540675163269043 seconds
+[LLM] Worker 0 (PID 2676024): Request 73 served.
+    Arrival time: 1783618003.5960 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.0518 ms
+    Request latency: 23863.0636 ms
+    Generated tokens: 228
+    Time per token: 104.6212 ms/token
+    Current batch size: 22
+decode step time: 0.11532282829284668 seconds
+decode step time: 0.11567974090576172 seconds
+decode step time: 0.1153099536895752 seconds
+decode step time: 0.11542177200317383 seconds
+decode step time: 0.11584067344665527 seconds
+decode step time: 0.11526989936828613 seconds
+decode step time: 0.1151423454284668 seconds
+INFO 07-09 17:27:08 [metrics.py:481] Avg prompt throughput: 3.0 tokens/s, Avg generation throughput: 257.3 tokens/s, Running: 20 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 5.2%, CPU KV cache usage: 0.0%.
+[LLM] Worker 0 (PID 2676024): Request 90 served.
+    Arrival time: 1783618025.4036 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.9039 ms
+    Request latency: 2875.3574 ms
+    Generated tokens: 25
+    Time per token: 115.0189 ms/token
+    Current batch size: 21
+decode step time: 0.11474752426147461 seconds
+decode step time: 0.0725700855255127 seconds
+decode step time: 0.10863757133483887 seconds
+decode step time: 0.11569428443908691 seconds
+decode step time: 0.11839747428894043 seconds
+decode step time: 0.11595344543457031 seconds
+decode step time: 0.11508798599243164 seconds
+decode step time: 0.11507296562194824 seconds
+decode step time: 0.1159822940826416 seconds
+[LLM] Worker 0 (PID 2676024): Request 53 served.
+    Arrival time: 1783617984.9095 s
+    Time in queue: 0.0008 s
+    Time to first token: 284.4846 ms
+    Request latency: 44377.2583 ms
+    Generated tokens: 382
+    Time per token: 115.7291 ms/token
+    Current batch size: 20
+prefill step time: 0.14991474151611328 seconds
+prefill step time: 0.06480073928833008 seconds
+decode step time: 0.11606383323669434 seconds
+decode step time: 0.07269811630249023 seconds
+decode step time: 0.10780143737792969 seconds
+decode step time: 0.11508369445800781 seconds
+[LLM] Worker 0 (PID 2676024): Request 83 served.
+    Arrival time: 1783618017.3282 s
+    Time in queue: 0.0005 s
+    Time to first token: 143.4541 ms
+    Request latency: 12593.7941 ms
+    Generated tokens: 136
+    Time per token: 92.2247 ms/token
+    Current batch size: 21
+decode step time: 0.11523222923278809 seconds
+decode step time: 0.11543464660644531 seconds
+decode step time: 0.11479997634887695 seconds
+decode step time: 0.11483407020568848 seconds
+[LLM] Worker 0 (PID 2676024): Request 87 served.
+    Arrival time: 1783618020.5950 s
+    Time in queue: 0.0005 s
+    Time to first token: 114.2957 ms
+    Request latency: 9793.8583 ms
+    Generated tokens: 93
+    Time per token: 105.2126 ms/token
+    Current batch size: 20
+decode step time: 0.11523985862731934 seconds
+decode step time: 0.1155245304107666 seconds
+decode step time: 0.11501717567443848 seconds
+decode step time: 0.11516046524047852 seconds
+[LLM] Worker 0 (PID 2676024): Request 68 served.
+    Arrival time: 1783617994.4268 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.3951 ms
+    Request latency: 36429.3513 ms
+    Generated tokens: 332
+    Time per token: 109.7129 ms/token
+    Current batch size: 19
+decode step time: 0.11472702026367188 seconds
+decode step time: 0.11646485328674316 seconds
+decode step time: 0.07127237319946289 seconds
+decode step time: 0.10692429542541504 seconds
+decode step time: 0.1154322624206543 seconds
+decode step time: 0.11504530906677246 seconds
+decode step time: 0.11551833152770996 seconds
+decode step time: 0.1157228946685791 seconds
+decode step time: 0.11547470092773438 seconds
+decode step time: 0.11520528793334961 seconds
+[LLM] Worker 0 (PID 2676024): Request 85 served.
+    Arrival time: 1783618018.6637 s
+    Time in queue: 0.0006 s
+    Time to first token: 45.2034 ms
+    Request latency: 13310.5309 ms
+    Generated tokens: 129
+    Time per token: 103.6354 ms/token
+    Current batch size: 18
+decode step time: 0.11488747596740723 seconds
+decode step time: 0.11579346656799316 seconds
+[LLM] Worker 0 (PID 2676024): Request 58 served.
+    Arrival time: 1783617989.1930 s
+    Time in queue: 0.0005 s
+    Time to first token: 114.3217 ms
+    Request latency: 43015.2469 ms
+    Generated tokens: 378
+    Time per token: 113.7956 ms/token
+    Current batch size: 17
+prefill step time: 0.14423751831054688 seconds
+decode step time: 0.11613965034484863 seconds
+decode step time: 0.11519479751586914 seconds
+decode step time: 0.11483359336853027 seconds
+[LLM] Worker 0 (PID 2676024): Request 30 served.
+    Arrival time: 1783617961.0383 s
+    Time in queue: 0.0004 s
+    Time to first token: 65.0656 ms
+    Request latency: 71666.5659 ms
+    Generated tokens: 590
+    Time per token: 121.5645 ms/token
+    Current batch size: 17
+decode step time: 0.11481785774230957 seconds
+decode step time: 0.11607027053833008 seconds
+decode step time: 0.11479949951171875 seconds
+decode step time: 0.11518335342407227 seconds
+decode step time: 0.11569809913635254 seconds
+INFO 07-09 17:27:13 [metrics.py:481] Avg prompt throughput: 157.7 tokens/s, Avg generation throughput: 153.3 tokens/s, Running: 16 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.2%, CPU KV cache usage: 0.0%.
+decode step time: 0.11527776718139648 seconds
+decode step time: 0.11554551124572754 seconds
+decode step time: 0.11524248123168945 seconds
+decode step time: 0.11569023132324219 seconds
+decode step time: 0.11565065383911133 seconds
+decode step time: 0.1155085563659668 seconds
+decode step time: 0.11515021324157715 seconds
+decode step time: 0.11542224884033203 seconds
+decode step time: 0.11545276641845703 seconds
+decode step time: 0.11558961868286133 seconds
+[LLM] Worker 0 (PID 2676024): Request 78 served.
+    Arrival time: 1783618007.9230 s
+    Time in queue: 0.0003 s
+    Time to first token: 109.3144 ms
+    Request latency: 26534.7459 ms
+    Generated tokens: 253
+    Time per token: 104.8628 ms/token
+    Current batch size: 16
+decode step time: 0.11412262916564941 seconds
+decode step time: 0.11532402038574219 seconds
+decode step time: 0.06526494026184082 seconds
+decode step time: 0.05953860282897949 seconds
+prefill step time: 0.11454153060913086 seconds
+decode step time: 0.11649250984191895 seconds
+decode step time: 0.1154932975769043 seconds
+decode step time: 0.11447978019714355 seconds
+decode step time: 0.115020751953125 seconds
+decode step time: 0.024405479431152344 seconds
+decode step time: 0.017028093338012695 seconds
+decode step time: 0.016913414001464844 seconds
+decode step time: 0.0169069766998291 seconds
+decode step time: 0.062163352966308594 seconds
+decode step time: 0.10913348197937012 seconds
+decode step time: 0.11533904075622559 seconds
+decode step time: 0.06482934951782227 seconds
+decode step time: 0.05928349494934082 seconds
+[LLM] Worker 0 (PID 2676024): Request 64 served.
+    Arrival time: 1783617991.6302 s
+    Time in queue: 0.0008 s
+    Time to first token: 113.4503 ms
+    Request latency: 44267.8981 ms
+    Generated tokens: 399
+    Time per token: 110.9408 ms/token
+    Current batch size: 16
+decode step time: 0.116546630859375 seconds
+[LLM] Worker 0 (PID 2676024): Request 63 served.
+    Arrival time: 1783617991.2693 s
+    Time in queue: 0.0005 s
+    Time to first token: 118.8936 ms
+    Request latency: 44747.4656 ms
+    Generated tokens: 402
+    Time per token: 111.2932 ms/token
+    Current batch size: 15
+decode step time: 0.11414933204650879 seconds
+decode step time: 0.11535525321960449 seconds
+decode step time: 0.11812973022460938 seconds
+decode step time: 0.11533761024475098 seconds
+decode step time: 0.1148672103881836 seconds
+decode step time: 0.11522245407104492 seconds
+[LLM] Worker 0 (PID 2676024): Request 84 served.
+    Arrival time: 1783618017.4720 s
+    Time in queue: 0.0004 s
+    Time to first token: 144.4016 ms
+    Request latency: 19246.3176 ms
+    Generated tokens: 198
+    Time per token: 96.9640 ms/token
+    Current batch size: 14
+decode step time: 0.1155235767364502 seconds
+decode step time: 0.11518383026123047 seconds
+decode step time: 0.11485075950622559 seconds
+decode step time: 0.11523985862731934 seconds
+decode step time: 0.11521363258361816 seconds
+decode step time: 0.11553072929382324 seconds
+decode step time: 0.11461734771728516 seconds
+decode step time: 0.0647270679473877 seconds
+[LLM] Worker 0 (PID 2676024): Request 82 served.
+    Arrival time: 1783618016.2688 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1191 ms
+    Request latency: 21330.3373 ms
+    Generated tokens: 214
+    Time per token: 99.6067 ms/token
+    Current batch size: 13
+decode step time: 0.05904030799865723 seconds
+decode step time: 0.11567306518554688 seconds
+decode step time: 0.11498904228210449 seconds
+decode step time: 0.11552953720092773 seconds
+prefill step time: 0.11421918869018555 seconds
+decode step time: 0.06539559364318848 seconds
+decode step time: 0.11550116539001465 seconds
+INFO 07-09 17:27:18 [metrics.py:481] Avg prompt throughput: 7.8 tokens/s, Avg generation throughput: 140.9 tokens/s, Running: 13 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.07302141189575195 seconds
+decode step time: 0.10738182067871094 seconds
+decode step time: 0.11516642570495605 seconds
+decode step time: 0.1152195930480957 seconds
+decode step time: 0.11554861068725586 seconds
+decode step time: 0.11565923690795898 seconds
+decode step time: 0.11511373519897461 seconds
+decode step time: 0.11496567726135254 seconds
+decode step time: 0.11541295051574707 seconds
+decode step time: 0.11560845375061035 seconds
+decode step time: 0.07251858711242676 seconds
+decode step time: 0.10806512832641602 seconds
+decode step time: 0.11526131629943848 seconds
+decode step time: 0.11524844169616699 seconds
+decode step time: 0.11557126045227051 seconds
+decode step time: 0.11585688591003418 seconds
+decode step time: 0.11523151397705078 seconds
+prefill step time: 0.11375904083251953 seconds
+decode step time: 0.07617712020874023 seconds
+decode step time: 0.10484671592712402 seconds
+[LLM] Worker 0 (PID 2676024): Request 91 served.
+    Arrival time: 1783618029.2874 s
+    Time in queue: 0.0006 s
+    Time to first token: 150.5458 ms
+    Request latency: 11200.2723 ms
+    Generated tokens: 100
+    Time per token: 111.6134 ms/token
+    Current batch size: 14
+prefill step time: 0.11475205421447754 seconds
+decode step time: 0.1162862777709961 seconds
+decode step time: 0.06476640701293945 seconds
+decode step time: 0.05972576141357422 seconds
+decode step time: 0.11520266532897949 seconds
+[LLM] Worker 0 (PID 2676024): Request 74 served.
+    Arrival time: 1783618005.5978 s
+    Time in queue: 0.0004 s
+    Time to first token: 71.7916 ms
+    Request latency: 35366.5831 ms
+    Generated tokens: 331
+    Time per token: 106.9539 ms/token
+    Current batch size: 14
+decode step time: 0.11518311500549316 seconds
+decode step time: 0.07458686828613281 seconds
+decode step time: 0.016602754592895508 seconds
+decode step time: 0.01659560203552246 seconds
+decode step time: 0.05759692192077637 seconds
+decode step time: 0.06499695777893066 seconds
+decode step time: 0.016704320907592773 seconds
+decode step time: 0.016705036163330078 seconds
+decode step time: 0.01664113998413086 seconds
+[LLM] Worker 0 (PID 2676024): Request 93 served.
+    Arrival time: 1783618032.2088 s
+    Time in queue: 0.0005 s
+    Time to first token: 144.7885 ms
+    Request latency: 9162.0629 ms
+    Generated tokens: 89
+    Time per token: 102.4690 ms/token
+    Current batch size: 13
+decode step time: 0.016564369201660156 seconds
+decode step time: 0.01651477813720703 seconds
+decode step time: 0.1073918342590332 seconds
+decode step time: 0.11578965187072754 seconds
+decode step time: 0.02423715591430664 seconds
+decode step time: 0.016601085662841797 seconds
+decode step time: 0.016582012176513672 seconds
+decode step time: 0.016536474227905273 seconds
+decode step time: 0.016585588455200195 seconds
+[LLM] Worker 0 (PID 2676024): Request 27 served.
+    Arrival time: 1783617958.8088 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.1355 ms
+    Request latency: 82919.0247 ms
+    Generated tokens: 701
+    Time per token: 118.2927 ms/token
+    Current batch size: 12
+decode step time: 0.058074951171875 seconds
+decode step time: 0.0749359130859375 seconds
+decode step time: 0.06678032875061035 seconds
+decode step time: 0.016396045684814453 seconds
+decode step time: 0.056677818298339844 seconds
+decode step time: 0.10960197448730469 seconds
+decode step time: 0.11554670333862305 seconds
+decode step time: 0.11515283584594727 seconds
+decode step time: 0.1149139404296875 seconds
+decode step time: 0.1159660816192627 seconds
+decode step time: 0.1155693531036377 seconds
+decode step time: 0.11438322067260742 seconds
+decode step time: 0.11511516571044922 seconds
+prefill step time: 0.11486101150512695 seconds
+decode step time: 0.11593389511108398 seconds
+decode step time: 0.1147010326385498 seconds
+decode step time: 0.07509469985961914 seconds
+INFO 07-09 17:27:23 [metrics.py:481] Avg prompt throughput: 14.9 tokens/s, Avg generation throughput: 141.0 tokens/s, Running: 11 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 1.5%, CPU KV cache usage: 0.0%.
+[LLM] Worker 0 (PID 2676024): Request 88 served.
+    Arrival time: 1783618020.7097 s
+    Time in queue: 0.0003 s
+    Time to first token: 65.3892 ms
+    Request latency: 22646.2004 ms
+    Generated tokens: 222
+    Time per token: 102.1756 ms/token
+    Current batch size: 12
+prefill step time: 0.015888452529907227 seconds
+decode step time: 0.016527891159057617 seconds
+decode step time: 0.016411781311035156 seconds
+decode step time: 0.06641173362731934 seconds
+decode step time: 0.016472816467285156 seconds
+decode step time: 0.016385316848754883 seconds
+decode step time: 0.06554055213928223 seconds
+decode step time: 0.01658320426940918 seconds
+decode step time: 0.01647210121154785 seconds
+decode step time: 0.0667111873626709 seconds
+decode step time: 0.0165560245513916 seconds
+decode step time: 0.01655888557434082 seconds
+decode step time: 0.01647186279296875 seconds
+decode step time: 0.0572509765625 seconds
+decode step time: 0.017559528350830078 seconds
+decode step time: 0.10680794715881348 seconds
+decode step time: 0.11496806144714355 seconds
+prefill step time: 0.11413741111755371 seconds
+decode step time: 0.11605262756347656 seconds
+decode step time: 0.11572694778442383 seconds
+decode step time: 0.11523652076721191 seconds
+decode step time: 0.11464381217956543 seconds
+decode step time: 0.11537694931030273 seconds
+decode step time: 0.11545944213867188 seconds
+decode step time: 0.11577963829040527 seconds
+decode step time: 0.07303285598754883 seconds
+decode step time: 0.10776305198669434 seconds
+decode step time: 0.0733327865600586 seconds
+decode step time: 0.10764741897583008 seconds
+decode step time: 0.11528253555297852 seconds
+prefill step time: 0.11423754692077637 seconds
+decode step time: 0.11609649658203125 seconds
+decode step time: 0.1154947280883789 seconds
+decode step time: 0.0640573501586914 seconds
+decode step time: 0.05932497978210449 seconds
+decode step time: 0.11635732650756836 seconds
+decode step time: 0.1131126880645752 seconds
+decode step time: 0.1147613525390625 seconds
+prefill step time: 0.13529372215270996 seconds
+decode step time: 0.06535196304321289 seconds
+decode step time: 0.11535978317260742 seconds
+decode step time: 0.11633539199829102 seconds
+decode step time: 0.11452960968017578 seconds
+decode step time: 0.11516904830932617 seconds
+decode step time: 0.11542749404907227 seconds
+[LLM] Worker 0 (PID 2676024): Request 101 served.
+    Arrival time: 1783618045.4488 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.6603 ms
+    Request latency: 1609.2153 ms
+    Generated tokens: 14
+    Time per token: 114.9658 ms/token
+    Current batch size: 15
+decode step time: 0.11520838737487793 seconds
+prefill step time: 0.11403799057006836 seconds
+prefill step time: 0.06393599510192871 seconds
+decode step time: 0.11586880683898926 seconds
+decode step time: 0.11482572555541992 seconds
+decode step time: 0.11523771286010742 seconds
+decode step time: 0.11554336547851562 seconds
+decode step time: 0.1152946949005127 seconds
+prefill step time: 0.11385917663574219 seconds
+decode step time: 0.0764167308807373 seconds
+decode step time: 0.10499429702758789 seconds
+decode step time: 0.11562609672546387 seconds
+decode step time: 0.11629605293273926 seconds
+INFO 07-09 17:27:28 [metrics.py:481] Avg prompt throughput: 43.0 tokens/s, Avg generation throughput: 137.8 tokens/s, Running: 17 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 2.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.11458110809326172 seconds
+decode step time: 0.11478209495544434 seconds
+decode step time: 0.11518239974975586 seconds
+decode step time: 0.11548924446105957 seconds
+decode step time: 0.11510181427001953 seconds
+decode step time: 0.11490797996520996 seconds
+[LLM] Worker 0 (PID 2676024): Request 47 served.
+    Arrival time: 1783617978.1974 s
+    Time in queue: 0.0006 s
+    Time to first token: 113.8749 ms
+    Request latency: 70972.7991 ms
+    Generated tokens: 628
+    Time per token: 113.0126 ms/token
+    Current batch size: 17
+decode step time: 0.11401486396789551 seconds
+decode step time: 0.11566543579101562 seconds
+decode step time: 0.11566972732543945 seconds
+decode step time: 0.11521148681640625 seconds
+decode step time: 0.11481785774230957 seconds
+decode step time: 0.11522364616394043 seconds
+decode step time: 0.11560750007629395 seconds
+decode step time: 0.11505746841430664 seconds
+decode step time: 0.11475920677185059 seconds
+decode step time: 0.11540007591247559 seconds
+decode step time: 0.1153724193572998 seconds
+decode step time: 0.11519479751586914 seconds
+decode step time: 0.11475801467895508 seconds
+decode step time: 0.0727696418762207 seconds
+decode step time: 0.1081700325012207 seconds
+decode step time: 0.11459136009216309 seconds
+decode step time: 0.07296109199523926 seconds
+decode step time: 0.10817313194274902 seconds
+decode step time: 0.11544013023376465 seconds
+decode step time: 0.11563444137573242 seconds
+[LLM] Worker 0 (PID 2676024): Request 86 served.
+    Arrival time: 1783618020.1186 s
+    Time in queue: 0.0005 s
+    Time to first token: 119.8959 ms
+    Request latency: 31284.7064 ms
+    Generated tokens: 302
+    Time per token: 103.5376 ms/token
+    Current batch size: 16
+decode step time: 0.1148066520690918 seconds
+decode step time: 0.11665177345275879 seconds
+decode step time: 0.11528849601745605 seconds
+prefill step time: 0.168731689453125 seconds
+prefill step time: 0.28189659118652344 seconds
+decode step time: 0.11608362197875977 seconds
+decode step time: 0.11515450477600098 seconds
+decode step time: 0.11555957794189453 seconds
+decode step time: 0.1160287857055664 seconds
+decode step time: 0.11493325233459473 seconds
+decode step time: 0.11481857299804688 seconds
+decode step time: 0.11550521850585938 seconds
+decode step time: 0.11579585075378418 seconds
+decode step time: 0.1154167652130127 seconds
+decode step time: 0.1153566837310791 seconds
+prefill step time: 0.11356043815612793 seconds
+INFO 07-09 17:27:33 [metrics.py:481] Avg prompt throughput: 542.0 tokens/s, Avg generation throughput: 127.5 tokens/s, Running: 18 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 3.6%, CPU KV cache usage: 0.0%.
+prefill step time: 0.07010245323181152 seconds
+decode step time: 0.06078696250915527 seconds
+decode step time: 0.11534667015075684 seconds
+decode step time: 0.1152801513671875 seconds
+decode step time: 0.1153876781463623 seconds
+decode step time: 0.11577773094177246 seconds
+decode step time: 0.11496090888977051 seconds
+decode step time: 0.11502242088317871 seconds
+decode step time: 0.0639805793762207 seconds
+decode step time: 0.11023116111755371 seconds
+decode step time: 0.11551141738891602 seconds
+decode step time: 0.11576485633850098 seconds
+decode step time: 0.1151127815246582 seconds
+decode step time: 0.11501312255859375 seconds
+decode step time: 0.1158897876739502 seconds
+prefill step time: 0.1145784854888916 seconds
+decode step time: 0.11661505699157715 seconds
+decode step time: 0.11527013778686523 seconds
+decode step time: 0.11527705192565918 seconds
+decode step time: 0.1155705451965332 seconds
+prefill step time: 0.13478755950927734 seconds
+decode step time: 0.06570601463317871 seconds
+decode step time: 0.06071615219116211 seconds
+decode step time: 0.11583757400512695 seconds
+decode step time: 0.11528563499450684 seconds
+decode step time: 0.1151742935180664 seconds
+decode step time: 0.11522626876831055 seconds
+decode step time: 0.11608576774597168 seconds
+decode step time: 0.1158456802368164 seconds
+decode step time: 0.06496953964233398 seconds
+decode step time: 0.1114959716796875 seconds
+prefill step time: 0.1133260726928711 seconds
+prefill step time: 0.06502604484558105 seconds
+decode step time: 0.11653447151184082 seconds
+decode step time: 0.11526012420654297 seconds
+decode step time: 0.11515188217163086 seconds
+decode step time: 0.11566472053527832 seconds
+decode step time: 0.1153256893157959 seconds
+decode step time: 0.11517143249511719 seconds
+decode step time: 0.0726628303527832 seconds
+decode step time: 0.10831999778747559 seconds
+prefill step time: 0.07359194755554199 seconds
+decode step time: 0.10973095893859863 seconds
+prefill step time: 0.11482763290405273 seconds
+decode step time: 0.11673831939697266 seconds
+decode step time: 0.115570068359375 seconds
+decode step time: 0.11558222770690918 seconds
+INFO 07-09 17:27:38 [metrics.py:481] Avg prompt throughput: 77.6 tokens/s, Avg generation throughput: 167.5 tokens/s, Running: 25 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 4.4%, CPU KV cache usage: 0.0%.
+decode step time: 0.1156001091003418 seconds
+decode step time: 0.11511683464050293 seconds
+prefill step time: 0.11429738998413086 seconds
+decode step time: 0.11691403388977051 seconds
+decode step time: 0.1148838996887207 seconds
+decode step time: 0.11495780944824219 seconds
+decode step time: 0.11551356315612793 seconds
+decode step time: 0.11556339263916016 seconds
+decode step time: 0.11593866348266602 seconds
+prefill step time: 0.11421418190002441 seconds
+decode step time: 0.11694884300231934 seconds
+decode step time: 0.06486630439758301 seconds
+[LLM] Worker 0 (PID 2676024): Request 95 served.
+    Arrival time: 1783618038.0096 s
+    Time in queue: 0.0006 s
+    Time to first token: 114.9113 ms
+    Request latency: 21889.8001 ms
+    Generated tokens: 200
+    Time per token: 109.4216 ms/token
+    Current batch size: 27
+decode step time: 0.11030054092407227 seconds
+decode step time: 0.11597251892089844 seconds
+prefill step time: 0.11439752578735352 seconds
+prefill step time: 0.07065010070800781 seconds
+decode step time: 0.06201529502868652 seconds
+decode step time: 0.1155555248260498 seconds
+decode step time: 0.11645746231079102 seconds
+decode step time: 0.1152198314666748 seconds
+decode step time: 0.11493968963623047 seconds
+prefill step time: 0.113433837890625 seconds
+decode step time: 0.1165003776550293 seconds
+decode step time: 0.11549687385559082 seconds
+prefill step time: 0.271303653717041 seconds
+prefill step time: 0.15635895729064941 seconds
+decode step time: 0.06339073181152344 seconds
+decode step time: 0.06539559364318848 seconds
+decode step time: 0.11075997352600098 seconds
+decode step time: 0.11587119102478027 seconds
+decode step time: 0.1158602237701416 seconds
+decode step time: 0.11642909049987793 seconds
+decode step time: 0.11565685272216797 seconds
+[LLM] Worker 0 (PID 2676024): Request 99 served.
+    Arrival time: 1783618043.3566 s
+    Time in queue: 0.0003 s
+    Time to first token: 16.2723 ms
+    Request latency: 18993.1579 ms
+    Generated tokens: 157
+    Time per token: 121.6467 ms/token
+    Current batch size: 31
+decode step time: 0.11464452743530273 seconds
+decode step time: 0.11549234390258789 seconds
+[LLM] Worker 0 (PID 2676024): Request 119 served.
+    Arrival time: 1783618060.2454 s
+    Time in queue: 0.0004 s
+    Time to first token: 71.0986 ms
+    Request latency: 2339.0276 ms
+    Generated tokens: 17
+    Time per token: 141.7456 ms/token
+    Current batch size: 30
+decode step time: 0.11563754081726074 seconds
+decode step time: 0.11575078964233398 seconds
+decode step time: 0.1163177490234375 seconds
+decode step time: 0.11577606201171875 seconds
+decode step time: 0.11538553237915039 seconds
+decode step time: 0.11548137664794922 seconds
+decode step time: 0.11581826210021973 seconds
+decode step time: 0.11588692665100098 seconds
+decode step time: 0.11547088623046875 seconds
+INFO 07-09 17:27:43 [metrics.py:481] Avg prompt throughput: 612.2 tokens/s, Avg generation throughput: 206.8 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 6.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.11468625068664551 seconds
+prefill step time: 0.11393237113952637 seconds
+decode step time: 0.11764240264892578 seconds
+[LLM] Worker 0 (PID 2676024): Request 89 served.
+    Arrival time: 1783618023.3790 s
+    Time in queue: 0.0006 s
+    Time to first token: 113.6951 ms
+    Request latency: 40617.8620 ms
+    Generated tokens: 368
+    Time per token: 110.3656 ms/token
+    Current batch size: 30
+decode step time: 0.11458539962768555 seconds
+decode step time: 0.11534929275512695 seconds
+[LLM] Worker 0 (PID 2676024): Request 98 served.
+    Arrival time: 1783618042.9314 s
+    Time in queue: 0.0004 s
+    Time to first token: 115.2976 ms
+    Request latency: 21300.4324 ms
+    Generated tokens: 175
+    Time per token: 121.7536 ms/token
+    Current batch size: 29
+decode step time: 0.11453533172607422 seconds
+decode step time: 0.07321524620056152 seconds
+decode step time: 0.10834932327270508 seconds
+decode step time: 0.11555886268615723 seconds
+decode step time: 0.11661815643310547 seconds
+decode step time: 0.11586880683898926 seconds
+decode step time: 0.11608242988586426 seconds
+decode step time: 0.11591458320617676 seconds
+decode step time: 0.11579298973083496 seconds
+decode step time: 0.11586427688598633 seconds
+[LLM] Worker 0 (PID 2676024): Request 97 served.
+    Arrival time: 1783618040.4881 s
+    Time in queue: 0.0003 s
+    Time to first token: 115.1533 ms
+    Request latency: 24872.2625 ms
+    Generated tokens: 220
+    Time per token: 113.0462 ms/token
+    Current batch size: 28
+[LLM] Worker 0 (PID 2676024): Request 108 served.
+    Arrival time: 1783618053.3776 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.0540 ms
+    Request latency: 11982.7695 ms
+    Generated tokens: 92
+    Time per token: 130.4254 ms/token
+    Current batch size: 28
+prefill step time: 0.11627984046936035 seconds
+decode step time: 0.11708259582519531 seconds
+decode step time: 0.11561155319213867 seconds
+decode step time: 0.1157379150390625 seconds
+decode step time: 0.07232093811035156 seconds
+decode step time: 0.10892581939697266 seconds
+decode step time: 0.1164255142211914 seconds
+prefill step time: 0.11342954635620117 seconds
+decode step time: 0.11647677421569824 seconds
+decode step time: 0.1156930923461914 seconds
+decode step time: 0.11636924743652344 seconds
+decode step time: 0.11571431159973145 seconds
+decode step time: 0.07477688789367676 seconds
+decode step time: 0.0686798095703125 seconds
+decode step time: 0.10859131813049316 seconds
+decode step time: 0.1155087947845459 seconds
+decode step time: 0.07249689102172852 seconds
+decode step time: 0.10811495780944824 seconds
+decode step time: 0.1152353286743164 seconds
+decode step time: 0.07545590400695801 seconds
+decode step time: 0.018171310424804688 seconds
+decode step time: 0.018149614334106445 seconds
+decode step time: 0.01819586753845215 seconds
+decode step time: 0.01809859275817871 seconds
+decode step time: 0.018132925033569336 seconds
+decode step time: 0.0673060417175293 seconds
+decode step time: 0.058371782302856445 seconds
+decode step time: 0.020006418228149414 seconds
+decode step time: 0.018259048461914062 seconds
+[LLM] Worker 0 (PID 2676024): Request 111 served.
+    Arrival time: 1783618055.6737 s
+    Time in queue: 0.0004 s
+    Time to first token: 135.2406 ms
+    Request latency: 12079.5913 ms
+    Generated tokens: 101
+    Time per token: 119.4435 ms/token
+    Current batch size: 28
+decode step time: 0.0590212345123291 seconds
+decode step time: 0.11136221885681152 seconds
+decode step time: 0.11571979522705078 seconds
+decode step time: 0.11646652221679688 seconds
+decode step time: 0.11549186706542969 seconds
+prefill step time: 0.11342620849609375 seconds
+decode step time: 0.11709237098693848 seconds
+decode step time: 0.07362627983093262 seconds
+decode step time: 0.10855698585510254 seconds
+INFO 07-09 17:27:48 [metrics.py:481] Avg prompt throughput: 31.0 tokens/s, Avg generation throughput: 270.9 tokens/s, Running: 28 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 7.1%, CPU KV cache usage: 0.0%.
+prefill step time: 0.11281490325927734 seconds
+decode step time: 0.11749458312988281 seconds
+decode step time: 0.11664938926696777 seconds
+prefill step time: 0.11394953727722168 seconds
+decode step time: 0.1176908016204834 seconds
+decode step time: 0.1156167984008789 seconds
+prefill step time: 0.11425542831420898 seconds
+decode step time: 0.11747884750366211 seconds
+decode step time: 0.11554646492004395 seconds
+decode step time: 0.11556386947631836 seconds
+decode step time: 0.11568379402160645 seconds
+decode step time: 0.11570930480957031 seconds
+decode step time: 0.11667203903198242 seconds
+decode step time: 0.11646533012390137 seconds
+decode step time: 0.07205390930175781 seconds
+decode step time: 0.10830545425415039 seconds
+[LLM] Worker 0 (PID 2676024): Request 113 served.
+    Arrival time: 1783618056.9354 s
+    Time in queue: 0.0004 s
+    Time to first token: 65.4552 ms
+    Request latency: 13598.5386 ms
+    Generated tokens: 112
+    Time per token: 121.9197 ms/token
+    Current batch size: 31
+decode step time: 0.07143783569335938 seconds
+decode step time: 0.10861802101135254 seconds
+decode step time: 0.11632871627807617 seconds
+decode step time: 0.11584043502807617 seconds
+decode step time: 0.1155252456665039 seconds
+decode step time: 0.11519408226013184 seconds
+decode step time: 0.11584234237670898 seconds
+decode step time: 0.11656379699707031 seconds
+decode step time: 0.11626696586608887 seconds
+decode step time: 0.11613845825195312 seconds
+decode step time: 0.11529946327209473 seconds
+decode step time: 0.11528778076171875 seconds
+decode step time: 0.11565518379211426 seconds
+decode step time: 0.11597251892089844 seconds
+decode step time: 0.11617851257324219 seconds
+prefill step time: 0.11408233642578125 seconds
+decode step time: 0.0701756477355957 seconds
+decode step time: 0.10997176170349121 seconds
+decode step time: 0.11568331718444824 seconds
+prefill step time: 0.1874697208404541 seconds
+decode step time: 0.11804842948913574 seconds
+[LLM] Worker 0 (PID 2676024): Request 110 served.
+    Arrival time: 1783618055.0894 s
+    Time in queue: 0.0004 s
+    Time to first token: 115.0265 ms
+    Request latency: 17888.8044 ms
+    Generated tokens: 145
+    Time per token: 123.4290 ms/token
+    Current batch size: 32
+decode step time: 0.11495637893676758 seconds
+decode step time: 0.11579179763793945 seconds
+decode step time: 0.11559867858886719 seconds
+decode step time: 0.11596035957336426 seconds
+decode step time: 0.11629152297973633 seconds
+decode step time: 0.11584806442260742 seconds
+decode step time: 0.06540322303771973 seconds
+INFO 07-09 17:27:53 [metrics.py:481] Avg prompt throughput: 183.5 tokens/s, Avg generation throughput: 236.4 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 8.2%, CPU KV cache usage: 0.0%.
+decode step time: 0.06252241134643555 seconds
+decode step time: 0.1116476058959961 seconds
+decode step time: 0.11591577529907227 seconds
+[LLM] Worker 0 (PID 2676024): Request 116 served.
+    Arrival time: 1783618058.7788 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.7437 ms
+    Request latency: 15271.2247 ms
+    Generated tokens: 127
+    Time per token: 120.2895 ms/token
+    Current batch size: 31
+decode step time: 0.11505866050720215 seconds
+decode step time: 0.11573505401611328 seconds
+decode step time: 0.11571073532104492 seconds
+decode step time: 0.11573219299316406 seconds
+prefill step time: 0.1639091968536377 seconds
+decode step time: 0.06768274307250977 seconds
+decode step time: 0.11524677276611328 seconds
+decode step time: 0.11593985557556152 seconds
+decode step time: 0.11607527732849121 seconds
+decode step time: 0.11727237701416016 seconds
+decode step time: 0.11603641510009766 seconds
+decode step time: 0.11585044860839844 seconds
+decode step time: 0.11552119255065918 seconds
+prefill step time: 0.19682908058166504 seconds
+decode step time: 0.0673518180847168 seconds
+decode step time: 0.061534881591796875 seconds
+prefill step time: 0.1703813076019287 seconds
+decode step time: 0.11796927452087402 seconds
+decode step time: 0.11611390113830566 seconds
+decode step time: 0.11622786521911621 seconds
+decode step time: 0.11670255661010742 seconds
+prefill step time: 0.1599256992340088 seconds
+decode step time: 0.11886000633239746 seconds
+prefill step time: 0.2702453136444092 seconds
+prefill step time: 0.26790738105773926 seconds
+decode step time: 0.11804580688476562 seconds
+decode step time: 0.1165013313293457 seconds
+decode step time: 0.11473536491394043 seconds
+decode step time: 0.11651182174682617 seconds
+decode step time: 0.1165170669555664 seconds
+decode step time: 0.11677837371826172 seconds
+decode step time: 0.1171102523803711 seconds
+decode step time: 0.11676740646362305 seconds
+prefill step time: 0.26274633407592773 seconds
+decode step time: 0.11996698379516602 seconds
+decode step time: 0.11646676063537598 seconds
+INFO 07-09 17:27:58 [metrics.py:481] Avg prompt throughput: 1628.8 tokens/s, Avg generation throughput: 208.1 tokens/s, Running: 37 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.1%, CPU KV cache usage: 0.0%.
+decode step time: 0.11616158485412598 seconds
+decode step time: 0.11662769317626953 seconds
+decode step time: 0.11646342277526855 seconds
+decode step time: 0.11639595031738281 seconds
+decode step time: 0.1163783073425293 seconds
+decode step time: 0.07382822036743164 seconds
+decode step time: 0.11056327819824219 seconds
+decode step time: 0.11609792709350586 seconds
+decode step time: 0.07387089729309082 seconds
+decode step time: 0.10907816886901855 seconds
+decode step time: 0.11674213409423828 seconds
+prefill step time: 0.11311197280883789 seconds
+prefill step time: 0.07586169242858887 seconds
+decode step time: 0.10809135437011719 seconds
+decode step time: 0.11648774147033691 seconds
+decode step time: 0.11666560173034668 seconds
+decode step time: 0.11714363098144531 seconds
+decode step time: 0.11757230758666992 seconds
+decode step time: 0.11735820770263672 seconds
+decode step time: 0.11703801155090332 seconds
+decode step time: 0.11674356460571289 seconds
+decode step time: 0.11654186248779297 seconds
+decode step time: 0.11568284034729004 seconds
+decode step time: 0.11654520034790039 seconds
+decode step time: 0.11650443077087402 seconds
+decode step time: 0.11693263053894043 seconds
+[LLM] Worker 0 (PID 2676024): Request 94 served.
+    Arrival time: 1783618034.8180 s
+    Time in queue: 0.0004 s
+    Time to first token: 115.0260 ms
+    Request latency: 46972.5220 ms
+    Generated tokens: 403
+    Time per token: 116.5609 ms/token
+    Current batch size: 39
+decode step time: 0.11637496948242188 seconds
+decode step time: 0.11730289459228516 seconds
+decode step time: 0.11706709861755371 seconds
+decode step time: 0.11672115325927734 seconds
+[LLM] Worker 0 (PID 2676024): Request 124 served.
+    Arrival time: 1783618065.3615 s
+    Time in queue: 0.0009 s
+    Time to first token: 117.2962 ms
+    Request latency: 16907.3572 ms
+    Generated tokens: 135
+    Time per token: 125.2990 ms/token
+    Current batch size: 38
+prefill step time: 0.11323165893554688 seconds
+decode step time: 0.11780571937561035 seconds
+decode step time: 0.11674857139587402 seconds
+decode step time: 0.11680150032043457 seconds
+decode step time: 0.11703824996948242 seconds
+[LLM] Worker 0 (PID 2676024): Request 135 served.
+    Arrival time: 1783618076.5633 s
+    Time in queue: 0.0005 s
+    Time to first token: 160.5148 ms
+    Request latency: 6299.4976 ms
+    Generated tokens: 44
+    Time per token: 142.7670 ms/token
+    Current batch size: 38
+decode step time: 0.11707305908203125 seconds
+decode step time: 0.11711645126342773 seconds
+decode step time: 0.06673455238342285 seconds
+prefill step time: 0.10892343521118164 seconds
+decode step time: 0.1191103458404541 seconds
+decode step time: 0.11604595184326172 seconds
+[LLM] Worker 0 (PID 2676024): Request 96 served.
+    Arrival time: 1783618040.1898 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.2447 ms
+    Request latency: 43332.1664 ms
+    Generated tokens: 365
+    Time per token: 118.7306 ms/token
+    Current batch size: 38
+[LLM] Worker 0 (PID 2676024): Request 103 served.
+    Arrival time: 1783618047.1751 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.5229 ms
+    Request latency: 36346.8883 ms
+    Generated tokens: 283
+    Time per token: 128.4836 ms/token
+    Current batch size: 38
+decode step time: 0.11558961868286133 seconds
+decode step time: 0.11643767356872559 seconds
+[LLM] Worker 0 (PID 2676024): Request 79 served.
+    Arrival time: 1783618012.3560 s
+    Time in queue: 0.0006 s
+    Time to first token: 112.9189 ms
+    Request latency: 71403.6970 ms
+    Generated tokens: 634
+    Time per token: 112.6237 ms/token
+    Current batch size: 36
+decode step time: 0.11593747138977051 seconds
+INFO 07-09 17:28:03 [metrics.py:481] Avg prompt throughput: 30.6 tokens/s, Avg generation throughput: 301.2 tokens/s, Running: 35 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.11614203453063965 seconds
+decode step time: 0.1172482967376709 seconds
+[LLM] Worker 0 (PID 2676024): Request 81 served.
+    Arrival time: 1783618014.5474 s
+    Time in queue: 0.0005 s
+    Time to first token: 114.7201 ms
+    Request latency: 69570.0357 ms
+    Generated tokens: 620
+    Time per token: 112.2057 ms/token
+    Current batch size: 35
+[LLM] Worker 0 (PID 2676024): Request 105 served.
+    Arrival time: 1783618047.9381 s
+    Time in queue: 0.0003 s
+    Time to first token: 114.2437 ms
+    Request latency: 36179.3246 ms
+    Generated tokens: 283
+    Time per token: 127.8904 ms/token
+    Current batch size: 35
+decode step time: 0.11626243591308594 seconds
+decode step time: 0.11796236038208008 seconds
+decode step time: 0.1170952320098877 seconds
+decode step time: 0.11607003211975098 seconds
+decode step time: 0.07390809059143066 seconds
+decode step time: 0.10853075981140137 seconds
+decode step time: 0.11693596839904785 seconds
+decode step time: 0.11671566963195801 seconds
+decode step time: 0.11625361442565918 seconds
+decode step time: 0.11636900901794434 seconds
+decode step time: 0.1163322925567627 seconds
+decode step time: 0.11724996566772461 seconds
+prefill step time: 0.13685345649719238 seconds
+prefill step time: 0.06500101089477539 seconds
+decode step time: 0.11852192878723145 seconds
+decode step time: 0.11699676513671875 seconds
+decode step time: 0.11704802513122559 seconds
+decode step time: 0.11718511581420898 seconds
+decode step time: 0.1167757511138916 seconds
+[LLM] Worker 0 (PID 2676024): Request 117 served.
+    Arrival time: 1783618059.5989 s
+    Time in queue: 0.0005 s
+    Time to first token: 114.7435 ms
+    Request latency: 26699.2519 ms
+    Generated tokens: 209
+    Time per token: 127.8101 ms/token
+    Current batch size: 35
+decode step time: 0.07254552841186523 seconds
+decode step time: 0.10965490341186523 seconds
+decode step time: 0.1175394058227539 seconds
+decode step time: 0.11681842803955078 seconds
+[LLM] Worker 0 (PID 2676024): Request 123 served.
+    Arrival time: 1783618063.7625 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.4338 ms
+    Request latency: 22961.7944 ms
+    Generated tokens: 183
+    Time per token: 125.5349 ms/token
+    Current batch size: 34
+decode step time: 0.1161649227142334 seconds
+prefill step time: 0.11318778991699219 seconds
+prefill step time: 0.06512928009033203 seconds
+decode step time: 0.1190645694732666 seconds
+decode step time: 0.0713200569152832 seconds
+[LLM] Worker 0 (PID 2676024): Request 92 served.
+    Arrival time: 1783618029.4382 s
+    Time in queue: 0.0003 s
+    Time to first token: 65.1929 ms
+    Request latency: 57780.2994 ms
+    Generated tokens: 491
+    Time per token: 117.7859 ms/token
+    Current batch size: 35
+decode step time: 0.10934591293334961 seconds
+decode step time: 0.1167287826538086 seconds
+decode step time: 0.11670374870300293 seconds
+decode step time: 0.11636757850646973 seconds
+[LLM] Worker 0 (PID 2676024): Request 120 served.
+    Arrival time: 1783618060.8516 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.8718 ms
+    Request latency: 26836.1883 ms
+    Generated tokens: 211
+    Time per token: 127.2491 ms/token
+    Current batch size: 34
+decode step time: 0.1162557601928711 seconds
+decode step time: 0.11672306060791016 seconds
+prefill step time: 0.11808371543884277 seconds
+decode step time: 0.11877179145812988 seconds
+decode step time: 0.1165626049041748 seconds
+decode step time: 0.11613059043884277 seconds
+decode step time: 0.11602091789245605 seconds
+decode step time: 0.0666952133178711 seconds
+decode step time: 0.11226344108581543 seconds
+decode step time: 0.11610817909240723 seconds
+decode step time: 0.11655092239379883 seconds
+INFO 07-09 17:28:08 [metrics.py:481] Avg prompt throughput: 78.0 tokens/s, Avg generation throughput: 268.4 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.3%, CPU KV cache usage: 0.0%.
+decode step time: 0.11607170104980469 seconds
+decode step time: 0.11657071113586426 seconds
+decode step time: 0.11737728118896484 seconds
+decode step time: 0.11706972122192383 seconds
+decode step time: 0.11686110496520996 seconds
+decode step time: 0.11673259735107422 seconds
+decode step time: 0.11542892456054688 seconds
+decode step time: 0.11648106575012207 seconds
+decode step time: 0.11700439453125 seconds
+decode step time: 0.1168830394744873 seconds
+decode step time: 0.11737751960754395 seconds
+prefill step time: 0.19528532028198242 seconds
+decode step time: 0.12005925178527832 seconds
+decode step time: 0.11666679382324219 seconds
+decode step time: 0.11616349220275879 seconds
+decode step time: 0.11686563491821289 seconds
+decode step time: 0.11663556098937988 seconds
+decode step time: 0.11669039726257324 seconds
+decode step time: 0.11713457107543945 seconds
+prefill step time: 0.14425396919250488 seconds
+decode step time: 0.11889481544494629 seconds
+decode step time: 0.11736106872558594 seconds
+decode step time: 0.11715912818908691 seconds
+decode step time: 0.11704802513122559 seconds
+decode step time: 0.11746072769165039 seconds
+decode step time: 0.11327958106994629 seconds
+decode step time: 0.11676931381225586 seconds
+decode step time: 0.11663317680358887 seconds
+decode step time: 0.11641883850097656 seconds
+decode step time: 0.07472920417785645 seconds
+decode step time: 0.10992574691772461 seconds
+[LLM] Worker 0 (PID 2676024): Request 140 served.
+    Arrival time: 1783618080.1711 s
+    Time in queue: 0.0004 s
+    Time to first token: 76.2894 ms
+    Request latency: 12525.6274 ms
+    Generated tokens: 99
+    Time per token: 127.0341 ms/token
+    Current batch size: 36
+decode step time: 0.0735769271850586 seconds
+decode step time: 0.1089627742767334 seconds
+decode step time: 0.11675906181335449 seconds
+decode step time: 0.11638641357421875 seconds
+decode step time: 0.11647653579711914 seconds
+decode step time: 0.1170206069946289 seconds
+decode step time: 0.11640000343322754 seconds
+decode step time: 0.11699795722961426 seconds
+decode step time: 0.11640810966491699 seconds
+decode step time: 0.11751508712768555 seconds
+[LLM] Worker 0 (PID 2676024): Request 129 served.
+    Arrival time: 1783618069.4067 s
+    Time in queue: 0.0003 s
+    Time to first token: 114.6650 ms
+    Request latency: 24432.3270 ms
+    Generated tokens: 187
+    Time per token: 130.7401 ms/token
+    Current batch size: 35
+decode step time: 0.11701202392578125 seconds
+INFO 07-09 17:28:13 [metrics.py:481] Avg prompt throughput: 262.5 tokens/s, Avg generation throughput: 279.3 tokens/s, Running: 34 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 14.8%, CPU KV cache usage: 0.0%.
+decode step time: 0.11688971519470215 seconds
+[LLM] Worker 0 (PID 2676024): Request 121 served.
+    Arrival time: 1783618061.2020 s
+    Time in queue: 0.0009 s
+    Time to first token: 272.2657 ms
+    Request latency: 32876.5996 ms
+    Generated tokens: 260
+    Time per token: 125.8855 ms/token
+    Current batch size: 34
+decode step time: 0.11549162864685059 seconds
+decode step time: 0.11627197265625 seconds
+decode step time: 0.11643075942993164 seconds
+decode step time: 0.11669802665710449 seconds
+decode step time: 0.11718893051147461 seconds
+decode step time: 0.11696434020996094 seconds
+decode step time: 0.11702752113342285 seconds
+prefill step time: 0.16121220588684082 seconds
+decode step time: 0.11933183670043945 seconds
+prefill step time: 0.19676470756530762 seconds
+decode step time: 0.11962604522705078 seconds
+decode step time: 0.11615991592407227 seconds
+decode step time: 0.11650991439819336 seconds
+decode step time: 0.11642646789550781 seconds
+decode step time: 0.11711812019348145 seconds
+decode step time: 0.11707663536071777 seconds
+decode step time: 0.07341718673706055 seconds
+decode step time: 0.11040616035461426 seconds
+[LLM] Worker 0 (PID 2676024): Request 102 served.
+    Arrival time: 1783618046.2724 s
+    Time in queue: 0.0005 s
+    Time to first token: 135.8211 ms
+    Request latency: 50028.0147 ms
+    Generated tokens: 390
+    Time per token: 128.2576 ms/token
+    Current batch size: 35
+[LLM] Worker 0 (PID 2676024): Request 145 served.
+    Arrival time: 1783618086.8437 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.6501 ms
+    Request latency: 9456.7924 ms
+    Generated tokens: 74
+    Time per token: 127.9883 ms/token
+    Current batch size: 35
+decode step time: 0.11558842658996582 seconds
+decode step time: 0.11732816696166992 seconds
+[LLM] Worker 0 (PID 2676024): Request 126 served.
+    Arrival time: 1783618068.2824 s
+    Time in queue: 0.0005 s
+    Time to first token: 113.9956 ms
+    Request latency: 28256.2697 ms
+    Generated tokens: 214
+    Time per token: 132.1234 ms/token
+    Current batch size: 33
+decode step time: 0.11702513694763184 seconds
+decode step time: 0.11744880676269531 seconds
+decode step time: 0.1177523136138916 seconds
+decode step time: 0.11582469940185547 seconds
+decode step time: 0.11642575263977051 seconds
+[LLM] Worker 0 (PID 2676024): Request 127 served.
+    Arrival time: 1783618068.7027 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.2910 ms
+    Request latency: 28432.9653 ms
+    Generated tokens: 216
+    Time per token: 131.7194 ms/token
+    Current batch size: 32
+decode step time: 0.11571049690246582 seconds
+decode step time: 0.11648344993591309 seconds
+decode step time: 0.06655311584472656 seconds
+decode step time: 0.1127767562866211 seconds
+[LLM] Worker 0 (PID 2676024): Request 112 served.
+    Arrival time: 1783618056.8214 s
+    Time in queue: 0.0004 s
+    Time to first token: 113.7507 ms
+    Request latency: 40735.6756 ms
+    Generated tokens: 318
+    Time per token: 128.1449 ms/token
+    Current batch size: 31
+decode step time: 0.1162116527557373 seconds
+decode step time: 0.11789560317993164 seconds
+decode step time: 0.11736536026000977 seconds
+decode step time: 0.11709928512573242 seconds
+decode step time: 0.1165471076965332 seconds
+decode step time: 0.11720919609069824 seconds
+decode step time: 0.11620569229125977 seconds
+decode step time: 0.11651849746704102 seconds
+decode step time: 0.11724638938903809 seconds
+[LLM] Worker 0 (PID 2676024): Request 122 served.
+    Arrival time: 1783618061.4746 s
+    Time in queue: 0.0007 s
+    Time to first token: 157.1233 ms
+    Request latency: 37155.2575 ms
+    Generated tokens: 296
+    Time per token: 125.4174 ms/token
+    Current batch size: 30
+decode step time: 0.11657333374023438 seconds
+decode step time: 0.11763238906860352 seconds
+decode step time: 0.11705708503723145 seconds
+INFO 07-09 17:28:18 [metrics.py:481] Avg prompt throughput: 322.1 tokens/s, Avg generation throughput: 256.1 tokens/s, Running: 29 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 13.5%, CPU KV cache usage: 0.0%.
+decode step time: 0.11535263061523438 seconds
+prefill step time: 0.19720220565795898 seconds
+prefill step time: 0.22352290153503418 seconds
+decode step time: 0.1205744743347168 seconds
+decode step time: 0.11642670631408691 seconds
+decode step time: 0.0724332332611084 seconds
+decode step time: 0.11047792434692383 seconds
+decode step time: 0.11674642562866211 seconds
+decode step time: 0.11716032028198242 seconds
+decode step time: 0.11673927307128906 seconds
+decode step time: 0.1169431209564209 seconds
+decode step time: 0.11739087104797363 seconds
+decode step time: 0.1172940731048584 seconds
+decode step time: 0.11695194244384766 seconds
+decode step time: 0.11626815795898438 seconds
+[LLM] Worker 0 (PID 2676024): Request 115 served.
+    Arrival time: 1783618058.0750 s
+    Time in queue: 0.0003 s
+    Time to first token: 115.2284 ms
+    Request latency: 42837.0397 ms
+    Generated tokens: 334
+    Time per token: 128.2937 ms/token
+    Current batch size: 31
+decode step time: 0.11604738235473633 seconds
+decode step time: 0.11660194396972656 seconds
+decode step time: 0.11740827560424805 seconds
+decode step time: 0.11704635620117188 seconds
+decode step time: 0.11713981628417969 seconds
+prefill step time: 0.1684424877166748 seconds
+decode step time: 0.11933565139770508 seconds
+decode step time: 0.11696505546569824 seconds
+decode step time: 0.11708664894104004 seconds
+decode step time: 0.11734485626220703 seconds
+prefill step time: 0.1680138111114502 seconds
+decode step time: 0.11878180503845215 seconds
+decode step time: 0.11716413497924805 seconds
+[LLM] Worker 0 (PID 2676024): Request 106 served.
+    Arrival time: 1783618051.7546 s
+    Time in queue: 0.0009 s
+    Time to first token: 169.6615 ms
+    Request latency: 50812.9172 ms
+    Generated tokens: 392
+    Time per token: 129.5224 ms/token
+    Current batch size: 32
+decode step time: 0.11683273315429688 seconds
+decode step time: 0.11685848236083984 seconds
+decode step time: 0.1171102523803711 seconds
+[LLM] Worker 0 (PID 2676024): Request 148 served.
+    Arrival time: 1783618090.2542 s
+    Time in queue: 0.0007 s
+    Time to first token: 196.0523 ms
+    Request latency: 12672.0884 ms
+    Generated tokens: 97
+    Time per token: 129.9587 ms/token
+    Current batch size: 31
+decode step time: 0.11621952056884766 seconds
+prefill step time: 0.16782236099243164 seconds
+decode step time: 0.11935615539550781 seconds
+decode step time: 0.1172797679901123 seconds
+decode step time: 0.1175236701965332 seconds
+decode step time: 0.07284975051879883 seconds
+[LLM] Worker 0 (PID 2676024): Request 130 served.
+    Arrival time: 1783618072.2527 s
+    Time in queue: 0.0004 s
+    Time to first token: 114.5556 ms
+    Request latency: 31396.8966 ms
+    Generated tokens: 236
+    Time per token: 133.1163 ms/token
+    Current batch size: 31
+prefill step time: 0.10728645324707031 seconds
+decode step time: 0.11893773078918457 seconds
+decode step time: 0.11728501319885254 seconds
+INFO 07-09 17:28:23 [metrics.py:481] Avg prompt throughput: 875.3 tokens/s, Avg generation throughput: 210.3 tokens/s, Running: 31 reqs, Swapped: 0 reqs, Pending: 0 reqs, GPU KV cache usage: 15.2%, CPU KV cache usage: 0.0%.
+decode step time: 0.11665034294128418 seconds
+decode step time: 0.06614518165588379 seconds
+decode step time: 0.11384367942810059 seconds
+prefill step time: 0.2404310703277588 seconds
+decode step time: 0.12089395523071289 seconds
+decode step time: 0.11681199073791504 seconds
+[LLM] Worker 0 (PID 2676024): Request 158 served.
+    Arrival time: 1783618104.3038 s
+    Time in queue: 0.0009 s
+    Time to first token: 241.3635 ms
+    Request latency: 483.5722 ms
+    Generated tokens: 3
+    Time per token: 121.1044 ms/token
+    Current batch size: 32
+decode step time: 0.11630582809448242 seconds
+decode step time: 0.11695575714111328 seconds
+decode step time: 0.11721062660217285 seconds
+[LLM] Worker 0 (PID 2676024): Request 131 served.
+    Arrival time: 1783618072.6699 s
+    Time in queue: 0.0006 s
+    Time to first token: 188.1802 ms
+    Request latency: 32474.8411 ms
+    Generated tokens: 243
+    Time per token: 133.4160 ms/token
+    Current batch size: 31
+decode step time: 0.11575555801391602 seconds
+decode step time: 0.026946067810058594 seconds
+
+=== Results ===
+LLM stats:
+  Served requests: 129
+  Avg first token (ms): 126.0616095491158
+  Avg finished latency (ms): 26266.218148460684
+MM stats:
+  GEMM stats not available.
+APSP stats:
+  APSP stats not available.
+GGNN stats:
+  Completed GGNN queries: 2863
+  Avg latency (ms): 61.01
+DNN stats:
+  DNN stats not available.
+

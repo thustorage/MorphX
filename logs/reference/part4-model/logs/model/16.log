@@ -1,0 +1,22 @@
+# label: Figure16 16
+# cwd: /mnt/data/rtx/gpu/sm-sched/microbench
+# command: /mnt/data/rtx/gpu/sm-sched/microbench/build-model/bench
+# started: 2026-07-10T10:24:20.579957
+M,N,K | cuBLAS(ms) | CUTLASS(ms) | |Δ|(ms) | ratio(CUTLASS/cuBLAS)
+[MorphX] kernel _ZN12_GLOBAL__N_111fill_kernelEPN7cutlas: blocks: 4096, occup: 8, waves: 7, CI: 0.052638, WaveTime: 39.230000us
+[MorphX] AvgWave 0: 108, 39.230000us
+[MorphX] AvgWave 1: 90, 9.648000us
+[MorphX] AvgWave 2: 72, 1.762000us
+[MorphX] AvgWave 3: 54, 1.867000us
+[MorphX] AvgWave 4: 36, 2.053000us
+[MorphX] AvgWave 5: 18, 0.939000us
+[MorphX] AvgWave 6: 8, 2.065000us
+[MorphX] kernel _ZN7cutlassL6KernelINS_4gemm6kernel4Gemm: blocks: 512, occup: 2, waves: 4, CI: 0.307496, WaveTime: 2759.152000us
+[MorphX] AvgWave 0: 108, 2759.152000us
+[MorphX] AvgWave 1: 72, 1832.056000us
+[MorphX] AvgWave 2: 36, 1448.394000us
+[MorphX] AvgWave 3: 4, 848.428000us
+M=   16, N=65536, K=65536 |     6.052 |       6.295 |   0.244 |     1.040
+# finished: 2026-07-10T10:24:22.911161
+# returncode: 0
+# elapsed_seconds: 2.331

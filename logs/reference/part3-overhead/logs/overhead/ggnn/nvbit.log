@@ -1,0 +1,6 @@
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload ggnn --ggnn-base-size 1000000 --ggnn-query-size 10000 --runs 1
+GGNN latency: 1 runs -> avg_ms=21622.866 ms, min_ms=21622.866 ms, max_ms=21622.866 ms
+# finished: 2026-07-10T10:09:25.739200
+# returncode: 0
+# elapsed_seconds: 49.767

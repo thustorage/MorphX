@@ -1,0 +1,11 @@
+# label: Figure15 GGNN/neutrino
+# cwd: /mnt/data/rtx/gpu/sm-sched/scripts/overhead
+# command: /home/rtx/miniconda3/envs/MorphX/bin/neutrino -p dmat /home/rtx/miniconda3/envs/MorphX/bin/python single_request.py --workload ggnn --ggnn-base-size 1000000 --ggnn-query-size 10000 --runs 1
+# started: 2026-07-10T10:08:08.983449
+[GGNN] Warmup finished.
+[GGNN] Run 0: latency=52.274 ms
+GGNN latency: 1 runs -> avg_ms=52.274 ms, min_ms=52.274 ms, max_ms=52.274 ms
+[warn] callback dmat_callback.py not found
+# finished: 2026-07-10T10:08:35.972109
+# returncode: 0
+# elapsed_seconds: 26.989
